@@ -1,0 +1,9 @@
+{
+  "title": "Sept 22: Plan on image embedding development",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div style=\"word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space; white-space: normal;\"><div><b>Data-related</b></div><ol><li><div>Getting dataset</div></li><li><div>Generate different views, and find format to store r g b data.</div></li><li><div>Data cleaning</div></li></ol><div><br /></div><div><b>Baseline</b></div><ol><li><div>build encoder-decoder network according to the deep tamer paper.</div></li><ol><li><div>write code in tensorflow</div></li><li><div>train+test through dataset.</div></li></ol><li><div>Given that the tamer network is built, test performance on the dense feature vectors. How fast is it learning?</div></li></ol><div><br /></div><div><b>Structured semantic embeddings</b></div><ol><li><div>Designing the cost function for similarity between two scenes </div></li><ol><li><div>Define position similarity</div></li><li><div>Define category similarity (how do you measure the distance between two concepts? Word vec?)</div></li><li><div>Define pixel similarity</div></li></ol><li><div>Build architecture</div></li><ol><li><div>Transfer learning from the semantic fusion guys?</div></li><li><div>Brand new architecture?</div></li></ol><li><div>Test the ability to find similar scenes, and evaluating </div></li><li><div>(could you visually plot out the embeddings, like done for LinkedIn?)</div></li><li><div>Repeat 1-4 depending on performance of embedding function in finding similar scenes</div></li><li><div>Given that the tamer network is built, test performance on the semantic embeddings. How fast is it learning? </div></li></ol><div><br /></div><div><br /></div></div>"
+    }
+  ]
+}

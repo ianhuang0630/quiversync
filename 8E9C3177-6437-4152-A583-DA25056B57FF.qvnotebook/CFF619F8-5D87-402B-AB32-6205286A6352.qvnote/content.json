@@ -1,0 +1,9 @@
+{
+  "title": "Sept 17: Minos code",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div style=\"word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space; white-space: normal;\"><div>Exploring the minos github</div><div><input type=\"checkbox\" checked=\"true\" /><a href=\"https://github.com/minosworld/minos\">https://github.com/minosworld/minos</a></div><div><input type=\"checkbox\" checked=\"true\" />    follow instructions and install minos</div><div><input type=\"checkbox\" checked=\"false\" /><a href=\"https://github.com/minosworld/minos/blob/master/gym/gym_minos/envs/indoor_env.py\">https://github.com/minosworld/minos/blob/master/gym/gym_minos/envs/indoor_env.py</a></div><div><input type=\"checkbox\" checked=\"false\" /><a href=\"https://github.com/minosworld/minos/blob/master/minos/tools/pygame_client.py\">https://github.com/minosworld/minos/blob/master/minos/tools/pygame_client.py</a></div><div><br /></div><div><br /></div></div>"
+    }
+  ]
+}

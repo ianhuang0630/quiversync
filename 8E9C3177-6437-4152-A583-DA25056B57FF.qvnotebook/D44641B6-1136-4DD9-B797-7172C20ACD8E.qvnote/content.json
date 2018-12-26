@@ -1,0 +1,9 @@
+{
+  "title": "Nov 12: Useful trick with Remote Jupyter Notebook",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div style=\"word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space; white-space: normal;\"><div><a href=\"https://coderwall.com/p/ohk6cg/remote-access-to-ipython-notebooks-via-ssh\">https://coderwall.com/p/ohk6cg/remote-access-to-ipython-notebooks-via-ssh</a></div><ul><li><div>Currently have an alias enabled</div></li><li><div>ssh_cura_8889_8888 will run a process in the background connecting both computers</div></li></ul><div><br /></div></div>"
+    }
+  ]
+}

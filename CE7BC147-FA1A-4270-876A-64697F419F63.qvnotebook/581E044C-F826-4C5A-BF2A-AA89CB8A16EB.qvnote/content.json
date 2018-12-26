@@ -1,0 +1,9 @@
+{
+  "title": "Resources",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div style=\"word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space; white-space: normal;\"><div><a href=\"https://www.google.com/search?q=uploading+arduino+sketch+from+command+line&amp;oq=uploading+arduino+sketch+from+command+line+&amp;aqs=chrome..69i57.6088j0j1&amp;sourceid=chrome&amp;ie=UTF-8#kpvalbx=1\">https://www.google.com/search?q=uploading+arduino+sketch+from+command+line&amp;oq=uploading+arduino+sketch+from+command+line+&amp;aqs=chrome..69i57.6088j0j1&amp;sourceid=chrome&amp;ie=UTF-8#kpvalbx=1</a></div><div>Instructions on how to upload code from the command line.</div><div><br /></div><div><a href=\"https://www.hackster.io/lbtinglb/install-opencv-through-miniconda-in-second-on-rasberry-pi-3-4eec27\">https://www.hackster.io/lbtinglb/install-opencv-through-miniconda-in-second-on-rasberry-pi-3-4eec27</a></div><div>setting up miniconda </div><div><input type=\"checkbox\" checked=\"false\" />to be continued.</div><div><br /></div><div><br /></div><div><br /></div><div><a href=\"https://www.meccanismocomplesso.org/en/controlling-arduino-raspberry-pi/\">https://www.meccanismocomplesso.org/en/controlling-arduino-raspberry-pi/</a></div><div><input type=\"checkbox\" checked=\"false\" />communicating through serial communication</div><div><br /></div><div><br /></div><div><br /></div></div>"
+    }
+  ]
+}

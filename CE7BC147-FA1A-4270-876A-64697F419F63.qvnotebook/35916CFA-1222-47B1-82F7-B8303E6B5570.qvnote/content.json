@@ -1,0 +1,9 @@
+{
+  "title": "Resources",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div style=\"word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space; white-space: normal;\"><div>Original website</div><div><input type=\"checkbox\" checked=\"false\" /><a href=\"http://wiki.sainsmart.com/index.php/DIY_6-Axis_Servos_Control_Palletizing_Robot_Arm_Model_for_Arduino_UNO_MEGA2560\">http://wiki.sainsmart.com/index.php/DIY_6-Axis_Servos_Control_Palletizing_Robot_Arm_Model_for_Arduino_UNO_MEGA2560</a></div><div><br /></div><div>Code</div><div><input type=\"checkbox\" checked=\"false\" />starter code (in robotics folder)</div><div><input type=\"checkbox\" checked=\"false\" />Corresponding to youtube guy <a href=\"https://github.com/dzzie/home_automation/blob/master/6Dof-Robotic-Arm/controller/controller.ino\">https://github.com/dzzie/home_automation/blob/master/6Dof-Robotic-Arm/controller/controller.ino</a></div><div><br /></div><div>Configs</div><div><input type=\"checkbox\" checked=\"false\" />Dimensions: (in robotics folder)</div><div><br /></div><div><input type=\"checkbox\" checked=\"false\" />Video of guy playing with it <a href=\"https://www.youtube.com/watch?v=SK5bpE16xPY\">https://www.youtube.com/watch?v=SK5bpE16xPY</a></div><div><br /></div><div><br /></div><div><br /></div><div><br /></div><div><br /></div><div><br /></div><div><br /></div><div>Can robots learn inverse kinematics through forward kinematics? </div></div>"
+    }
+  ]
+}

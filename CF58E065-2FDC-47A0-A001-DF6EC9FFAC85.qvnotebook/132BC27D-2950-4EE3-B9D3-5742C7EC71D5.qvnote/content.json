@@ -1,0 +1,9 @@
+{
+  "title": "Features",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div style=\"word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space; white-space: normal;\"><div><br/></div><div>Motion</div><ul><li><div>Asynchronous motor control, 4 wheel drive</div></li><li><div>Shifting gears? Can switch to gear 0. </div></li><li><div>Pressure sensor in board for acceleration and deceleration / interface on waist or belt</div></li><li><div>GPS location system/speed limit regulations</div></li></ul><div><br/></div><div>Other </div><ul><li><div>charging port </div></li><li><div>Housing on bag </div></li></ul><div><br/></div><div>Automation</div><ul><li><div>walking alongside you </div></li><li><div>Navigating to charging port </div></li><li><div>Navigating to user </div></li><li><div>Able to receive command from home assistant or voice</div></li><li><div>Satellite images for traffic information</div></li><li><div>Weather information (rain or snow, lower speed than usual and could do that crazy brake thing)</div></li><li><div>Videotape trips and regular backup. Regular recording of speed, position and equipment status. </div></li><li><div>Sending text if accident occurred. Send tapes.</div></li><li><div>Self report. </div></li></ul><div><br/></div><div><br/></div><div><br/></div><div><br/></div><div><img src='quiver-image-url/1AB06826FDA0EE81C03B08804928A91E.png' width='1242' title='Attachment'></div><div><br/></div></div>"
+    }
+  ]
+}

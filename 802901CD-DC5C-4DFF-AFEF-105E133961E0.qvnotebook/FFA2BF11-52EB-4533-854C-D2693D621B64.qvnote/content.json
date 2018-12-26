@@ -1,0 +1,9 @@
+{
+  "title": "Missing week",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div style=\"word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space; white-space: normal;\"><div>Mechanics</div><div><br/></div><div><input type=\"checkbox\" checked=\"false\"/>Read chapter 2 and chapter 3</div><div><br/></div><div>Modern Analysis</div><div><br/></div><div><input type=\"checkbox\" checked=\"false\"/>Finish chapter one</div><div><br/></div><div>cc</div><div><input type=\"checkbox\" checked=\"false\"/>Smith and notes <br/></div><div><br/></div><div><br/></div><div>Probability:</div><div><input type=\"checkbox\" checked=\"false\"/>Send homework to TAs </div><div><br/></div><div><br/></div><div>Applied math </div><div><input type=\"checkbox\" checked=\"false\"/>chapter 3</div><div><input type=\"checkbox\" checked=\"false\"/>Scan and submit homework <br/></div></div>"
+    }
+  ]
+}

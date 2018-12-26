@@ -1,0 +1,34 @@
+{
+  "title": "Dec 26: investigating infinite dimensional latent spaces -- what's been done already?",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "## Just some thoughts\nWhat we need is a learnable (with weights of some sort) mapping from input space to an *infinite* dimensional space that is also kernelizable. Deep Neural nets try to learn such a [transformation](https://www.reddit.com/r/MachineLearning/comments/2ffejw/why\\_dont\\_researchers\\_use\\_the\\_kernel\\_method\\_in/]) but it’s limited to being a finite dimensional mapping. The RBF transformation $e^{(-|| x- a ||^2)}$ can’t be learned because it doens't have any parameters …\n\nThere’s also been some work on kernelizing Deep Conv networks:\n<https://arxiv.org/pdf/1509.04581.pdf>"
+    },
+    {
+      "type": "markdown",
+      "data": "\n[Radial basis function networks](https://en.wikipedia.org/wiki/Radial_basis_function_network)\nThe following is how the output of the radial basis function is defined"
+    },
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "$$ \\phi(x) = \\sum_{i=1}^{N}\\alpha_i \\rho(||x-c_i||) $$"
+    },
+    {
+      "type": "markdown",
+      "data": "## Formulation as a metric learning problem?\n\nPerhaps we can phrase this problem as an online learning problem. We want a mapping from input vector to an infinite dimensional latent space (heavily penalized for using more dimensions than needed) such that a metric is learned. We want to see how good it is at learning this metric given new examples, online.  \n- what is really learned? the metric or the mapping?\n- How are you going to model $M$ in $x^T M x$ when x is an infinite dimensional vector? \n  - but we can model PSD $M$ as $L^TL$, and $x_i^TL^TLx_j = (L^Tx_i)^T(L^Tx_j)$ so effectively we want to learn a $L$ that is $L \\in \\mathbf R ^{d \\times \\infty}$. "
+    },
+    {
+      "type": "markdown",
+      "data": "## Reformulating into a simpler problem:\n\nWe can initialize $L \\in \\mathbf R^{d \\times k}$ where $k$ is a starting constant. We want to minimize a composite loss function $\\mathscr L$ that both composes of some expression of the metric loss (agreement with known distances with samples) and some loss relating to the number of elements used up.\n\n$$\\mathscr L  = \\mathscr L _{metric}(L) + \\lambda \\mathscr L _{regularization } (L)$$\nwhere $\\mathscr L_{metric}(L)$ is calculated based on the whole dataset, and $\\mathscr L_{regularization}$ is larger when a new dimension is added (is it increasing with the size of the elements? Not sure.) <TODO>\n\nA naive implementation of this could allow for the incrementation of $k$ by only one at a time. A new dimension is created in $L$ (call this $L'$), and $L'_{:,k+1}$ is optimized such that $L'$ achieves $\\min_{L}(\\mathscr{L}_{metric}(L))$ (Do the rest of the weights stay the same? Not sure. <TODO> But it would be much faster if the optimization is done only on $d$ variables). We opt for $L := L$ only if $\\mathscr L - \\mathscr L' > 0$. \n\nWhen training for $L'_{:, k+1}$, we may either hold the old weights constant or move them. My limited intuition tells me that we may be able to prove that only small updates will occur $L'_{:, :k}$, since the decision to make a new dimension in $L$ occurs only when the overall $\\mathscr L$ goes down, it seems unlikely that at any given point a new dimension (with retraining in the other weights) will give rise to a dramatically lower overall $\\mathscr L$.\n"
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    }
+  ]
+}

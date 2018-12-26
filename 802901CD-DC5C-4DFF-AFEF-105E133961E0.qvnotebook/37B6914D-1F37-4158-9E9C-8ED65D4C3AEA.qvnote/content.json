@@ -1,0 +1,9 @@
+{
+  "title": "Final questions",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div style=\"word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space; white-space: normal;\"><div>- does &lt; take care of \\t in \\t \\n</div><div>- file &gt; process is invalid right?</div><div><br/></div><div>- <span style=\"font-weight: bold;\">cat file | process </span>equivalent to process &lt; file ?</div><div><br/></div><div>warning given when casting pointer to digit</div><div><br/></div><div>usage of perror():</div><div><br/></div><div>echo | /home/jae/cs3157-pub/bin/mdb-lookup-cs3157 | grep '{}’</div><div><ul><li>what is this doing?</li></ul><div><br/></div></div><div><br/></div><div>how does the server know about the IP address osf the client? To form the 4-tuple?</div><div><br/></div><div><br/></div><div><br/></div><div><br/></div><div>htons htonl know these.</div><div>Includes midterm 1 material  (unary operators)</div><div><br/></div><div><br/></div></div>"
+    }
+  ]
+}

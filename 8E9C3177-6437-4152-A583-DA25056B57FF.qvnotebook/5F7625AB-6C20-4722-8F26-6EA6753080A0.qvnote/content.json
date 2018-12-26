@@ -1,0 +1,9 @@
+{
+  "title": "Nov 23: Starting with getting the dataset",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div style=\"word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space; white-space: normal;\"><div>Different Eyetracking datasets</div><div><br /></div><div><a href=\"http://vintage.winklerbros.net/Publications/qomex2013eye.pdf\">http://vintage.winklerbros.net/Publications/qomex2013eye.pdf</a></div><ul><li><div>old paper overviewing eyetracking datasets</div></li></ul><div><br /></div><div>I ended up downloading the SALICON dataset.</div><div><a href=\"http://salicon.net/challenge-2017/\">http://salicon.net/challenge-2017/</a></div><div><br /></div><div>But this only gives the saliency maps — to get the labels, I had to get them from the original coco website </div><div><a href=\"http://cocodataset.org/#download\">http://cocodataset.org/#download</a></div><div>I downloaded the annotations, and they’re all jsons.</div><div><br /></div><div>Special api’s should be used to process the annotations. </div><div><a href=\"https://github.com/cocodataset/cocoapi\">https://github.com/cocodataset/cocoapi</a></div><div><input type=\"checkbox\" checked=\"true\" />Still need to clone this repo<br /></div><div><input type=\"checkbox\" checked=\"true\" />Take a look at the example processing jupyter notebook<br /></div><div><br /></div><div><input type=\"checkbox\" checked=\"false\" />process data into tuples X = (RGB image, eye tracking) y = (segmentation labels)<br /></div><div><br /></div><div><br /></div><div><br /></div></div>"
+    }
+  ]
+}

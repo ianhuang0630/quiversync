@@ -1,0 +1,9 @@
+{
+  "title": "Nov 8: Trying out Bourgain Embedding Enforcement",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div style=\"word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space; white-space: normal;\"><div><br /></div><div><a href=\"https://stackoverflow.com/questions/40427435/extract-images-from-idx3-ubyte-file-or-gzip-via-python\">https://stackoverflow.com/questions/40427435/extract-images-from-idx3-ubyte-file-or-gzip-via-python</a></div><ul><li><div>Loading the mnist data</div></li></ul><div><br /></div><div><br /></div><div><span style=\"font-weight: bold;\">BourGAN Code: </span><a href=\"https://github.com/a554b554/BourGAN\" style=\"font-weight: bold;\">https://github.com/a554b554/BourGAN</a></div><div><br /></div><div><input type=\"checkbox\" checked=\"false\" />pick existing model to do testing, must be deep learning model with embedding layer though <a href=\"http://yann.lecun.com/exdb/mnist/\">http://yann.lecun.com/exdb/mnist/</a><br /></div><ul><li><div>Website with data <b>and</b> algorithms that did well on the dataset.</div></li></ul><div><br /></div><div>Baseline test:</div><div><b>How many new examples of a new class of numbers does the classifier need to see before it learns it “well”?</b></div><div><b><br /></b></div><div>Bourgan test:</div><div><b>Given preprocessed embeddings, and human input on similarity, how fast does it learn the new class?</b></div><div><b><br /></b></div><div><b><br /></b></div></div>"
+    }
+  ]
+}

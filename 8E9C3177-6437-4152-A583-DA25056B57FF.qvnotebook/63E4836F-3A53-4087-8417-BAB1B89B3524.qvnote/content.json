@@ -1,0 +1,9 @@
+{
+  "title": "Dec 14: Working on evaluation script + goggles",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div style=\"word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space; white-space: normal;\"><div><a href=\"https://papers.nips.cc/paper/6360-learning-transferrable-representations-for-unsupervised-domain-adaptation.pdf\">https://papers.nips.cc/paper/6360-learning-transferrable-representations-for-unsupervised-domain-adaptation.pdf</a></div><ul><li><div>The theory behind goggles — why it works to map to a joint space</div></li></ul><div><br /></div><div><a href=\"https://storage.googleapis.com/gibson_material/Gibson_CVPR2018.pdf\">https://storage.googleapis.com/gibson_material/Gibson_CVPR2018.pdf</a></div><ul><li><div>According to this, the images used to train goggles is from crops. So we can use the same source, but crop out different dimensions, but is there any ground truth for matterport data? If not, then we can’t retrain the net.</div></li></ul><div><br /></div><div>The evaluation script is completed, but only has average cross entropy. What else do we need to effectively measure segmentation? <input type=\"checkbox\" checked=\"false\" />Should look at some more commonly used measures.</div><div><br /></div><div><input type=\"checkbox\" checked=\"false\" />And David’s data</div><div><br /></div><div><br /></div><div>Map out </div><div><br /></div></div>"
+    }
+  ]
+}

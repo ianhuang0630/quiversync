@@ -1,0 +1,9 @@
+{
+  "title": "Nov 23: Plan for Explora",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div style=\"word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space; white-space: normal;\"><div>Goal: How to better communicate the essential characteristics of a new class such as to improve the agent’s learning of the new class.</div><div><br /></div><div>Literature review:</div><ul><li><div>Online Deep learning:</div></li><ul><li><div><a href=\"https://arxiv.org/pdf/1711.03705.pdf\">https://arxiv.org/pdf/1711.03705.pdf</a></div></li><ul><li><div>adaptively changes the architecture of the neural net to accommodate the number of instances</div></li><li><div>Mentions the traditional online gradient descent algorithm</div></li><ul><li><div>just basically gradient descent</div></li></ul><li><div>(Hedge back propagation)</div></li></ul></ul></ul><div><br /></div><div>Steps </div><ul><li><div><input type=\"checkbox\" checked=\"false\" />eye-tracking based on the MNIST dataset</div></li><li><div><input type=\"checkbox\" checked=\"false\" />designing mnist classifier without saliency</div></li><li><div><input type=\"checkbox\" checked=\"false\" />designing mnist classifier with saliency</div></li><li><div><input type=\"checkbox\" checked=\"false\" />measure relearning-ability (however that’s measured) of original mnist classifier without saliency</div></li><li><div><input type=\"checkbox\" checked=\"false\" />measure relearning-ability of mnist classifier with saliency</div></li></ul><div><br /></div><div>   <u> Samek’s Relevance Propagation</u><br /></div><ul><li><div>Can we assume that the relevance of a </div></li></ul><ul><li><div><input type=\"checkbox\" checked=\"false\" />See if the classification performances are undisturbed by saliency reinforcements</div></li></ul><div><br /></div><div><br /></div></div>"
+    }
+  ]
+}

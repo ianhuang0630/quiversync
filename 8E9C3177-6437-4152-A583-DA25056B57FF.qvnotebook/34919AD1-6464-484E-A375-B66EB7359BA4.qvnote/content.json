@@ -1,0 +1,39 @@
+{
+  "title": "Dec 24: working with Goggles",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "## Loading the pretrained Fillers in Pytorch\nLoading is necessary for doing domain transfer with real life images later on in the research project."
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "data": "import torch\nfrom learn import completion\n# then import the model code\nmod = completion.CompletionNet()\n# loading the weights\n\n\npath_to_model = 'assets/unfiller_128.pth' # TODO find the relevant model for the input size\nweight_dict = torch.load(path_to_model)\n\n# remove the bit in the front of the variable names \ndict_cop = {}\nfor element in weight_dict:\n    cut_pt = len('module.')\n    dict_cop[element[cut_pt:] = weight_dict[element]\n\nmod.load_state(dict_cop)\nmod.eval() # this removes the dropout layers and such\n    "
+    },
+    {
+      "type": "markdown",
+      "data": "### Additional Resources\n\n[More on processing the front of the keys](https://discuss.pytorch.org/t/solved-keyerror-unexpected-key-module-encoder-embedding-weight-in-state-dict/1686)\n\n[More on saving and loading models](https://pytorch.org/tutorials/beginner/saving_loading_models.html)\n"
+    },
+    {
+      "type": "markdown",
+      "data": "## Working with the renderer\nCurrently the [renderer](https://github.com/ianhuang0630/GibsonEnv/blob/master/gibson/core/render/pcrender.py) doesn't currently work with 640x480 input. The part of the code that loads the relevant model in `pcrender.py` is the following  "
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "data": "\n        if self.env.config[\"resolution\"] <= 64:\n            res = 64\n        elif self.env.config[\"resolution\"] <= 128:\n            res = 128\n        elif self.env.config[\"resolution\"] <= 256:\n            res = 256\n        else:\n            res = 512\n\n        if \"fast_lq_render\" in self.env.config and self.env.config[\"fast_lq_render\"]:\n            comp.load_state_dict(\n                torch.load(os.path.join(assets_file_dir, \"model_small_{}.pth\".format(res))))\n        else:\n            comp.load_state_dict(\n                torch.load(os.path.join(assets_file_dir, \"model_{}.pth\".format(res))))\n\n        # comp.load_state_dict(torch.load(os.path.join(file_dir, \"model.pth\")))\n        # comp.load_state_dict(torch.load(os.path.join(file_dir, \"model_large.pth\")))\n        self.model = comp.module\n        self.model.eval()"
+    },
+    {
+      "type": "markdown",
+      "data": "The problem most likely is in setting the `self.env.config['resolution']` variable. Or the model doesn't exist in the designated path. Whatever it is, seems like a David issue."
+    },
+    {
+      "type": "markdown",
+      "data": "## Forking a directory\n[How to fork a directory](https://help.github.com/articles/fork-a-repo/)\n\n[How to sync with upstream for a forked directory](https://help.github.com/articles/syncing-a-fork/)\n\nBasically:\n- click fork on the git repo, then clone the forked git repo from your repo to a local folder\n-  To add an upstream, you write `git remote add upstream [original clone url]` in your forked repo. `git remote -v` should give you an updated list\n-  To merge with changes upstream:\n- `git fetch upstream` \\\n`git checkout master` \\\n`git merge upstream/master`\n"
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    }
+  ]
+}

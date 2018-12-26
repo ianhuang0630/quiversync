@@ -1,0 +1,9 @@
+{
+  "title": "TASKS",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div style=\"word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space; white-space: normal;\"><div>TODO:</div><div><br /></div><div><b>August 22</b></div><div><br /></div><div><input type=\"checkbox\" checked=\"false\" />modify design clearance</div><div><input type=\"checkbox\" checked=\"false\" />modify design to integrate with manufactured part better.</div><div><input type=\"checkbox\" checked=\"true\" />Function to read from string input and send to robot actuators</div><div><input type=\"checkbox\" checked=\"true\" />Api for reading and writing to the </div><div><br /></div><div><br /></div><div><br /></div><div><br /></div><div><br /></div><div>NOTES:</div><div><a href=\"https://www.rugged-circuits.com/10-ways-to-destroy-an-arduino/\">https://www.rugged-circuits.com/10-ways-to-destroy-an-arduino/</a></div><div><br /></div><div><input type=\"checkbox\" checked=\"true\" />soldering new board</div><div><input type=\"checkbox\" checked=\"true\" />soldering batter pack?</div><div><input type=\"checkbox\" checked=\"true\" />order voltage regulators</div></div>"
+    }
+  ]
+}

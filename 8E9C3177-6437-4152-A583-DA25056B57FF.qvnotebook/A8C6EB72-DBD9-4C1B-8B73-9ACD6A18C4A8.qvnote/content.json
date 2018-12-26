@@ -1,0 +1,9 @@
+{
+  "title": "Dec 1: Explora Salcon Data preprocessing",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div style=\"word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space; white-space: normal;\"><div><span style=\"font-weight: bold;\">Semantic labels</span></div><ul><li><div>There are overlapping labels for every pixel. <input type=\"checkbox\" checked=\"true\">To produce a semantic label matrix, need to resolve the collisions.</div></li><li><div>Extracted using the COCO api by:</div></li><ul><li><div>getting the image id</div></li><li><div>loading the annotations array of the image id</div></li></ul><li>for each annotati<code>​</code>​<code>​</code>on, extracting the mask of it<br></li></ul><div><br></div><div><br></div><div><b>Gaze data</b></div><ul><li><div>Two different forms of the data is available: heat map saved in the form of a png file and raw eyetracking data. For now, i’m just going to be using the raw png file.</div></li></ul><div><br></div></div>"
+    }
+  ]
+}

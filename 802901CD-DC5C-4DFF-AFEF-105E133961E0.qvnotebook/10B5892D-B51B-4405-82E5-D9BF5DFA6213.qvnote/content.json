@@ -1,0 +1,9 @@
+{
+  "title": "Midterm 1 Review Session",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div style=\"word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space; white-space: normal;\"><div>Bits/Binary</div><div>C Basics</div><div>Git</div><div>Makefile</div><div>Func Pointers</div><div>Memory</div><div><br/></div><div><br/></div><div><br/></div><div><b>C basics</b></div><div><b><br/></b></div><div><b>int - 4 bytes</b></div><div><b>pointer - 8 bytes</b></div><div><b><br/></b></div><div><br/></div><div><br/></div><div><br/></div><div><br/></div><div><b>char *h = “abc”</b></div><div><ul><li><b>h is stored in the stack</b></li><li><b>“abc” is copied to the stack</b></li></ul><div><b><br/></b></div></div><div><b>&amp;”abc”<br/><ul><li>stored in the literals </li></ul><div><br/></div><div><br/></div><div><br/></div><div><br/></div><div><br/></div><div>typedef struct {</div><div><br/></div><div>} Point;</div><div><ul><li>this gives an alias</li></ul><div><br/></div></div></b></div><div><br/></div><div><br/></div><div><br/></div><div><br/></div><div>Memory pointers</div><div>copying unintialized value, valgrind doesn’t complain</div><div>When you do something that is viewable by the user (printf) valgrind complains about an uninitialized value</div><div><br/></div><div><br/></div><div>still reachable</div><div><ul><li>Still got pointers to it, but wasn’t freed.</li></ul></div><div>Possibly lost</div><div><ul><li><br/></li></ul></div><div>Indirectly lost</div><div><ul><li>lost intermediate pointer</li><li>p1 -&gt; p2 -&gt; data</li><li>lost p1</li></ul></div><div>Definitely lost</div><div><ul><li>no where are there any pointers to that block of memory</li></ul></div><div><br/></div></div>"
+    }
+  ]
+}

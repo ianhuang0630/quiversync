@@ -1,0 +1,9 @@
+{
+  "title": "Dec 17: Setting research question",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "fitting more in the hierarchy\n\nFeifei Li — organize images in folders. Hierarchical organization\n\nVariable dimensionality of latent space? \n\n<https://papers.nips.cc/paper/3628-kernel-methods-for-deep-learning.pdf>\n\ncreate google doc and share with prof verma\n\nsend paper to verma\n\nWhat happens when you “run out of space” in a fixed dimensional latent space?\n\nThe Infinite Latent Events Model: <https://arxiv.org/pdf/1205.2604.pdf>\n\n* these guys used inifinite dimensional latent space to do timeseries, explains some challenges with finite dimensional latent spaces for timeseries"
+    }
+  ]
+}

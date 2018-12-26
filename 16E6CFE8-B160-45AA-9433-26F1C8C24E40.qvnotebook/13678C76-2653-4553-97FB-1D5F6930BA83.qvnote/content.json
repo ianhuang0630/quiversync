@@ -1,0 +1,9 @@
+{
+  "title": "Nov 13: Proposing forcing the latent space of a deep neural network",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div style=\"word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space; white-space: normal;\"><div><a href=\"http://www.cs.columbia.edu/~verma/papers/hier_embd.pdf\">http://www.cs.columbia.edu/~verma/papers/hier_embd.pdf</a></div><div><br></div><div><input type=\"checkbox\" checked=\"false\">Metric Learning Survey Papers<br></div><ul><li><div>Kulis</div></li><li><div>Bellet</div></li></ul><div><input type=\"checkbox\" checked=\"false\">[Easy] Weinburger LMNN<br></div><div><input type=\"checkbox\" checked=\"false\">Verma’s paper<br></div><div><br></div><div>3 major algorithms for metric learning:</div><ul><li><div>ITML</div></li><li><div>LMNN</div></li><li><div>MMC</div></li></ul><div><br></div></div>"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "title": "Sept 11: Deep Tamer on Navigation",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div style=\"word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space; white-space: normal;\"><div>Group of people argues that feedback should not be predicted as a reward, but rather as a comment on the agent’s behavior. (This sort of makes sense intuitively) Previous researchers have been seeing the feedback as a reward, and this has caused “positive reward cycles that lead to unintended behaviors”:</div><ul><li><div>[10] W. B. Knox, “Learning from human-generated reward,” Ph.D. dissertation, University of Texas at Austin, 2012. </div></li><li><div>[11] M. K. Ho, M. L. Littman, F. Cushman, and J. L. Austerweil, “Teaching with rewards and punishments: Reinforcement or communication?” in Proceedings of the 37th Annual Meeting of the Cognitive Science Society, 2015.</div></li></ul><div><br /></div><div><br /></div><div>A little bit confused:</div><div>How can TAMER adopt the perspective that ‘human feedback is better interpreted as a comment on the agent’s behavior’ but at the same time assume that the feedback is ‘independent of the agent’s policy’?</div><div><br /></div><div>dependent on behavior being taught, independent on policy?</div><div><br /></div><div><br /></div><div><br /></div><div>They define an advantage function that’s defined as</div><div> <img src='quiver-image-url/2A9C3104615E21D9D5B88214AC58DE64' width='100'>, where Q is the anticipated reward after</div><ol><li><div>following action a at state a</div></li><li><div>following policy \\pi after.</div></li></ol><div>and V is the expected reward given by following the policy.</div><div><br /></div><div><br /></div><div><br /></div></div>"
+    }
+  ]
+}
