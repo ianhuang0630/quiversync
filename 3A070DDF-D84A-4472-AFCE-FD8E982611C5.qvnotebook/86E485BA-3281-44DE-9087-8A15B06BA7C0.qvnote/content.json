@@ -1,0 +1,21 @@
+{
+  "title": "Dec 27: Writing the dataloader and Formulations",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "# Dataloader\n## Desired functionality\nIdeally dataloader would be able to: \n- give information about the types of classes available in data, as well as ordering classes by their frequencies (prepare metadata as part of preprocessing?)\n- load data with the appearance of a set of classes, while blackening out all other classes in the semantic labels\n"
+    },
+    {
+      "type": "markdown",
+      "data": "Dataloader key features implemented, but it's pretty slow. The longest part is filtering everything to only inlcude the desired classes. Perhaps we can cache the indices in reference to the .csv files, so that they don't need to recalculated? Might be dangerous if the csv file changes."
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    },
+    {
+      "type": "markdown",
+      "data": "# Details on experiments\n## First tests:\n### Batch learning\n1. Performance of simple deep convolutional neural net, cost function without including saliency conformation. What architecture do I use? **variable: model architecture, hyperparameters and number of classes**\n2. Performance of modified CNN, cost function *with* saliency conformation (of different flavors). May have to add a link from input to layer after saliency output, so that the prediction of classes is based on both. **variable: model architecture deviation from 1, and the formulation of saliency conformation**\n\n### Online learning for misclassified classes.\n1. Given new data, how well can the pretrained simple CNN do at correcting its errors? (i.e. give it a sample, given that it misclassifies the first time, what is the expected number of times it gets it right after updating its weights?)\n2. Given new data, how well can the saliency conformation model correct its errors, given more information in the middle?\n"
+    }
+  ]
+}

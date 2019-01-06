@@ -16,15 +16,25 @@
     },
     {
       "type": "markdown",
-      "data": "## Formulation as a metric learning problem?\n\nPerhaps we can phrase this problem as an online learning problem. We want a mapping from input vector to an infinite dimensional latent space (heavily penalized for using more dimensions than needed) such that a metric is learned. We want to see how good it is at learning this metric given new examples, online.  \n- what is really learned? the metric or the mapping?\n- How are you going to model $M$ in $x^T M x$ when x is an infinite dimensional vector? \n  - but we can model PSD $M$ as $L^TL$, and $x_i^TL^TLx_j = (L^Tx_i)^T(L^Tx_j)$ so effectively we want to learn a $L$ that is $L \\in \\mathbf R ^{d \\times \\infty}$. "
+      "data": "## Formulation as a metric learning problem?\n"
+    },
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "Perhaps we can phrase this problem as an online learning problem. We want a mapping from input vector to an infinite dimensional latent space (heavily penalized for using more dimensions than needed) such that a metric is learned. We want to see how good it is at learning this metric given new examples, online.  \n- what is really learned? the metric or the mapping?\n- How are you going to model $M$ in $x^T M x$ when x is an infinite dimensional vector? \n  - but we can model PSD $M$ as $L^TL$, and $x_i^TL^TLx_j = (L^Tx_i)^T(L^Tx_j)$ so effectively we want to learn a $L$ that is $L \\in \\mathbf R ^{d \\times \\infty}$. "
     },
     {
       "type": "markdown",
-      "data": "## Reformulating into a simpler problem:\n\nWe can initialize $L \\in \\mathbf R^{d \\times k}$ where $k$ is a starting constant. We want to minimize a composite loss function $\\mathscr L$ that both composes of some expression of the metric loss (agreement with known distances with samples) and some loss relating to the number of elements used up.\n\n$$\\mathscr L  = \\mathscr L _{metric}(L) + \\lambda \\mathscr L _{regularization } (L)$$\nwhere $\\mathscr L_{metric}(L)$ is calculated based on the whole dataset, and $\\mathscr L_{regularization}$ is larger when a new dimension is added (is it increasing with the size of the elements? Not sure.) <TODO>\n\nA naive implementation of this could allow for the incrementation of $k$ by only one at a time. A new dimension is created in $L$ (call this $L'$), and $L'_{:,k+1}$ is optimized such that $L'$ achieves $\\min_{L}(\\mathscr{L}_{metric}(L))$ (Do the rest of the weights stay the same? Not sure. <TODO> But it would be much faster if the optimization is done only on $d$ variables). We opt for $L := L$ only if $\\mathscr L - \\mathscr L' > 0$. \n\nWhen training for $L'_{:, k+1}$, we may either hold the old weights constant or move them. My limited intuition tells me that we may be able to prove that only small updates will occur $L'_{:, :k}$, since the decision to make a new dimension in $L$ occurs only when the overall $\\mathscr L$ goes down, it seems unlikely that at any given point a new dimension (with retraining in the other weights) will give rise to a dramatically lower overall $\\mathscr L$.\n"
+      "data": "## Reformulating into a simpler problem:"
+    },
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "We can initialize $L \\in \\mathbf R^{d \\times k}$ where $k$ is a starting constant. We want to minimize a composite loss function $\\mathscr L$ that both composes of some expression of the metric loss (agreement with known distances with samples) and some loss relating to the number of elements used up.\n\n$$\\mathscr L  = \\mathscr L _{metric}(L) + \\lambda \\mathscr L _{regularization } (L)$$\nwhere $\\mathscr L_{metric}(L)$ is calculated based on the whole dataset, and $\\mathscr L_{regularization}$ is larger when a new dimension is added (is it increasing with the size of the elements? Not sure.) <TODO>\n\nA naive implementation of this could allow for the incrementation of $k$ by only one at a time. A new dimension is created in $L$ (call this $L'$), and $L'_{:,k+1}$ is optimized such that $L'$ achieves $\\min_{L}(\\mathscr{L}_{metric}(L))$ (Do the rest of the weights stay the same? Not sure. <TODO> But it would be much faster if the optimization is done only on $d$ variables). We opt for $L := L'$ only if $\\mathscr L - \\mathscr L' > 0$. \n\nWhen training for $L'_{:, k+1}$, we may either hold the old weights constant or move them. My limited intuition tells me that we may be able to prove that most of the time, only small updates will occur in $L'_{:, :k}$, since the decision to make a new dimension in $L$ occurs only when the overall $\\mathscr L$ decreases, it seems unlikely that the existence of a new dimension will cause the optimal weights along other dimensions to radically shift."
     },
     {
       "type": "markdown",
-      "data": ""
+      "data": "## Further thoughts:\n[Jan 6: Deeper thought into incrementing dimensions of L](quiver-note-url/8ECFB05F-F6C8-4286-9C1B-D9B2EE8172F4)"
     },
     {
       "type": "markdown",

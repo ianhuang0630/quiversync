@@ -1,0 +1,29 @@
+{
+  "title": "Dec 31: Suggested Online Learning Papers",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "## Resources\nSome papers to read:\nOnline metric learning:\n- [POLA paper](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.442.5929&rep=rep1&type=pdf) by Shai Shalev Schwartz and friends.\n- [LEGO paper](http://people.bu.edu/bkulis/pubs/nips_online.pdf) by Jain and friends\n- [RDML](https://www.cse.msu.edu/~rongjin/publications/nips10-dist-learn.pdf) by Jin et al.\n\nPotentially relevant:\n- [Deep Online metric learning](https://arxiv.org/pdf/1805.05510.pdf)"
+    },
+    {
+      "type": "markdown",
+      "data": "## Pola\n### Summary"
+    },
+    {
+      "type": "markdown",
+      "data": "## LEGO\n### Summary"
+    },
+    {
+      "type": "markdown",
+      "data": "## RDML\n### Summary\n- They examine generalization of regularized distance metric learning, and found that (with appropriate constraints) the generalization error could be independent form the dimensionality (Of the input data ?).\n- They introduce an efficient online metric learning algorithm"
+    },
+    {
+      "type": "markdown",
+      "data": "## Deep Online metric learning\n### Summary"
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    }
+  ]
+}

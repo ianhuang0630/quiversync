@@ -1,0 +1,21 @@
+{
+  "title": "Jan 1: Online/lifelong deep learning",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "## Online Deep Learning: Learning Deep Neural Networks on the Fly (2017)\n[Arxiv](https://arxiv.org/abs/1711.03705)\n[Paper](https://arxiv.org/pdf/1711.03705.pdf)\n\n### Overview\n- Regular propagation doesn't work well in practice.\n- Learning DNN models of adaptive depth. \n- \"Hedge Back Propagation\" (HBP) method for performing weight updates.\n\n### Details\n"
+    },
+    {
+      "type": "markdown",
+      "data": "## Survey on \"Continual Lifelong Learning with Neural Networks\" (2018)\n[Arxiv](https://arxiv.org/abs/1802.07569)\n[Paper](https://arxiv.org/pdf/1802.07569.pdf)\n\n### Overview\n- Challenging because of \"catastrophic forgetting or interference\"\n- State of the art machine learning is bad at learning tasks without knowing the number of tasks beforehand.\n- Different approaches to alleviate \"catastrophic forgetting\"\n\n### Details\n[Jan 1: Continual Lifelong Learning with Neural Networks: A Review](quiver-note-url/87B2C991-BDF3-4465-96F7-C1B27241B52D)\n\n### Thoughts:\nWe restrict an intermediary layer to output something so that when allocating additional neurla resources, we don't have to consider new neural resources for the given task of saliency prediction. (Justifies using saliency or intermediate input for lifelong learning approach?) This also allows us to separate new knowledge in terms of the fundamental reasoning behind the choice and the action of arriving at the final prediction. (Perhaps a question to ask is how do we separate the amount of additional neural resources needed at different levels of the reasoning?)"
+    },
+    {
+      "type": "markdown",
+      "data": "## Deepmind blog on continual learning, with Paper\n[Deepmind Blog](https://deepmind.com/blog/enabling-continual-learning-in-neural-networks/)\n[PNAS](https://www.pnas.org/content/114/13/3521)\n[Paper](https://www.pnas.org/content/pnas/114/13/3521.full.pdf)\n"
+    },
+    {
+      "type": "markdown",
+      "data": "## Deep Hierarchicial Approach to Lifelong Learning in Minecraft\n[Paper download Link](https://aaai.org/ocs/index.php/AAAI/AAAI17/paper/download/14630/13950)"
+    }
+  ]
+}

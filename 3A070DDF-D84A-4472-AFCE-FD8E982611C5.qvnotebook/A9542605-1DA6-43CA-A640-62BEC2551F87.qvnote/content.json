@@ -1,0 +1,13 @@
+{
+  "title": "Running TODO’s",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "## Lifelong learning primer\n- [x] Finish reading Catastrophic forgetting survey paper\n- [ ] Finish Jung et al's paper \n- [ ] Zenke's paper on self-aware neurons\n- [ ] Deep mind's blog, and its paper\n- [ ] Xiao et al's hierarchical neuralgenesis paper\n- [ ] Draelo's neurogenesis paper\n- [ ] Yoon's DEN paper -- very relevant (tackles the problem of choosing how many resources to allocate)\n- [ ] Kemker's paper on Fearnet\n- [ ] Kamra's paper on using auto-encoders as generators\n- [ ] Parisi's spatial-temporal dual-memory architecture \n- [ ] Lopez-Paz's metric on influence of task on other tasks\n- [ ] Grave's automated curriculum learning paper "
+    },
+    {
+      "type": "markdown",
+      "data": "## Saliency\n- [ ] How is saliency going to fit into all of this?\n  - [ ] POET dataset -- are we going to use it?"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "title": "Dec 30: Building the models",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "## Model architecture\nWe get the model architecture ideas from [Top-down saliency detection for image classification](https://arxiv.org/pdf/1709.05307.pdf)\n\nSaliency detection:\n- 13 convolutional layers\n\n\n## Training details\n\n\n"
+    }
+  ]
+}

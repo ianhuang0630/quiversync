@@ -1,0 +1,31 @@
+{
+  "title": "Jan 6: Deeper thought into incrementing dimensions of L",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "## Parent note\n[Dec 26: investigating infinite dimensional latent spaces -- what's been done already?](quiver-note-url/D75B8191-D52C-4345-AD1B-FE5AC17D6D7C)"
+    },
+    {
+      "type": "markdown",
+      "data": "## What I said before doesn't work"
+    },
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "Reason is if $Lx$ is defined, then $L \\in \\mathbb R^{n \\times k}$ must mean that $x \\in \\mathbb R ^k$, and for data vectors that are of fixed dimensions, their difference $x$ must be in $\\mathbb R^k$, so $L$'s $k$ must be fixed (contrary to what I said before). However, $n$ can increase.\n\nIf that's the case, $rank(L) \\leq min(k,n)$, and one can regard $x$ as a set of coordinates inside a $k$-dimensional subspace of $\\mathbb R^n$ (when $n > k$). Since the subspace is still $k$ dimensional, it might not necessarily help. (we can map every vector in this subspace of $\\mathbb R^{n}$ to a vector in $\\mathbb R^k$, while preserving neighbor information)\n\nSuppose $ L' = [L ; v^T]$, where $v \\in \\mathbb R^k$. If $L \\in \\mathbb R^{n \\times k}$, then $L' \\in \\mathbb R^{(n+1) \\times k}$. Then \n$$M_{L'}(x) = x^T L'^TL'x = (L' x)^T(L' x)$$ \nIf $L'_{:k, :} = L$,\n$$ = (Lx)^T Lx + (v^T x)^T(v^T x)\\\\\n= x L^TL x + x^T vv^T x $$\nThis shows that adding another dimension does contribute something to the distance between two samples (in comparison to $L$). This extra term is $x^T vv^T x$. Since $vv^T$ is positive semidefinite, then $x^T vv^T x \\geq 0$ can only make $x^T L'^T L'x$ look bigger or the same (in comparison to using $L$). This means we can't find a $v$ that would make $M_{L'}(x) \\leq M_{L}(x)$ for any $x$, which means it's not very useful to us."
+    },
+    {
+      "type": "markdown",
+      "data": "## What about if we lift the data?"
+    },
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "This would effectively allow us to increment $k$ as well, since $\\bar{x} = [x ; 1]$ and consequently $\\bar{x} \\in \\mathbb R^{k+1}$. Suppose $L'' \\in \\mathbb R^{(n+1) \\times (k+1)}$. Let $L''$ be organized as follows: $L'' = [[L ; v^T], u]$ where $v \\in \\mathbb R^{k}$ and $u \\in \\mathbb R^{n+1}$. \n\n$$ M_{L''}(x) = \\bar{x}^T L''^T L'' \\bar{x} \\\\\n= (L''\\bar{x})^T (L''\\bar{x})$$\nand $L''\\bar{x} = \\left( \\begin{array}{c} Lx \\\\ v^T\\bar{x} \\end{array} \\right) + u$. \nSo \n$$ \\bar{x}^T L''^T L'' \\bar{x} = (Lx)^T(Lx) + (v^Tx)^T(v^Tx) + 2u^T \\left( \\begin{array}{c} Lx \\\\ v^T x \\end{array} \\right) + u^Tu \\\\\n= x L^T L x + x^T v v^T x + 2 u^T \\left( \\begin{array}{c} Lx \\\\ v^T x \\end{array} \\right) + u^T u\n$$\n$u^Tu \\geq 0$, and $vv^T$ is positive semidefinite, so $x^T vv^T x \\geq 0$. But there are no such guarantees on $u^T \\left( \\begin{array}{c} Lx \\\\ v^T x \\end{array} \\right)$, suggesting that we may be able to choose $u$ and $v$ such that this term is either positive or negative, which allows $M_{L''}(x) < M_{L}(x)$ or $M_{L''}(x) > M_{L}(x)$, depending on what we want.\n"
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    }
+  ]
+}

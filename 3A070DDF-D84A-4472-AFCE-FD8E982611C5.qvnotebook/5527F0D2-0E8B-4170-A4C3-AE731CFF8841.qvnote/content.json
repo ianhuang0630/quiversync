@@ -1,0 +1,13 @@
+{
+  "title": "Dec 17: Meeting with Carl Vondrick",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div style=\"word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space; white-space: normal;\"><div><input type=\"checkbox\" checked=\"false\">Send stuff to carl (Online learning paper)</div><div><input type=\"checkbox\" checked=\"false\">Should play with CIFAR</div></div>"
+    },
+    {
+      "type": "markdown",
+      "data": "Research question:\n$M:X \\to Q$ and $N: Q \\to C$, where $M$ and $N$ are transformations that are sequential in a neural network, what $Q$ would best allow for lifelong learning?\n\n"
+    }
+  ]
+}
