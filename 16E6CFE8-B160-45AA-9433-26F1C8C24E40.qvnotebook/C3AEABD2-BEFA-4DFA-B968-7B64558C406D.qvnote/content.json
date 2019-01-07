@@ -3,11 +3,37 @@
   "cells": [
     {
       "type": "markdown",
+      "data": "## Parent note\n[Dec 26: investigating infinite dimensional latent spaces -- what's been done already?](quiver-note-url/D75B8191-D52C-4345-AD1B-FE5AC17D6D7C)"
+    },
+    {
+      "type": "markdown",
       "data": "## Resources\nSome papers to read:\nOnline metric learning:\n- [POLA paper](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.442.5929&rep=rep1&type=pdf) by Shai Shalev Schwartz and friends.\n- [LEGO paper](http://people.bu.edu/bkulis/pubs/nips_online.pdf) by Jain and friends\n- [RDML](https://www.cse.msu.edu/~rongjin/publications/nips10-dist-learn.pdf) by Jin et al.\n\nPotentially relevant:\n- [Deep Online metric learning](https://arxiv.org/pdf/1805.05510.pdf)"
     },
     {
       "type": "markdown",
-      "data": "## Pola\n### Summary"
+      "data": "## Pola"
+    },
+    {
+      "type": "markdown",
+      "data": "### Summary"
+    },
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "Online algorithm for metric learning. Basically splits the algorithm into two parts. \n\nFirst part is a projection onto the set of matrices $A$ that satisfy the equation\n$y_\\tau (b_\\tau - v_\\tau^T A v_\\tau) \\geq 1$, where $v_\\tau^T = x_\\tau - x_\\tau'$ (difference between two data vectors), and  $y_\\tau = 1$ if two samples $x_\\tau$ and $x_\\tau'$ are similar, or $-1$ otherwise, and $b_\\tau$ is a threshold. They represent $A$ and $b_\\tau$ as a single vector in $\\mathbb R ^{n^2 + 1}$, where $A$ is listed columnwise and $b_\\tau$ is tacked onto the end of the vector. They represent $(-y_\\tau v_\\tau v_\\tau^T, y_\\tau)$ sa $\\mathcal X_\\tau \\in \\mathbb R^{n^2 +1}$. They thus reduce the constraint that $y_\\tau (b_\\tau - v_\\tau^T A v_\\tau) \\geq 1$ to $w_\\tau \\cdot \\mathcal X_\\tau \\geq 1$. This projection is given by \n$$ \\mathcal P_{C_\\tau}(w) = w_\\tau + \\alpha \\mathcal X_{\\tau}$$\nwhere $\\alpha = (1- w_\\tau \\cdot \\mathcal X_\\tau)/ || \\mathcal X_\\tau||^2$. (I verified this result using the Lagrange equation for equally constraints.)\n\nThe second part is a projection onto the set of all positive semidefinite matrices, which is given by decomposing the original matrix down to eigenvalues and eigenvectors, and then deleting the eigenvectors and values that corresponds to any negative eigenvalues. The \"Eigenvalue interlacing theorem\" tells us that $A$ has at most one single negative eignevalue.\n\nThey also show that the algorithm is kernelizable. They showed that one can express any $A$ as $A = \\sum_{i=1}^m \\beta_i r_i r_i^T$ where $m \\leq 2\\tau$. (why $2\\tau$?) \n\nWhen not assuming that there exists a match, we have a relaxation parameter $\\gamma$. The algorithm's update parameter $\\alpha$ would be\n$$ \\alpha = \\frac{\\mathcal l_\\tau (A_\\tau, b_\\tau)}{|| x_\\tau- x'_\\tau||^4 + 1 + \\gamma} $$\nI'm guessing this can also be derived from constrained optimization for a given $\\gamma$. They say that \"Since there is no perfect pseudo-metric that explains the data ..., we do not expect our online algorithm to attain a fixed amount of loss. INstead we measure the loss of the outline algorithm relative to the loss of any other fixed pseudo metric parametrized by $(A^*, b^*)$.\"\n"
+    },
+    {
+      "type": "markdown",
+      "data": "### Theoretical guarantees"
+    },
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "They prove that with $(x_1, x_1', y_1), ..., (x_\\tau, x_\\tau', y_\\tau)$ be a sequence of examples and $R$ be an upper bound such that $\\forall \\tau: R \\geq ||x_\\tau- x_\\tau'||^4 + 1$. If there exists $A^*$ that is positive definite adn $b^* \\geq 1$ for which $\\forall \\tau \\geq 1, \\mathcal l_\\tau(A^*, b^*) = 0$, then for any $T \\geq 1$:\n  $$\\sum_{\\tau=1}^T(\\mathcal l(A_\\tau, b_\\tau))^2 \\leq R (||A^*||^2 + (b^*-b_1)^2)$$\nThe above used a lemma proved by Censor & Zenios, 1997, Thm 2.4.1. (It's a book...) Let $w^* \\in \\mathbb R^n$ and let $C \\in \\mathbb R^n$ be a closed convex set. Then for any $w^* \\in C$, we have\n  $$|| w - w^*||^2 - || \\mathcal P_C(w) - w^* ||^2 \\geq ||w - \\mathcal P_C(w)||^2$$\nNote that the bound is on the sum of *squares* of the hinge losses.\n\nNote that the bound doesn't depend on the dimensions of the input space. The bound doesn't change if we employ kernels whcih map the instances to higher dimensional maps. (How's this different from learning the $\\sqrt A = T$? Is this related to analysis that I did in:"
+    },
+    {
+      "type": "markdown",
+      "data": "[Jan 6: Deeper thought into incrementing dimensions of L](quiver-note-url/8ECFB05F-F6C8-4286-9C1B-D9B2EE8172F4) ?)"
     },
     {
       "type": "markdown",
