@@ -1,5 +1,5 @@
 {
-  "title": "Dec 31: Suggested Online Learning Papers",
+  "title": "Dec 31: {N/ P} Suggested Online Learning Papers",
   "cells": [
     {
       "type": "markdown",
@@ -29,11 +29,15 @@
     {
       "type": "latex",
       "language": "latex",
-      "data": "They prove that with $(x_1, x_1', y_1), ..., (x_\\tau, x_\\tau', y_\\tau)$ be a sequence of examples and $R$ be an upper bound such that $\\forall \\tau: R \\geq ||x_\\tau- x_\\tau'||^4 + 1$. If there exists $A^*$ that is positive definite adn $b^* \\geq 1$ for which $\\forall \\tau \\geq 1, \\mathcal l_\\tau(A^*, b^*) = 0$, then for any $T \\geq 1$:\n  $$\\sum_{\\tau=1}^T(\\mathcal l(A_\\tau, b_\\tau))^2 \\leq R (||A^*||^2 + (b^*-b_1)^2)$$\nThe above used a lemma proved by Censor & Zenios, 1997, Thm 2.4.1. (It's a book...) Let $w^* \\in \\mathbb R^n$ and let $C \\in \\mathbb R^n$ be a closed convex set. Then for any $w^* \\in C$, we have\n  $$|| w - w^*||^2 - || \\mathcal P_C(w) - w^* ||^2 \\geq ||w - \\mathcal P_C(w)||^2$$\nNote that the bound is on the sum of *squares* of the hinge losses.\n\nNote that the bound doesn't depend on the dimensions of the input space. The bound doesn't change if we employ kernels whcih map the instances to higher dimensional maps. (How's this different from learning the $\\sqrt A = T$? Is this related to analysis that I did in:"
+      "data": "They prove that with $(x_1, x_1', y_1), ..., (x_\\tau, x_\\tau', y_\\tau)$ be a sequence of examples and $R$ be an upper bound such that $\\forall \\tau: R \\geq ||x_\\tau- x_\\tau'||^4 + 1$. If there exists $A^*$ that is positive definite adn $b^* \\geq 1$ for which $\\forall \\tau \\geq 1, \\mathcal l_\\tau(A^*, b^*) = 0$, then for any $T \\geq 1$:\n  $$\\sum_{\\tau=1}^T(\\mathcal l_\\tau(A_\\tau, b_\\tau))^2 \\leq R (||A^*||^2 + (b^*-b_1)^2)$$\nWhere $\\mathcal l_\\tau$ is the hinge loss $\\max(0, y_\\tau((d_A(x_\\tau, x_\\tau'))^2 - b) + 1)$. \nThe above used a lemma proved by Censor & Zenios, 1997, Thm 2.4.1. (It's a book...) Let $w^* \\in \\mathbb R^n$ and let $C \\in \\mathbb R^n$ be a closed convex set. Then for any $w^* \\in C$, we have\n  $$|| w - w^*||^2 - || \\mathcal P_C(w) - w^* ||^2 \\geq ||w - \\mathcal P_C(w)||^2$$\nNote that the bound is on the sum of *squares* of the hinge losses.\n\nNote that the bound doesn't depend on the dimensions of the input space. The bound doesn't change if we employ kernels whcih map the instances to higher dimensional maps. (How's this different from learning the $\\sqrt A = T$? Is this related to analysis that I did in:"
     },
     {
       "type": "markdown",
       "data": "[Jan 6: Deeper thought into incrementing dimensions of L](quiver-note-url/8ECFB05F-F6C8-4286-9C1B-D9B2EE8172F4) ?)"
+    },
+    {
+      "type": "markdown",
+      "data": "Also this guarantee says nothing about catastrophic forgetting, as it's learning online..."
     },
     {
       "type": "markdown",
