@@ -1,0 +1,9 @@
+{
+  "title": "Jan 10: {N} Working with SSH using Python",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "[Sending/receiving using scp over SSH using paramiko in python](https://stackoverflow.com/questions/250283/how-to-scp-in-python)\n- Built on Paramiko\n- Allows an easy API for transfer of files\n\n[Installing Paramiko](http://www.paramiko.org/installing.html)\n\n[Paramiko documentation](http://docs.paramiko.org/en/2.4/)\n\n[Resource on SSH](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)"
+    }
+  ]
+}

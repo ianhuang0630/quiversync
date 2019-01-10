@@ -8,6 +8,10 @@
     {
       "type": "markdown",
       "data": "## Saliency\n- [ ] How is saliency going to fit into all of this?\n  - [ ] POET dataset -- are we going to use it?"
+    },
+    {
+      "type": "markdown",
+      "data": "## Others:\n- [ ] Build file transfer system to test on small batch"
     }
   ]
 }
