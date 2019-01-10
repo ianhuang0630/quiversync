@@ -3,7 +3,81 @@
   "cells": [
     {
       "type": "markdown",
-      "data": ""
+      "data": "## Parent note\n[Running TODO’s](quiver-note-url/A9542605-1DA6-43CA-A640-62BEC2551F87)"
+    },
+    {
+      "type": "markdown",
+      "data": "## Overall thoughts"
+    },
+    {
+      "type": "markdown",
+      "data": "## 1. Introduction\nReason for slow adoption of curriculum learning is it's highly sensitive to the mode of progression through tasks. Also, hard to rank tasks in terms of difficulty.\n\nThese guys wanna use the learning progress as a reward signal for learning a stochastic policy. Various indicators of progress have been used as signals:\n- Compression progress (Schmidhuber, 1991)\n- Information acquisition (Storch et al., 1995)\n- Bayesian surprise (Itti and Baldi, 2009)\n- Prediction gain (Bellemare et al. 2016)\n- variational information maximization (Houthooft et al., 2016)\nPaper focuses on the last one, and introduces a new measureument called \"complexity gain\". It effectively equates acquisition of knowledge with an increase in effective information encoded in the weights."
+    },
+    {
+      "type": "markdown",
+      "data": "## 2. Background "
+    },
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "Given inputs $(a^1, a^2...)$ and outputs $(b^1, b^2 ...)$, models the conditional probability output of the model by:\n$$p(b^{1:B} | a ^{1:B}) = \\prod_{i,j} p(b^i_j | b^i_{i:j-1}, a^i_{1:j-1})$$\n(why is $b^i_j$ not conditional on $a^i_j$?)\n\neach batch is a single example $x$ from $\\mathcal X := (\\mathcal A \\times \\mathcal B)^N$. $p(X) = p(b^{1:B}| a^{1:B})$. \n\nTask: a distribution $D$ over $\\mathcal X$\nCurriculum: as set of tasks $D_1, ..., D_N$.\nSample: an example drawn from one of the tasks of the curriculum\nSyllabus: time-varying sequence of distributions over tasks.\n\nExpected loss of the network on the a certain task #k is: $\\mathcal L_k(\\theta) := \\mathbb E_{x \\sim D_k} L(x, \\theta)$ where $L(x, \\theta) = -log(p_\\theta(x))$ is the sample loss."
+    },
+    {
+      "type": "markdown",
+      "data": "### 2.1 Formulation of curriculum learning"
+    },
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "Multiple tasks setting:\n$\\mathcal L_{MT} := \\frac{1}{N}\\sum^N_{k=1} \\mathcal L_k$\n\nTarget task setting:\n$\\mathcal L_{TT} = \\mathcal L_N$ where $L_N$ is the last task's expected loss."
+    },
+    {
+      "type": "markdown",
+      "data": "### 2.2 Adversarial multi-armed bandits"
+    },
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "$N$ tasks = $N$-armed bandit\nAt every step $t$, bandit can choose $a_t \\in \\{1...N\\}$. Exp3 is a well-known algorithm for this problem. (Auer et al. 2002) At time step $t$, the policy is \n$$ \\pi^{EXP3}_t(i) := \\frac{e^{w_{t,i}}}{\\sum_{j=1}^N e^{w_{t,i}}}$$\n(This looks a lot like softmax...)\nWhere \n$$w_{t,i} := \\eta \\sum_{s<t} \\tilde{r}_{s,i}$$\n$$\\tilde{r}_{s,i} := \\frac{r_s \\mathbb I_{[a_s = i]}}{\\pi_s(i)}$$\n(at $t$, it's assigning a score to each option (from which a probability is calculated), and this score is proportional to the amount of rewards it's previously reaped, weighted by the probability of having chosen that option at *that time in the past*)\n\nExp3 does not take into account that one arm might be optimal for a portion of the history, then another arm, and so on. \"The best strategy is peicewise stationary\". \n\nThe authors use the Fixed Share Method (Herbster and Warmuth, 1998), which is an $\\epsilon$-greedy stragegy. Known as the Exp3.S algorihtm (Auer et al. 2002)\n\n$$\\pi_t^{EXP3.P} (i) := (1-\\epsilon) \\pi_t^{EXP3}(i) + \\frac{\\epsilon}{N}$$\nwhere\n$$w_{t,i}^S := \\log \\biggr[(1-\\alpha_t)exp(w^S_{t-1,i} + \\eta \\tilde{r}^\\beta_{t-1,i}) + \\frac{\\alpha_t}{N-1} \\sum_{j \\not = i} exp(w^S_{t-1, j} + \\eta \\tilde r_{t-1, j}^\\beta)\\biggr] \\\\\nw_{1,i}^S := 0 \\\\\n\\alpha_t:=t^{-1} \\\\\n\\tilde r_{s,i}^\\beta := \\frac{r_s \\mathbb I_{[a_s =1]} + \\beta}{\\pi_s(i)}$$\n(Beats me how this update function was designed. $\\epsilon$ controls a mixture between what is ostensibly the policy for EXP3 and an equal probability across all actions. Because $\\alpha := t^{-1}$, this means that as time goes on, $w^S_{t,i} \\rightarrow {w^S_{t-1, i} + \\eta \\tilde r _{t-1,i}^\\beta})$. In the meantime, $\\alpha$ acts as a weight and the second term ($\\frac{1}{N-1} * \\sum...etc$) is an average accross other actions.) I don't get how this corresonds to a case that is peicewise stationary? "
+    },
+    {
+      "type": "markdown",
+      "data": "More on the original procedure: [Auer's 2002 paper](http://homes.dsi.unimi.it/~cesabian/Pubblicazioni/J18.pdf). This paper is very very very technical."
+    },
+    {
+      "type": "markdown",
+      "data": "## 3. Learning Progress Signals"
+    },
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "Usually impossible to measure progress using the loss function. So we use a surrogate. Either 1) loss-driven or 2) complexity driven (equate progress with an increase in model complexity)\n\nRaw reward: $\\hat r = v / \\tau(x)$\nwhere $\\tau(x)$ is some expression of time taken to process batch $x$, and $v$ is some indicator of learning progress. (Since it's the rate that we're concerned with)\n\nDifferent forms of progress:"
+    },
+    {
+      "type": "markdown",
+      "data": "### 3.1 Loss-driven progress\n"
+    },
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "First two signals are appealing because they are cheaper to evaluate, sinc they are \"instantaneous\" on $x$ (because they only depend on x). $\\theta$ and $\\theta'$ denote the weights before and after.\n\n1. Prediction gain (PG)\n$$v_{PG} := L(x, \\theta) - L(x, \\theta')$$\n2. Gradient prediction gain\nPG without actually doing the forward propagation. Instead, doing a first order taylor series approximation if $p_\\theta$ is differentiable.\n$$L(x, \\theta') \\approx L(x, \\theta) + [\\nabla L(x,\\theta)]^T \\Delta_\\theta$$\n$\\Delta_\\theta$ is a descent step. This is the first-order taylor approximation to $L(x, \\theta')$. We let \n$$ v_{GPG} := || \\nabla L(x, \\theta)||^2$$\nThis is an indicator of salience in active learning literature (Settles et al. 2008)\n\n3. Self prediction gain (SPG)\n\nPrediction gain is a baise dchange in $\\mathcal L_k(\\theta)$. Instead of measuring the the PG (which we expect to indicate that it does better on the batch), it measures the performanced based on another batch from the same task (distribution) $x'$:\n\n$v_{SPG} := L(x', \\theta) - L(x', \\theta')$, with $x' \\sim D_k$.\n\n4.Target prediction gain (TPG)\n\nSPG, done on the target task (distribution). \n$v_{TPG} := L(x', \\theta) - L(x', \\theta') $ and $x' \\sim D_N$\n\nSuffers from high variance, and goes contrary to the premise that early in training, model should instead train on a task that it can master.\n\n5. Mean prediction gain (MPG)\n\n$v_{MPG} := L(x', \\theta) - L(x', \\theta')$ with $x' \\sim D_k, k \\sim U_N$, where $U_N$ is uniform distribution over $1$ to $N$.\n"
+    },
+    {
+      "type": "markdown",
+      "data": "### 3.2 Complexity-driven Progress"
+    },
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "Underpinned by Minimum Description Length principle (MDL) (Rissanen, 1986; Grunwald, 2007) -- one sould minimize the number of bits reqwuired to describe the mlodel parameters plus the number of bits required  for the model to describe the data. MDL allows increasing of the complexity of the model by a certain amount only if it reduces the data cost by a greater amount. \n\nMDL for neural networks can be realized with stochastic variational inference. (Graves, 2011)\n\n$$L_{VI}(\\phi, \\psi) = KL(P_\\phi || Q_\\psi) + \\sum_k \\sum_{x \\in D_k} \\mathbb E_{\\theta \\sim P_\\phi} L(x, \\theta)$$\n\n$P_\\phi(\\theta)$ is variational posterior, with a single weight sample drawn for each training example. Parameters $\\phi$ of posterior is optimized.\n$Q_\\psi(\\theta)$ is prior. \nKL is big when $P_\\phi$ is very different from $Q_\\psi$. \nThe first term is model complexity (how different are the current weights from the prior?) and the second term is data cost (i.e. how much off from the prediction are all of the datapoints? Notice the double summation for summation over all samples from all tasks)\n\n$S := \\sum_k |D_k|$\n$L_{VI}(x, \\phi, \\psi) := \\frac{1}{S} KL(P_\\phi || Q_\\psi) + \\mathbb E_{\\theta \\sim P_\\phi} L(x,\\theta)$\n\n1. Variational complexity gain (VCG)\n\nIncrease of model complexity induced by training example induce from single parameter update from $\\phi$ to $\\phi'$ and $\\psi$ to $\\psi'$:\n$ v_{VCG} := KL(P_{\\phi '} || Q_{\\psi'}) - KL(P_\\phi || Q_\\psi) $\n\n(I guess the prior in this case is adaptive?)\n\n2. Gradient variational complexity gain (GVCG)\nUsing first order Taylor approx:\n\n$KL(P_{\\phi'} || Q_{\\phi'}) \\approx KL(P_\\phi || Q_\\psi) - [\\nabla_{\\phi, \\psi} KL(P_\\phi || Q_\\psi)]^T \\nabla_{\\psi, \\phi} \\mathcal L_{MDL}(x, \\phi, \\psi)$\n(Where did the $\\nabla L_{MDL}$ come from? Is it supposed to be $(\\phi'-\\phi, \\psi' - \\psi) $? Maybe. But how do you know that the learning rate is 1?)\n$C$ doesn't depend on $x$, so irrelevant to signal.\n\nso $v_{VCG} \\approx C - [\\nabla_{\\phi, \\psi} KL(P_\\phi || Q_\\psi)]^T \\nabla_{\\phi} \\mathbb E_{\\theta \\sim P_\\phi} L(x, \\theta) $\nwhich is the \"directional derivative of $KL$ along the gradient descent direction\".\n\n\n3. L2 gain (L2G)\nStandard regularization termsare viewed as defining an upperbound on model description length. Increase in regularization cost will be indicative of increasing model compleixty.\n\n$v_{L2G} := || \\theta' ||^2 - || \\theta ||^2$\nFirst order approximation is\n$v_{GL2G}:=[\\theta]^T \\nabla_\\theta L(x,\\theta)$\n\nCalculating L2G for unregularized networks is unreliable signal. "
+    },
+    {
+      "type": "markdown",
+      "data": "Note: in this paper, they use diagonal guassian for both $P$ and $Q$ to simplify the KL divergence to something analytic."
+    },
+    {
+      "type": "markdown",
+      "data": "## 4. Experiments\nQuite effecitve. refer to paper. But they say that uniformly sampling from all taks is a \"surprisingly strong benchmark\"\n\nFor max likelihood, Prediction Gain was the best\n\nFor Variational inference, gradient variational complexity gain performed best."
     }
   ]
 }
