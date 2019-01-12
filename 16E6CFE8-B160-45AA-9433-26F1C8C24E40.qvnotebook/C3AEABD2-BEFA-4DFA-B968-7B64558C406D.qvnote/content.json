@@ -11,7 +11,7 @@
     },
     {
       "type": "markdown",
-      "data": "## Overall thoughts\n"
+      "data": "## Overall thoughts\nPola's nice, but doesn't seem to do provide any guarantees on catastrophic forgetting of online metric learning (not even compare it to accuracy of batch setting)."
     },
     {
       "type": "markdown",
@@ -24,7 +24,7 @@
     {
       "type": "latex",
       "language": "latex",
-      "data": "Online algorithm for metric learning. Basically splits the algorithm into two parts. \n\nFirst part is a projection onto the set of matrices $A$ that satisfy the equation\n$y_\\tau (b_\\tau - v_\\tau^T A v_\\tau) \\geq 1$, where $v_\\tau^T = x_\\tau - x_\\tau'$ (difference between two data vectors), and  $y_\\tau = 1$ if two samples $x_\\tau$ and $x_\\tau'$ are similar, or $-1$ otherwise, and $b_\\tau$ is a threshold. They represent $A$ and $b_\\tau$ as a single vector in $\\mathbb R ^{n^2 + 1}$, where $A$ is listed columnwise and $b_\\tau$ is tacked onto the end of the vector. They represent $(-y_\\tau v_\\tau v_\\tau^T, y_\\tau)$ sa $\\mathcal X_\\tau \\in \\mathbb R^{n^2 +1}$. They thus reduce the constraint that $y_\\tau (b_\\tau - v_\\tau^T A v_\\tau) \\geq 1$ to $w_\\tau \\cdot \\mathcal X_\\tau \\geq 1$. This projection is given by \n$$ \\mathcal P_{C_\\tau}(w) = w_\\tau + \\alpha \\mathcal X_{\\tau}$$\nwhere $\\alpha = (1- w_\\tau \\cdot \\mathcal X_\\tau)/ || \\mathcal X_\\tau||^2$. (I verified this result using the Lagrange equation for equally constraints.)\n\nThe second part is a projection onto the set of all positive semidefinite matrices, which is given by decomposing the original matrix down to eigenvalues and eigenvectors, and then deleting the eigenvectors and values that corresponds to any negative eigenvalues. The \"Eigenvalue interlacing theorem\" tells us that $A$ has at most one single negative eignevalue.\n\nThey also show that the algorithm is kernelizable. They showed that one can express any $A$ as $A = \\sum_{i=1}^m \\beta_i r_i r_i^T$ where $m \\leq 2\\tau$. (why $2\\tau$?) \n\nWhen not assuming that there exists a match, we have a relaxation parameter $\\gamma$. The algorithm's update parameter $\\alpha$ would be\n$$ \\alpha = \\frac{\\mathcal l_\\tau (A_\\tau, b_\\tau)}{|| x_\\tau- x'_\\tau||^4 + 1 + \\gamma} $$\nI'm guessing this can also be derived from constrained optimization for a given $\\gamma$. They say that \"Since there is no perfect pseudo-metric that explains the data ..., we do not expect our online algorithm to attain a fixed amount of loss. INstead we measure the loss of the outline algorithm relative to the loss of any other fixed pseudo metric parametrized by $(A^*, b^*)$.\"\n"
+      "data": "Online algorithm for metric learning. Basically splits the algorithm into two parts. \n\nFirst part is a projection onto the set of matrices $A$ that satisfy the equation\n$y_\\tau (b_\\tau - v_\\tau^T A v_\\tau) \\geq 1$, where $v_\\tau^T = x_\\tau - x_\\tau'$ (difference between two data vectors), and  $y_\\tau = 1$ if two samples $x_\\tau$ and $x_\\tau'$ are similar, or $-1$ otherwise, and $b_\\tau$ is a threshold. They represent $A$ and $b_\\tau$ as a single vector in $\\mathbb R ^{n^2 + 1}$, where $A$ is listed columnwise and $b_\\tau$ is tacked onto the end of the vector. They represent $(-y_\\tau v_\\tau v_\\tau^T, y_\\tau)$ sa $\\mathcal X_\\tau \\in \\mathbb R^{n^2 +1}$. They thus reduce the constraint that $y_\\tau (b_\\tau - v_\\tau^T A v_\\tau) \\geq 1$ to $w_\\tau \\cdot \\mathcal X_\\tau \\geq 1$. This projection is given by \n$$ \\mathcal P_{C_\\tau}(w) = w_\\tau + \\alpha \\mathcal X_{\\tau}$$\nwhere $\\alpha = (1- w_\\tau \\cdot \\mathcal X_\\tau)/ || \\mathcal X_\\tau||^2$. (I verified this result using the Lagrange equation for equally constraints.)\n\nThe second part is a projection onto the set of all positive semidefinite matrices, which is given by decomposing the original matrix down to eigenvalues and eigenvectors, and then deleting the eigenvectors and values that corresponds to any negative eigenvalues. The \"Eigenvalue interlacing theorem\" tells us that $A$ has at most one single negative eignevalue.\n\nThey also show that the algorithm is kernelizable. They showed that one can express any $A$ as $A = \\sum_{i=1}^m \\beta_i r_i r_i^T$ where $m \\leq 2\\tau$. (why $2\\tau$?) \n\nWhen not assuming that there exists a match, we have a relaxation parameter $\\gamma$. The algorithm's update parameter $\\alpha$ would be\n$$ \\alpha = \\frac{\\mathcal l_\\tau (A_\\tau, b_\\tau)}{|| x_\\tau- x'_\\tau||^4 + 1 + \\gamma} $$\nI'm guessing this can also be derived from constrained optimization for a given $\\gamma$. They say that \"Since there is no perfect pseudo-metric that explains the data ..., we do not expect our online algorithm to attain a fixed amount of loss. Instead we measure the loss of the outline algorithm relative to the loss of any other fixed pseudo metric parametrized by $(A^*, b^*)$.\"\n\n"
     },
     {
       "type": "markdown",
@@ -41,7 +41,11 @@
     },
     {
       "type": "markdown",
-      "data": "Also this guarantee says nothing about catastrophic forgetting, as it's learning online..."
+      "data": "Also this guarantee says nothing about _catastrophic forgetting_, as it's learning online..."
+    },
+    {
+      "type": "markdown",
+      "data": ""
     },
     {
       "type": "markdown",

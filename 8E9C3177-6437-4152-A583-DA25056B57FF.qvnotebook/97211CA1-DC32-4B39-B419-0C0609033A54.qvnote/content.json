@@ -1,0 +1,50 @@
+{
+  "title": "Jan 12: {P} Synergy-Based, Data-Driven Generation of Object-Specific Grasps for Anthropomorphic Hands",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "## Link\n[Synergy-Based, Data-Driven Generation of Object-Specific Grasps for Anthropomorphic Hands](https://h2t.anthropomatik.kit.edu/pdf/Starke2018.pdf)\n## Parent note:\n[Void] \n"
+    },
+    {
+      "type": "markdown",
+      "data": "## Overall thoughts:\n- The fact that one has to measure the size of the object to generate a reasonable garsp seems inconvenient. Is there a way to eliminate this?\n- The paper doesn't actually translate human hand joints to some robotic, but rather is trying to discover a latent space (from which a synergy can be constructed..?) to represent a hand, while preserving the semantic grasp category information (clustering).\n- Paper claims that it performs better than PCA, but that's expected. It's a nonlinear mapping, and should only do better.\n- It seems that a \"synergy\" is a latent variable in this case.\n- Moreover, this paper only looks at joint positions. Can we also look at $\\dot{\\theta}$ and $\\ddot{\\theta}$ ? Utilization of temporal structure?\n- Perhaps we're also missing a quantitative way to analyze the resemblance of grasps?"
+    },
+    {
+      "type": "markdown",
+      "data": "## Summary\n- What's a grasp synergy?\n- Study with 15 subjects and 2250 graps on 35 diverse objects\n- Latent space has representations of grasp type and size of the grasped object.\n- Findings on couplings and \"grasp specific features of joint kinematics\"."
+    },
+    {
+      "type": "markdown",
+      "data": "## 1. Introduction\nBackground:\n- Human hand has 23 DOF. \n- Due to highly constrained space requirements for hands, underactuated designs are widely applied.\n- ([Santello et al. 1998](http://www.jneurosci.org/content/jneuro/18/23/10105.full.pdf)) presented first study on postural hand synergies. Found that PCA captures more than 80% of the information. (seems to me that synergy is a simplified representation.)\n- [Bicchi et al., 2011](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3172595/pdf/rstb20110152.pdf) uses these synergies for underactuated hand.\n- Biological muscle synergies and correlation ot postural synergies found by Santello was proven in empircal settings.\n- Gaussian process latent variable modesl outperform PCA for reconstruction and generation of grasps. Nonlinear synergy-based models demand more complex selection of control parameters. ([Romero et al.](https://www.nada.kth.se/~hedvig/publications/tro_13.pdf))\n- __Soft synergy__: allows for final alignment of contact surfaces despite the rigidity of originla applied synergy-based posture. \n- Synergy-based control can reduce the number of \"control parameters\".\n\nContributions:\nThe paper presents a deep auto-encoder network thatgenerates object-specific grasps with four controlling variables. Obliged to learn concepts of different grasp types within 3d latent space. Hopes to overcome loack of intution on relating existing control paremters with rewquired grasp contact conditions. "
+    },
+    {
+      "type": "markdown",
+      "data": "## 2. Grasping study"
+    },
+    {
+      "type": "markdown",
+      "data": "Hand posture is measured with CyberGlov III with 18 DOF. 2 DOF's are for the wrist, and tey do not contribut  information to static postures, so only 16 DOF's are given to the network.\n\nSome complicated calibration procedure had to be done for the glove, as suggested by Gracia-Ibanez et al. Finger joint angles were approximated by a linear function of the sensor reading. \n\n5 diffrerent grasp types:\n- cylindircal warp,\n- spherical grasp\n- disk grasp\n- pinch grasp\n- lateral grasp\n"
+    },
+    {
+      "type": "markdown",
+      "data": "## 3. Dimensionality reduction\n\nAutoencoder design:"
+    },
+    {
+      "type": "text",
+      "data": "<img src=\"quiver-image-url/2068AFD7DA014473C175562C965F94C3.png\" alt=\"Screen Shot 2019-01-12 at 12.19.38 PM.png\" width=\"595\" height=\"448\">"
+    },
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "From this, we can see that they're just trying to learn a latent space that encodes different clusters of different grasp types, and a decoder than can properly translate these to the correct grasp poses. The loss is defined as:\n$ \\mathcal L = \\alpha \\cdot MSE(y_g, \\hat y_g) + \\beta \\cdot MSE(Enc(y_g), Enc( y_\\tilde{g})) + \\gamma \\cdot MSE(Enc(y_g), Enc(y_{h \\not = g}))$\nWhere $Enc$ is the encoder, $y_g$ is the input humand data, $\\hat y_g$ is the grasp pose, and and $y_{h \\not = g}$ represents inputs that do not belong to the same grasp type, and $y_{\\tilde{g}}$ is one that does. (negative incorporation of the $MSE(Enc(y_g),Enc(y_\\tilde{g}))$ ? that means $gamma$ needs to be negative.)\n$\\alpha, \\beta, -\\gamma \\geq 0$"
+    },
+    {
+      "type": "markdown",
+      "data": "To avoid overfitting, gaussian noise with standard deviation of 0.1 is applied on the latent space during training. Expected to increase the size of the grasp type clusters and use of latent space by encoder.\n\nSize of the object (1 dimensional information) is a ratio between the size of the object (1mm to 140 mm) to the length of the hand. Mapped to [-1, 1].\n\n_For the hyperparameters used to train this network, refer to the paper._\n\nBecause decoder is wide range of hand sizes, this results in a high variance in actual grasp width. So instead, they used soft synergies."
+    },
+    {
+      "type": "markdown",
+      "data": "## 4. Results\n\nShows that reasonable grasps can be generated, and the latent variables can be interpreted.\n\nTheir evaluations of the quality fo the grasp is more qualitative. (_is there a quantitative way to evaluate the quality/resemblance of a hand?_)"
+    }
+  ]
+}
