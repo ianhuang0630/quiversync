@@ -1,0 +1,37 @@
+{
+  "title": "Table of Contents",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "## Beginning"
+    },
+    {
+      "type": "markdown",
+      "data": "Hypothesized that the problem can be formulated interms of an online learning problem\n[Dec 26: {N} investigating infinite dimensional latent spaces -- what's been done already?](quiver-note-url/D75B8191-D52C-4345-AD1B-FE5AC17D6D7C)"
+    },
+    {
+      "type": "markdown",
+      "data": "Corrected previous formulations with reasons for why linear transformations to latent spaces do not work, with a proposal on a non-linear change\n[Jan 6: {N} Deeper thought into incrementing dimensions of L](quiver-note-url/8ECFB05F-F6C8-4286-9C1B-D9B2EE8172F4)"
+    },
+    {
+      "type": "markdown",
+      "data": "Suggested papers about Online Metric Learning\n[Dec 31: {N/ P} Suggested Online Learning Papers](quiver-note-url/C3AEABD2-BEFA-4DFA-B968-7B64558C406D)"
+    },
+    {
+      "type": "markdown",
+      "data": "Why do we even need an infinite latent space? In what case would we need to increase dimensions? Working out the formal justification for infinite latent space for metric learning.\n[Jan 13: {N} Formalization of Motivation](quiver-note-url/220E974A-FFF7-406D-AB1C-8268EC9D184A)"
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "title": "Table of Contents",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "## Beginning"
+    },
+    {
+      "type": "markdown",
+      "data": "### For saliency experiments"
+    },
+    {
+      "type": "markdown",
+      "data": "Learning Pytorch\n[Dec 30: {C} Pytorch tutorial](quiver-note-url/2680795B-67E7-4B6F-A8B0-B2A663757360)"
+    },
+    {
+      "type": "markdown",
+      "data": "POET dataset\n[Jan 1: {D} POET dataset — a simpler Salicon](quiver-note-url/704B0C80-3735-4E06-AB5F-47509CD46F10)"
+    },
+    {
+      "type": "markdown",
+      "data": "Implementations of segmentation networks to do tests\n[Jan 4: {C/P} Fully Convolutional Neural Net to do segmentation](quiver-note-url/18BD5221-18BA-4930-9BD4-F821BD7C43B5)"
+    },
+    {
+      "type": "markdown",
+      "data": "### For potential applications in lifelong learning"
+    },
+    {
+      "type": "markdown",
+      "data": "Investigating into Online Learning\n[Jan 1: {N} Online/lifelong deep learning](quiver-note-url/A9B6B858-DAA0-498C-9F42-7E39E40EB314)"
+    },
+    {
+      "type": "markdown",
+      "data": "Lifelong Learning Review\n[Jan 1: {P} Continual Lifelong Learning with Neural Networks: A Review](quiver-note-url/87B2C991-BDF3-4465-96F7-C1B27241B52D)"
+    },
+    {
+      "type": "markdown",
+      "data": "Deep dive in automated curriculum learning\n[Jan 8: {P} Automated Curriculum Learning for Neural Networks](quiver-note-url/BC24748A-D586-4373-8F6E-371A6C0AF997)"
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    }
+  ]
+}

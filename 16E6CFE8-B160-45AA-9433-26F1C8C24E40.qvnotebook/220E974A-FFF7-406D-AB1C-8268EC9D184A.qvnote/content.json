@@ -1,0 +1,41 @@
+{
+  "title": "Jan 13: {N} Formalization of motivation",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "## Small Note"
+    },
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "Is affine linear? Given $\\phi = A\\vec{x} + \\vec{b}$, does $\\phi(x+y) = \\phi(x)+\\phi(y)$ ? No.\n$\\phi(x+y) = A(\\vec{x}+\\vec{y}) + \\vec{b} = A\\vec{x} + A\\vec{y} +\\vec{b} \\not = \\phi(x)+\\phi(y)$"
+    },
+    {
+      "type": "markdown",
+      "data": "## What's the problem?"
+    },
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "If we want to arrange 2 points in $\\mathbb R^1$ such that they are equally as far away from one another without being the same point, we can find such a configuration (any two points $a$ and $b$ such that $a \\not = b$ satifies the conditions). But we cannot fit in a 3rd point such that any two points is a constant distance apart.\n\nSimilarly, in 2 dimensions, only 3 points can be arranged to satisfy the above conditions. For the 4th point to be added into this space, one *must* increase the latent space's dimensions.\n\nIn metric learning, suppose one allows the user to define distance by some unknown metric between two samples. If the user dictates that a 4th point is equally as far away from every one of the 3 points as each point in the 3 is to one another, then one must increase the space's dimensions to accomodate for this constraint.\n\nThe hypothesis is that a modified linear mapping $L'=[L; \\vec{v}^T]$ cannot achieve this, for the reason that the rank of the transformation is going to still be the minimum between the dimensions of the matrix $L$. As such, the dimensionality of the subspace onto which $L$ maps $x$ is still going to be effectively the same \"dimension\" as the input space, and the same limitations that we've just seen on the number of points that can satisfy the constraints apply.\n"
+    },
+    {
+      "type": "markdown",
+      "data": "## Proving that for $n$ dimensions, a maximum of $n+1$ points can be placed into this and satisfy the conditions. "
+    },
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "Can we prove that for all $n \\geq 1$, the maximum number of points $s = n+1$?\n\nDefine $\\mathcal E_r(x) = \\{ a \\mid a \\in \\mathbb R^n, ||x-a|| = r \\}$. Then the problem reduces down to proving that in a $n$-dimensional space,\n$$ \\bigcap_{x \\in S} \\mathcal E_r(x) = \\emptyset$$\nwhere $|S| = n+1$ and $\\forall \\vec{a},\\vec{b} \\in S \\ \\ s.t. \\ a \\not = b, ||\\vec{a} - \\vec{b}|| = C$ where $C \\in \\mathbb R$ is a constant. \n\nThere may be an existing proof out there? Looks to me as if this is something that can be proved using induction.\n"
+    },
+    {
+      "type": "markdown",
+      "data": "## What other conditions exist where only so many of them can be satisfied in an $n$-dimensional latent space? "
+    },
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "What sort of knowledge can/can't we capture in $n$ dimensions? And can an affine modified $L$ fix this? What about inequality constraints?\n"
+    }
+  ]
+}
