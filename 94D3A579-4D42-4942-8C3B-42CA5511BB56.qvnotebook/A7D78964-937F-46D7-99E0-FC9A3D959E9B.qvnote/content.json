@@ -1,0 +1,169 @@
+{
+  "title": "Jan 14: Schools, Professors and Labs",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "## Stanford\nList found at : [AI catalog](http://ai.stanford.edu/)"
+    },
+    {
+      "type": "markdown",
+      "data": "Silvio Savarese\n[Webpage](http://cvgl.stanford.edu/silvio/)\nINterests: Computer vision, robotics\nLab affiliation: [SVL](http://svl.stanford.edu/)"
+    },
+    {
+      "type": "markdown",
+      "data": "Feifei Li\n[Webpage](http://vision.stanford.edu/feifeili/)\nInterests: Computer vision\nLab affiliation: [SVL](http://svl.stanford.edu/)"
+    },
+    {
+      "type": "markdown",
+      "data": "Emma Brunskill\n[Webpage](http://www.cs.cmu.edu/~ebrun/)\nInterests: Reinforcement learning and interactive learning\nLab affiliation: "
+    },
+    {
+      "type": "markdown",
+      "data": "Juan Carlos Niebles\n[Webpage](http://www.niebles.net/)\nInterests: Computer vision, autonomous driving\nLab affiliation: [SVL](http://svl.stanford.edu/)"
+    },
+    {
+      "type": "markdown",
+      "data": "Dorsa Sadigh\n[Webpage](https://dorsa.fyi/)\nInterests: Interactive autonomous systems\nLab affiliation: [Iliad lab](http://iliad.stanford.edu/)"
+    },
+    {
+      "type": "markdown",
+      "data": "Leonidas J. Guibas\n[Webpage](https://geometry.stanford.edu/member/guibas/)\nLab affiliation: Leonidas Guibas Lab"
+    },
+    {
+      "type": "markdown",
+      "data": "Jeanette Bohg\n[Webpage](https://am.is.tuebingen.mpg.de/person/jbohg)\nLab affiliation: "
+    },
+    {
+      "type": "markdown",
+      "data": "Sebastian Thrun\n[Webpage](http://robots.stanford.edu/)\nInterests: AI for healthcare, AI for people-prediction, smart homes\nlab affiliation: The Thrun lab"
+    },
+    {
+      "type": "markdown",
+      "data": "Chris Manning\n[Webpage](https://nlp.stanford.edu/manning/)\nInterests: NLP, NLU, Universal Depencencies, Language Learning through interaction, Deep learning\nLab affiliation: [Stanford NLP group](http://nlp.stanford.edu/)"
+    },
+    {
+      "type": "markdown",
+      "data": "Dan Jurafsky\n[Webpage](https://web.stanford.edu/~jurafsky/)\nInterests: NLP, applications in cognitive and social sciences\nLab affiliation: [Stanford NLP group](http://nlp.stanford.edu/)"
+    },
+    {
+      "type": "markdown",
+      "data": "## MIT\nList found at: [CSAIL catalog](https://www.csail.mit.edu/people?person%5B0%5D=role%3A299)"
+    },
+    {
+      "type": "markdown",
+      "data": "William Freeman\n[Info](https://www.csail.mit.edu/person/william-freeman)\n[Website](https://billf.mit.edu/)\nInterests: Vision, machine learning, Bayesian modeling\nLab affiliation: [Vision Group](https://www.csail.mit.edu/research/vision-group), [Computer Graphics Group](https://www.csail.mit.edu/research/computer-graphics-group)\nEmail: billf@csail.mit.edu"
+    },
+    {
+      "type": "markdown",
+      "data": "Leslie Kaelbling\n[Info](https://www.csail.mit.edu/person/leslie-kaelbling)\n[Website](http://people.csail.mit.edu/lpk/)\nInterests: Situated agents (?), Mobile robotics, RL, decision-theoretic planning. \nLab affiliation: [Learning and Intelligent Systems](https://www.csail.mit.edu/research/learning-and-intelligent-systems) [Machine Learning](https://www.csail.mit.edu/research/machine-learning)\nEmail: lpk@csail.mit.edu"
+    },
+    {
+      "type": "markdown",
+      "data": "Julie Shah \n[Info](https://www.csail.mit.edu/person/julie-shah)\nInterests: Human-guided Transfer for robot learning, Human-Robot interaction\nLab affiliation: [Interactive Robotics Group](https://www.csail.mit.edu/research/interactive-robotics-group)\nEmail: julie_a_shah@csail.mit.edu"
+    },
+    {
+      "type": "markdown",
+      "data": "Tomas Lozano-Perez\n[Info](https://www.csail.mit.edu/person/tomas-lozano-perez)\n[Website](http://people.csail.mit.edu/tlp/)\nInterests: Configuration-space approach to motion planning (Robotics), Computer vision (interpretation-tree approach to object recognition), machine learning (multiple-instance learning)\nLab affiliation: [Learning and Intelligent Systems](https://www.csail.mit.edu/research/learning-and-intelligent-systems)\nEmail: tlp@csail.mit.edu"
+    },
+    {
+      "type": "markdown",
+      "data": "Tomasco Poggio\n__heavyweight__\n[Info](https://www.csail.mit.edu/person/tomaso-poggio)\n[Lab Website](http://cbmm.mit.edu/)\nInterests: Machine Learning, Neural science and Robotics\nLab affiliation: [Center for Brains, Minds and Machines](https://www.csail.mit.edu/research/center-brains-minds-and-machines) (_he's the lead for this one_)\nEmail: tp@csail.mit.edu\n"
+    },
+    {
+      "type": "markdown",
+      "data": "Stefanie Mueller\n[Info](https://www.csail.mit.edu/person/stefanie-mueller)\n[Website](http://www.stefaniemueller.org/)\nInterests: Advanced personal fabrication technologies (3d printer)\nLab affiliation: [HCI Engineering group](https://www.csail.mit.edu/research/hci-engineering-group), [Human-Computer Interaction](https://www.csail.mit.edu/research/human-computer-interaction)\nEmail: stefanie.mueller@mit.edu"
+    },
+    {
+      "type": "markdown",
+      "data": "Antonio Torralba\n_did some work on attention prediction, could be interesting to talk to_\n[Info](https://www.csail.mit.edu/person/antonio-torralba)\n[Website](http://web.mit.edu/torralba/www//)\nInterests: Computer vision, multi-modal learning\nLab affiliation: [Vision Group](https://www.csail.mit.edu/research/vision-group), [Computer Graphics Group](https://www.csail.mit.edu/research/computer-graphics-group)\nEmail: torralba@csail.mit.edu"
+    },
+    {
+      "type": "markdown",
+      "data": "Joshua Tenenbaum\n[Info](https://www.csail.mit.edu/person/joshua-tenenbaum)\n[Website](http://web.mit.edu/cocosci/josh.html)\nInterests: Machine learning, coming close to human learning abilities. Driven by appraoch to better understand human learning. \nLab affiliation: [Center for Brains, Minds and Machines](https://www.csail.mit.edu/research/center-brains-minds-and-machines), [Computational Cognitive Science Group](https://www.csail.mit.edu/research/computational-cognitive-science-group)(_he's the lead for this one_)\nEmail: jbt@csail.mit.edu"
+    },
+    {
+      "type": "markdown",
+      "data": "Brian Williams\n[Info](https://www.csail.mit.edu/person/brian-williams)\n[Website](http://people.csail.mit.edu/williams/Web%20site/williams.shtml)\nInterests: long-living autonomous systems, realization of \"common sense\" reasoning\nLab affiliation: [Model-based embedded and robotics systems group](https://www.csail.mit.edu/research/model-based-embedded-and-robotics-systems-group)\nEmail: williams@csail.mit.eduon/"
+    },
+    {
+      "type": "markdown",
+      "data": "Regina Barzilay\n[Info](https://www.csail.mit.edu/person/regina-barzilay)\nInterests: NLP, ML\nLab affiliation: [Natural Language Processing Group](https://www.csail.mit.edu/research/natural-language-processing-group)\nEmail: regina@csail.mit.edu"
+    },
+    {
+      "type": "markdown",
+      "data": "Ruth Rosenholtz\n[Info](https://www.csail.mit.edu/person/ruth-rosenholtz)\nInterests: Computer vision and user interfaces. Preattentive texture processing, visual search and __visual saliency__ and perceptual organization.\nLab affiliation: [Vision Group](https://www.csail.mit.edu/research/vision-group)\nEmail: rruth@csail.mit.edu"
+    },
+    {
+      "type": "markdown",
+      "data": "## CMU\nList found at: [Robotics Institute](https://ai.cs.cmu.edu/faculty-listing#department-robotics-institute), [Machine Learning Department](https://ai.cs.cmu.edu/faculty-listing#department-machine-learning-department), [Language Technologies Institute](https://ai.cs.cmu.edu/faculty-listing#department-language-technologies-institute)"
+    },
+    {
+      "type": "markdown",
+      "data": "Maria-Florina Balcan\n[Website](http://www.cs.cmu.edu/~ninamf/)\nInterests: Interactive learning, Lifelong learning and metalearning. \nEmail: ninamf@cs.cmu.edu "
+    },
+    {
+      "type": "markdown",
+      "data": "Geoffrey Gordon\n[Website](http://www.cs.cmu.edu/~ggordon/)\nInterests: multi-agent planning, reinforcement learning, decision-theoretic planning\nLab affiliation: SELECT Lab\nEmail: ggordon@cs.cmu.edu"
+    },
+    {
+      "type": "markdown",
+      "data": "Manuela M Veloso\n[Website](https://www.cs.cmu.edu/~mmv/)\nInterests: Multi-robotic. \nEmail: mmv@cs.cmu.edu"
+    },
+    {
+      "type": "markdown",
+      "data": "Henny Admoni\n[Website](http://hennyadmoni.com/)\nInterests: Robot helping humans on complex task. human-robot interaction\nLab affiliation: [Human and Robot Partners (HARP) Lab](http://harp.ri.cmu.edu/)\nEmail: henny@cmu.edu"
+    },
+    {
+      "type": "markdown",
+      "data": "Christopher G. Atkeson affiliation\n[Website](http://www.cs.cmu.edu/~cga/)\nInterests: Robotics, Machine Learning, Learning from demonstraition, RL\nEmail: cga@cmu.edu"
+    },
+    {
+      "type": "markdown",
+      "data": "Andrew Bagnell\n[Website](https://www.ri.cmu.edu/ri-people/j-andrew-drew-bagnell/)\nINterests: AI reasoning, learning and classification"
+    },
+    {
+      "type": "markdown",
+      "data": "Fernando De la Torre Frade"
+    },
+    {
+      "type": "markdown",
+      "data": "Abhinav Gupta"
+    },
+    {
+      "type": "markdown",
+      "data": "David Held"
+    },
+    {
+      "type": "markdown",
+      "data": "Jean Hyaejin Oh"
+    },
+    {
+      "type": "markdown",
+      "data": "Jeff Schneider"
+    },
+    {
+      "type": "markdown",
+      "data": "## Berkeley\nList found at: [BAIR faculty listing](https://bair.berkeley.edu/faculty.html)"
+    },
+    {
+      "type": "markdown",
+      "data": "Peter Abeel"
+    },
+    {
+      "type": "markdown",
+      "data": "Michael Jordan"
+    },
+    {
+      "type": "markdown",
+      "data": "Ken Goldberg"
+    },
+    {
+      "type": "markdown",
+      "data": "## Columbia"
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    }
+  ]
+}
