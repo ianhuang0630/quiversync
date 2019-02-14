@@ -1,0 +1,44 @@
+{
+  "title": "Jan 24: {N} Operating Systems",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "## History of unix \nUNIX is written in C, earlier operating systems were written in assembly\n\n4.4BSD (Berkeley Software Distribution) most prominent UNIX variant\n\nCurrently, 4 main competitors left in UNIX:\n- Linux \n- solaris (not really relevant anymore)\n- FreeBSD: very stable, and high performance on networks (netflix uses FreeBSD)\n- Mac OSX: combo of Mach kernel and FreeBSD. At the core, it's actually more BSD.\n\nWe are going to use Linux. when we say OS, we mean kernel. Applications on any unix OS can run on other unix OS's.\n\nWe are using the Debian distribution, and is what Ubuntu is based on. Arch is another one, but quickly evolving.\n\nSteve Job's NeXT was FreeBSD + graphics, which is basically the MacOSX that we know today."
+    },
+    {
+      "type": "markdown",
+      "data": "## For next time,\n- [ ] install virtual box and Debian\nDon't follow the steps without understanding what is happening. \nYou can configure the linux OS any way you want."
+    },
+    {
+      "type": "markdown",
+      "data": "## Linux operating systems\n[Notes from class](http://www.cs.columbia.edu/~jae/4118/L02-boot-to-panic.html)\n### Booting process:\nBoot -> ROM code -> self-test, basic initializations -> Master Boot record loads boot loader, ...\n\n`/sbin/init` is mother of all processes. It reads `/etc/inittab`.\n`init` calls `getty`, $n$ times, where $n$ is the number of terminals it opens. Normally there are 6 of them. (`cntrl-rightarrow` allows you to switch from tty$a$ to tty$a+1$)\n`getty` calls login, which then run's the user's shell. "
+    },
+    {
+      "type": "code",
+      "language": "sh",
+      "data": "ps axf # displays the process tree \nps axfj # with more info\nps axfjww ash\nps ajf # show's PPID (parent id). Orphan processes get adopted by PID 1"
+    },
+    {
+      "type": "code",
+      "language": "sh",
+      "data": "/bin/login --\n\\_ -bash\n    \\_ /bin/sh /usr/bin/startx\n        \\_ xinit /etc/X11/xinit/xinitrc\n            \\_ /usr/lib/xorg/Xorg\n            \\_ /bin/sh /etc/xdg/xfce4/xinitrc\n                \\_ xfce4-session\n                    # each of the below processes controls something on the screen\n                    \\_ xfwm4 --display :0.0 ...etc \n                    \\_xfce4-panel"
+    },
+    {
+      "type": "markdown",
+      "data": "X servers handle the graphics and UI. you can download an Xserver on your computer and then port the relevant processes to your computer through ssh -- so you can interact with the graphic user interfaces through ssh."
+    },
+    {
+      "type": "code",
+      "language": "c_cpp",
+      "data": "#include \"apue.h\"\n#include <sys/wait.h>\n\nint\nmain(void)\n{\n        char\tbuf[MAXLINE];\t/* from apue.h */\n        pid_t\tpid;\n        int\t\tstatus;\n\n        printf(\"%% \");\t/* print prompt (printf requires %% to print %) */\n        while (fgets(buf, MAXLINE, stdin) != NULL) { // gets user input\n                if (buf[strlen(buf) - 1] == '\\n')\n                        buf[strlen(buf) - 1] = 0; /* replace newline with null */\n                // child starts here after fork\n                if ((pid = fork()) < 0) { // fork() returns PID of child in parent, 0 in the child.\n                        err_sys(\"fork error\");\n                } else if (pid == 0) {\t\t/* child */\n                        execlp(buf, buf, (char *)0); // different versions of exec takes different parameters. execlp turns your child into a completely new program (entire memory gets wiped out). This program ceases to exist if it is a success.\n                        err_ret(\"couldn't execute: %s\", buf);\n                        exit(127);\n                }\n\n                /* parent */\n                if ((pid = waitpid(pid, &status, 0)) < 0)\n                        err_sys(\"waitpid error\");\n                printf(\"%% \");\n        }\n        exit(0);\n}"
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    }
+  ]
+}

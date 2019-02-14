@@ -1,0 +1,17 @@
+{
+  "title": "Jan 25: {N} Advanced Topics in Spoken Language ",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "## Intro\n- rising intonations for questions, falling intonations for statements and \"wh\" questions\n- Can create machine learning classifiers for spoken lies\n\nSpeech conveys\nEmotion, sarcasm, speech acts, humor, empathy (speaking like eachother makes other people like eachother), trust, likeability\nDeception, mental health, physical health (? what), autism, entrainment, charisma, vocal attractiveness, age and gender, personality\n\nSpeech Synthesis(TTS): Wavenet\nSpeech recognition: Nuance, [Kaldi](https://github.com/kaldi-asr/kaldi), Google, IBM"
+    },
+    {
+      "type": "markdown",
+      "data": "## Syllabus \nEverything on [coursewebsite](http://www.cs.columbia.edu/~julia/courses/CS6998-2019/syllabus19.html)\n\nPart 1: TTS, ASR, dialogue systems\nPart 2: speech analysis applications\n- entrainment, emotion, sentiment, decpetion ...etc\n\n__textbook__: Weekly reading is on the coursewebsite, from the following books\n- Jurafsky & Martin, Speech and Language PRocessing, 3rd eddition draft is online.\n- OPtional: Acoustic and auditory phonetics, Keith Johnson (3rd edition) __There's a copy in the lab, can read it there.__\n\n\n"
+    },
+    {
+      "type": "markdown",
+      "data": "\n## Rose's work\nTTS with prosody\n\"Prosody\": properties of speech beyond phonetics. (intonation, phrasing, accent). Can alter meaning. \n\n## Brenda's work\nREcognize emotion in Arousal-Valence space\nDeep learning model to do regression. Inputs are waveform and spectralgram.\nModel actually captures some semantic information of the word through speech."
+    }
+  ]
+}

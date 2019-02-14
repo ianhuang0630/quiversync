@@ -1,0 +1,29 @@
+{
+  "title": "Jan 22: {P} Decoding the grasping intention from electromyography during reaching motions",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "## Parent note\n[void]\n## Link\n[Paper](https://jneuroengrehab.biomedcentral.com/track/pdf/10.1186/s12984-018-0396-5)"
+    },
+    {
+      "type": "markdown",
+      "data": "## Summary\nProposes electormyography (EMG)-based learining appraoch to decode the grasping intention during the reaching motion. 5 different grasp types, while extension of the arm and EMG were recorded. For classification, tested Linear Discriminant Analysis (LDA), Support Vector Machines (SVM) with linear and non-linear kernels, Echo State Network (ESN) approach. Offline analyssi shows that high performance (> 80% classification accuracy) is possible before reaching the end of the motion with three-grasp types."
+    },
+    {
+      "type": "markdown",
+      "data": "## Intro\n\nAmputees genearlly have fewer independent sites for EMG than the number of DOF's in the prosthetic, so cannot rely on one-to-one EMG-to-DOF control. Claims that the motion before a grasp happens is pretty important.\n"
+    },
+    {
+      "type": "markdown",
+      "data": "## Methods\n### Experimental protocol\n8 able-bodied subjects + 4 \"unilateral transradial amputees\" \nright handed\nAsked to reach for the object with predefined grasp type. Control Algorithms for Prosthetics Systems (CAPS) prompted users to intiate the reach-to-grasp motion, and to go back to resting position. Object placed 30 Cm away from initial postiion of hand. Duration of each trial was 4 s with 10 s rest between trials. Each subject performed 30 trials for 5 grasp types, 150 trials total.\n\n### Apparatus + preprocessing\nEMG sdignals require 1000 Hz with 30-350 Hz band-pass filter\nEMG signal of 12 muscles recorded (8 muscles of upper arm + 5 muscles of forearm)\nTo construct linear envelope, did full-wave rectification + ssmoothing with \"low-pass seventh-order butterworth filter\" with cutoff frequency of 20 Hz. Each channel noramlized by maximum value recorded in trials.\n\n### Phases of motion\nhands typically open rapidly during the early stages of the reaching motion, then decreases velocity as reaching the final config. \n\n(__reaching cycle__) first phase is interval from motion onset (velocity > some threshold) to maximum angular velocity. \nsecond phase is interval from maximum angular velocity to end of reaching motion ( velocity < some threshold )\nthird phase is after the end of reaching motion.(25% of duration of reaching motion sdelected after the velocity drops below some threshold).\nIn all 3 phases, velocity threshold set to 10% of maximum angular velocity recorded for each subject.\n\nMANOVA on the average values of the 12 EMG channels over the three phases showed significance. Average activity of each channel in sliding windows over time form $n$ dimensional vector (with $n$ being the number of channels) was formed. _What the fuck is this PCA even doing?_\n\n\"A principal component analysis (PCA) was performed with the data from the third phase and the two remaining phases were projected into the new hyperplane.\"\n"
+    },
+    {
+      "type": "markdown",
+      "data": "## Classification\nWindow sizes were 150 ms long and increments were 50 ms. Average forms a vector?\n\nFor each subject, 10 trials for testing set, 20 trials for training + validation\na four-fould corss-validation was performed to optimize hyper-parameter for each classifcation method\n\nFor each classification method, _one classifier was trained per subject_. THe classfication algorithms' decisions were compounded using the \"Majority Vote\" (MV) algorithm with a buffer of 0.5 s history to predict the winning class. (_this means that the models don't get any temporal information at all, which is retarded. Moreover, it seems that only the last 0.5s of history is kept, but that is a boundary that isn't at all learned._)\n\nFor LDA + SVM, 3 features per time window\n- average activation\n- waveform length\n- the number of slope changes.\n\nfor ESN, did not extract feature extraction, treatedsproblem as multidimensional time-series problem. (__but since this classification was done on a small window, the temporal information was limited.__)\n\nLDA's have shown to do well in classifying EMG signals.\nESN's are effectively an RNN that has attarcted substantial interest due to performance in time-series. "
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    }
+  ]
+}

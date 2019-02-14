@@ -1,0 +1,57 @@
+{
+  "title": "Feb 8: {N} Spoken Language processing",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "## Clarification from last time\nPhoneme - single unit of sound that underpins the meaning of a word\nphones - sounds that don't underpin the meaning"
+    },
+    {
+      "type": "markdown",
+      "data": "## Acoustics of speech\nDistinguish one phoneme from another\nDetermine _how_ things are said\n\nSome features extracted from sound\n- Fundamental frequency\n- amplitude energy\n- spectral features\n- timing\n\nWe consider sound that isn't speech as _noise_. Ratio of speech-generated sound to other sounds: _signal to noise ratio_.\n\nIn order to accurately measure a wave, at least 2 samples per cycle. **e.g. 100 hz waveform needs 200 samples per second**.\n\n_Nyquist frequency_: highest frequency that can be captured by sample rate. 800 sample rate -> 400 Hz.\n\nHuman hearing: 20K top frequency\nTelephone speech 300-4k Hz (8k sampling)\n\n## Sampling\n_aliasing_: Signal frequency higher than Nyquist frequency becomes indistinguishable\n_Quantization_: measuring the amplittude at sampling points. Integer representation, noise due to quantization steps avoided by higher resolution.\n_clipping_: occurs when input volume is greater than the range in amplitude exceeds the accepted amount. Solutions: increasing resolutions, manage volume ranges\n\nWAV format , Sox is software"
+    },
+    {
+      "type": "markdown",
+      "data": "## Estimating pitch\nFrequency = cycles per second\nsimple approach: zero crossings. you count the number of times it crosses the 0 axis. (very inaccurate)\n\n_Autocorrelation_:\nFigure out the period between successive cycles fof the wave. find the similarity between the signal and a shifted version of itself. period is the chunk of the segment that matches best with the next chunk. (sliding window technqiue)\nParameters:\n- window size\n- step size\n- frequency range \nErrors:\n- Halving: shortest lag calculation is too long\n- doubling : shortest lag calculatin too short \n\nRising pitches tell us question vs. statements at the end of the statement. Sarcasm detection. "
+    },
+    {
+      "type": "markdown",
+      "data": "## Pitch vs. F0\npitch is not proportional to f0. Less sensitive at higher frequencies, roughly > 1000 hz. \nMel is used to measure pitch \n[More on mel](https://en.wikipedia.org/wiki/Mel_scale)\n"
+    },
+    {
+      "type": "markdown",
+      "data": "## Intensity\nPerceived as loudness\nMeasured in decibels (dB):\nIntensity = $10log_{10} \\frac{1}{NP_0} \\sum_{i=1} ^n  x_i^2$\n- $P_0$ is the auditory threshold pressure $2x10^-5$ Pa\n"
+    },
+    {
+      "type": "markdown",
+      "data": "## Voice quality\n_Jitter_: \nrandom cycle-to-cycle variablity in $F_0$\nPitch perturbation. Measured as the mean of cycle-to-cycle absolute differences. (measured in percent)\n\n_Shimmmer_:\nrandom cycle-to-cycle variability in amplitude\namplitude perturbation (measured in decibels)\n"
+    },
+    {
+      "type": "markdown",
+      "data": "## HNR\nharmonics to noise ratio\n- Ratio between periodic and aperiodic components of a voiced speech segment.\n- periodic Vocal fold vibration\n- non-periodic: glottal noise. \n- Lower HNR = more noise in signal, percieved as hoarseness, breathiness, roughness\n"
+    },
+    {
+      "type": "markdown",
+      "data": "## Reading waveforms\n- vowels tend to be more intense, with higher amplitude\n- Fricative: (sh) in she. Non-vowel, but has pretty big amplitude."
+    },
+    {
+      "type": "markdown",
+      "data": "## Spectrum\nrepresentaiton of the different frequency components of a wave. Computed by fourier transform. \nLinear Predictive Coding (LPC) spectrum - smoothed version of the spectrum.\n\nPhones have very specific spectral signatures. \n\nA _spectrogram_ shows spectrum changing over time. "
+    },
+    {
+      "type": "markdown",
+      "data": "## Source filter model\nsource = glottis\nfilter= vocal tract\n"
+    },
+    {
+      "type": "markdown",
+      "data": "## MFCC\nsounds that we generate are filtered by shape of vocal tract. Similar to spectral features, but we use the mels scale. \nMFCC is a common features for speech recognition. State of the art for a very long time, but now we use deep learning. \n"
+    },
+    {
+      "type": "markdown",
+      "data": "- [ ] Before Next class: Download pratt from link on the course syllabus page. Read Pratt tutorial, bring laptop and headphones for next lecture"
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    }
+  ]
+}

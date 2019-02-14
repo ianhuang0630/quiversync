@@ -1,0 +1,60 @@
+{
+  "title": "Jan 29: {N} Operating systems",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "Processes whose parents are killed, system adopts it.\n\nSee parent ID using: ```ps ajf```\n\nWhen a process gets orphaned, it gets adopted by process id #1, which is the `init` process, the very first process that the kernel starts up. \n\nIf child terminates before parent calls `waitpid`, the process tree preserves  the child in the tree. Until the struct is deallocate, the child process is marked by `<defunct>` (another way to say this is that it's a zombie, STAT would show `Z+`).\n\nZombie process - Child process terminated, but parent has not called `waitpid`.\n\nIf parent doesn't call `waitpid`, then child is zombie until adopte by `init`, which always calls `waitpid` and will thus deallocate the zombie child.\n\n\n"
+    },
+    {
+      "type": "markdown",
+      "data": "## Signals\n\nMany mechanism for processes to communicate with eachother. Signal is one way to do that. \n\nWhat does cntrl-C do? Sends a signal to a process.\n\n`man 1 kill`: for bash commands \n`man 2 kill`: for lower-level unix system calls\n`man 3 kill`: for C library functions\n\n`man 7 signal`: Concept page.\n\nThe terminal program interprets cntrl+C, calls `kill PID 2` (2 for interruption-from-keybaord (`SIGINT`)). \n\nkill in bash is signal 15, not 2. (termination signal)\n"
+    },
+    {
+      "type": "code",
+      "language": "c_cpp",
+      "data": "#include <signal.h>\n\nstatic void sig_int(int signo){\n    printf(\"stop pressing cntrl-c\\n\");\n}\n\nint main(){\n    if (signal(SIGINT, &sig_int) == SIG_ERR){\n        perror(\"signal() failed\");\n        exit(1);\n    }\n    ...etc\n}"
+    },
+    {
+      "type": "markdown",
+      "data": "Signal 9 (KILL) cannot be caught"
+    },
+    {
+      "type": "markdown",
+      "data": "## IO\n`open`, `creat`, `close`, `lseek`, `read`, `write`\nFile IO system calls"
+    },
+    {
+      "type": "markdown",
+      "data": "[figure 3.7 APUE](http://www.cs.columbia.edu/~jae/4118/L03/fig3.7.jpg)\n- Rightmost structure either indicates a file or device.\n- Middle layer store some sort of metadata. Stores \"offset\" (`fseek`)\n- i_node structure represents the file.\n- **What's the role of v-node table entry vs. inode?**"
+    },
+    {
+      "type": "markdown",
+      "data": "[figure 3.8 APUE](http://www.cs.columbia.edu/~jae/4118/L03/fig3.8.jpg)\n- Two users this time, running different programs but accessing the same files\n- Middle layer structure has file offset\n- Each user maintains their own offset (middle layer)"
+    },
+    {
+      "type": "markdown",
+      "data": "[fig 3.9, APUE](http://www.cs.columbia.edu/~jae/4118/L03/fig3.9.jpg)\n- Two file pointers pointing to the exact same file\n- `dup(1)` assigns the next available file descriptor to point to the same file, file descriptor `1`."
+    },
+    {
+      "type": "markdown",
+      "data": "[Fig 8.2 APUE](http://www.cs.columbia.edu/~jae/4118/L03/fig8.2.jpg)\n- Child gets a `dup` of the file descriptors, except the file descriptor for the child process is the same... _See the diagram_\n- The middle layer is the same for both child and parent processes"
+    },
+    {
+      "type": "code",
+      "language": "c_cpp",
+      "data": "#include <stdio.h>\n#include <unistd.h>\n#include <sys/types.h>\n#include <sys/stat.h>\n#include <fcntl.h>\n\nint main()\n{\n    char c;\n    int fd;\n    mode_t mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH;\n\n    const char *pathname = \"open-then-fork.out\";\n    fd = open(pathname, O_WRONLY | O_CREAT | O_TRUNC, mode);\n    if (fork() == 0)\n        sleep(1); // each goes one after the other\n\n    for (c = 'A'; c < 'A' + 5; c++) {\n        write(fd, &c, 1);\n        sleep(2);\n    }\n\n    close(fd);\n    return 0;\n}"
+    },
+    {
+      "type": "markdown",
+      "data": "In the above program, we expect `AABBCCDDEE` to be written. THis is because the two processes are sharing the file offset entry. The below `fork`s first before `open`. We expect `ABCDE`."
+    },
+    {
+      "type": "code",
+      "language": "c_cpp",
+      "data": "#include <stdio.h>\n#include <unistd.h>\n#include <sys/types.h>\n#include <sys/stat.h>\n#include <fcntl.h>\n\nint main()\n{\n    char c;\n    int fd;\n    mode_t mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH;\n\n    const char *pathname = \"fork-then-open.out\";\n    if (fork() == 0)\n        sleep(1);\n    // Child process will keep overwriting parent's file\n    fd = open(pathname, O_WRONLY | O_CREAT | O_TRUNC, mode);\n\n    for (c = 'A'; c < 'A' + 5; c++) {\n        write(fd, &c, 1);\n        sleep(2);\n    }\n\n    close(fd);\n    return 0;\n}"
+    },
+    {
+      "type": "markdown",
+      "data": "If you close the file descriptor, it will clear the file descriptor in the parent process, but it will not deallocate the middle layer if there is another process using that file."
+    }
+  ]
+}

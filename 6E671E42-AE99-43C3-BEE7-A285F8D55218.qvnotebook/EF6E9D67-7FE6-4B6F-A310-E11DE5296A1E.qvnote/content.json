@@ -1,0 +1,17 @@
+{
+  "title": "Feb 1: {N} Advanced Topics in Spoken Language Processing",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "## Representations of sounds\nSingle letter may have different acoustic realizations (in _orthographic_ representation). Need a better system to notate the different sounds, since not one-to-one.\n\n_Phonetic symbol sets_: \n_Interantional Phonetic Alphabet_: IPA sets contains hundreds of different symbols, picks out different ones for different languages. A single symbol for every sound accross all sounds of the world's languages.\n\n_ARPAbet, TIMIT, ..._: Ascii but multiple characters for sounds (english only though.)\n\nThese don't capture the transitions between different sounds."
+    },
+    {
+      "type": "markdown",
+      "data": "## Phones vs. Phonemes vs Allophones\n_Phones_: distinct sounds of language whether it convsains meaning or not\n\n_Phonemes_: collection of sounds that convey the same meaning and can change meaning of a waord if exchanged for another phoneme\n\n_consonants_: Restriction/blockage of air flow, and can be voiced or voiceless\n_vowels_: Generally voiced\n_semivowels_(glides): sort of consonants sort of vowels\n"
+    },
+    {
+      "type": "markdown",
+      "data": "Vowels are where the amplitude is highest.\nEngineers ranslate brain singals directly into speech"
+    }
+  ]
+}

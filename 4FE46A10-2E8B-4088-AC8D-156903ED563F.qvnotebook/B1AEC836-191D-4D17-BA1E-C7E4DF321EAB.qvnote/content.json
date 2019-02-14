@@ -1,0 +1,35 @@
+{
+  "title": "Jan 24: {N} Carl’s lecture on data effectiveness",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "Unreasonable Effectiveness of Data: \n\nSimple algorithms + bigger datasets are much better than complicated algorithms\n\nSmall dataset --> extrapolation problem\nLarge dataset --> interpolate problem\n"
+    },
+    {
+      "type": "markdown",
+      "data": "__Dataset Distillation__\n_TongZhou Wang et. al._\n- How much data do you really need?\n- They want to condense the amount of data into a single sample that allows high performance only after one SGD step"
+    },
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "Loss function:\n$\\theta^* = argmin \\frac{1}{N} \\sum_{i=1}^{N} \\mathcal l(x_i, \\theta)$\n$\\theta_{t+1} = \\theta_{t} - \\eta \\nabla \\mathcal l(x_i)$\n\nwant to find minimal dataset $\\tilde x$ and learning rate $\\tilde \\eta$ such taht after one gradient step, performance is high.\n$\\theta_1 = \\theta_0 - \\tilde \\eta \\nabla_{\\theta_0} J(\\theta_0)$\n"
+    },
+    {
+      "type": "markdown",
+      "data": "The Curious Case of Visual Data\nJFT-300M. 3 million images, 3.75 million labels. Doing this because massive performance boost just because of more data.\n\nBut labeling data is so expensive. So two different approaches\n- Unsupervised learning\n- Self-supervised learning -- using data to get more data.\n\nConventional wisdom -- use pretrained models on massive datasets on smaller datasets to finetune\n\n__Rethinking imageNet pretraining__\n_Kaiming He et al._\n\n__Are all training examples equally valuable?__\n_Agata Lapedriza et al. 2013_\nThere exists a more valuable subset of the data that can reach a higher performance. (So more data can hurt.)\n\n"
+    },
+    {
+      "type": "markdown",
+      "data": "## Meta-learning \nRecent trend\nMeta-learning - how do you learn a learning algorithm? \nIn meta-learning, you have a distribution of training sets. and a distribution of testing sets. Goal is to get a model that quickly learn when presented with a novel training set.\n"
+    },
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "Input: $\\mathcal D_{train}$, $x_{test}$\nwhere $D_{train} = \\{ (x,y)_{1:K}\\}$\n$y_{test} = f(\\mathcal D_{train}, x_{test}; \\theta)$\n\nYou have a distribution of tasks"
+    },
+    {
+      "type": "markdown",
+      "data": "__Model Agnostic Meta Learning (MAML)__\n_Chelsea Finn et al. Peter Abeel's group_\n"
+    }
+  ]
+}

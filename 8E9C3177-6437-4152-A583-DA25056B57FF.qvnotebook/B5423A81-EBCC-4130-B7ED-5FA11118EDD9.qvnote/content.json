@@ -1,0 +1,21 @@
+{
+  "title": "Jan 22: {P} Comparison of six electromyography acquisition setups on hand movement classification tasks",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "## Link\n[Paper](https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0186132&type=printable)"
+    },
+    {
+      "type": "markdown",
+      "data": "## Overall thoughts\nThis is mostly a comparison of hardware"
+    },
+    {
+      "type": "markdown",
+      "data": "## Summary\nThis is a comparison of different hardwares, each measured by presumbably the quality of the data that pops out of the other end of a data processing pipeline. Ther are six different sEMG devices tested."
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "title": "Feb 9: {N} The foundations of this project",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "## 1. How to measure \"memorability\"?"
+    },
+    {
+      "type": "markdown",
+      "data": "### 1.1 Looking at the analog of human memorability\nWe overfit on a single image, and then see how man images can be given to the neural network in a sequential online fashion before the network nolonger recognizes that image. That is, the measure is definedsas "
+    },
+    {
+      "type": "markdown",
+      "data": "### 1.2 An alternative that minimizes harm done on prior knowledge"
+    },
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "Let $N = {x_1, x_2 ... x_n}$ be the set of samples the network was trained on, with the set of distinct labels $Y_N$. Then we define the harm done on prior knowledge based on new image $ z $ as:\n\n$$ \\mathbb E_{c \\in Y_N} [ \\Delta e_c \\mid z, N] $$\n\nGiven a neural network,  $f: \\mathcal X \\to \\mathbb R ^ m$, where the output is a score for every one of the $m$ classes, we define the cross entropy loss as: \n\n$$e_c (\\theta') = \\frac{1}{|N_c |} \n\\biggr( \n\\sum_{j \\in N_c} \\log \\biggr( \\frac{\\exp(f(x_j ; \\theta'))_c)}\n{\\sum_k \\exp(f(x_j; \\theta')_k)} \\biggr)\n\\biggr)$$\n\nWhere:\n$N_c = \\{ x_i \\in N \\mid y_i = c \\}$\n$c \\in \\mathbb R$\n\nSimplifying the expression for $\\Delta e$, with $\\theta' = \\theta - \\eta \\nabla_\\theta \\mathcal l(f(z ; \\theta)) $ (i.e. $\\theta'$ is $\\theta$ after one gradient step prompted by new sample $z$):\n\n$$\\Delta e_c = e_c(\\theta') - e_c(\\theta) \\\\\n= \\frac{1}{|N_c |} \n\\biggr( \n\\sum_{x \\in N_c} \\biggr( \\log \\biggr( \\frac{\\exp(f(x ; \\theta'))_c)}\n{\\sum_k \\exp(f(x; \\theta')_k)} \\biggr) \n- \\log \\biggr( \\frac{\\exp(f(x ; \\theta))_c)}\n{\\sum_k \\exp(f(x; \\theta)_k)} \\biggr) \\biggr )\n\\biggr) \\\\\n= \\frac{1}{|N_c |} \\sum_{x \\in N_c} \\log \n\\frac {\\exp(f(x; \\theta')_c) \\sum_k \\exp(f(x;\\theta)_k)} \n{\\exp(f(x; \\theta)_c) \\sum_k \\exp(f(x; \\theta')_k)}$$\n"
+    },
+    {
+      "type": "markdown",
+      "data": "## 2. How to test? "
+    }
+  ]
+}

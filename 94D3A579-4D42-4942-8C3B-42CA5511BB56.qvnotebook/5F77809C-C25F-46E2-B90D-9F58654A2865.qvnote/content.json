@@ -1,0 +1,13 @@
+{
+  "title": "Feb 7: {E} Email to Savarese",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "[email](ssilvio@stanford.edu)"
+    },
+    {
+      "type": "markdown",
+      "data": "Hi Professor Savarese,\n\nMy name is Ian Huang, and I'm a student at Columbia studying Applied Mathematics and Computer Science. From my research in vision and robotics at Peter Allen's lab, I'm familiar with the work that your lab does, and I'm very interested in getting involved at your lab this summer!\n\nI'm currently working on a battery of different projects – including deep learning applied on sEMG data (under Prof. Allen), human-in-the-loop for visual classification systems (under Prof. Allen), data augmentation to counteract catastrophic forgetting (under Prof. Carl Vondrick), and a more theory-heavy project on building an infinite dimensional latent space (under Prof. Nakul Verma). I've also previously worked in Intel and LinkedIn for research projects in computer vision. I've attached my CV here with more about my research experience, and I've also attached my statement of intent – please do take a look!\n\nMy interests lie largely in lifelong learning, computer vision, and robotics, but I would be very open to being assigned to new projects. I'm reaching out to you because of all the faculty at Stanford, my interests align best with your lab's research direction. Specifically, I'm fascinated by the project that Michelle Lee et al. is doing with bridging vision and touch, as well as Riccardo Volpi et al.'s work on improving generalization to unseen domains through data augmentation.\n\nI've applied to SURF, and would love to be doing research at your lab this summer. Please let me know if that is a possibility!\n\nThanks so much,\nIan\n\n"
+    }
+  ]
+}

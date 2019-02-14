@@ -1,0 +1,21 @@
+{
+  "title": "Jan 17: {N} All papers",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "[Google Doc with all papers](https://docs.google.com/document/d/1i6V0yHNCVDeSYf4NnFVG_HEbJs-Zh8tFv38RkPxx57w/edit)\n\n[Spreadsheet with student preferences](https://docs.google.com/spreadsheets/d/1tZHAV2lbs1FG-rWCoRx33tuwsQcUqK-VwIRFk36bDgA/edit#gid=0)\n\n[Schedule](http://www.cs.columbia.edu/~vondrick/cs6998/)\n"
+    },
+    {
+      "type": "markdown",
+      "data": "## Notable papers\nOnes that I indicated interest in on the spreadsheet, plus:\n\n- [ ] [Learning to Poke by Poking: Experiential Learning of Intuitive Physics, Pulkit Agrawal*, Ashvin Nair*, Pieter Abbeel, Jitendra Malik, Sergey Levine](https://arxiv.org/abs/1606.07419)\n\n- [ ] [\"What happens if...\" Learning to Predict the Effect of Forces in Images. Roozbeh Mottaghi, Mohammad Rastegari, Abhinav Gupta, Ali Farhadi. ECCV 2016.](https://arxiv.org/abs/1603.05600)\n\n- [ ] [Visual Recognition with Humans in the Loop. S. Branson, C. Wah, B. Babenko, F. Schroff, P. Welinder, P. Perona and S. Belongie. ECCV 2010.](https://www.researchgate.net/publication/221304729_Visual_Recognition_with_Humans_in_the_Loop/download)\n\n- [ ] [Matching Networks for One Shot Learning. Oriol Vinyals, Charles Blundell, Timothy Lillicrap, Koray Kavukcuoglu, Daan Wierstra. NIPS 2016](https://arxiv.org/abs/1606.04080)\n\n- [ ] [Low-shot Learning from Imaginary Data. Yu-Xiong Wang, Ross Girshick, Martial Herbert, Bharath Hariharan. CVPR, 2018 (Spotlight).](https://arxiv.org/abs/1801.05401)\n\n- [ ] [Curiosity-driven Exploration by Self-supervised Prediction. Deepak Pathak, Pulkit Agrawal, Alexei A. Efros and Trevor Darrell. International Conference on Machine Learning (ICML), 2017](https://arxiv.org/abs/1705.05363)\n"
+    },
+    {
+      "type": "markdown",
+      "data": "## Carl's papers\n- [ ] [Cross-Modal Scene Networks Yusuf Aytar*, Lluis Castrejon*, Carl Vondrick, Hamed Pirsiavash, Antonio Torralba PAMI 2017](https://arxiv.org/abs/1610.09003)\n- [ ] [Where are they Looking  Adrià Recasens*, Aditya Khosla*, Carl Vondrick and Antonio Torralba](http://people.csail.mit.edu/khosla/papers/nips2015_recasens.pdf)"
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    }
+  ]
+}

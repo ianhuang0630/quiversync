@@ -1,0 +1,29 @@
+{
+  "title": "Jan 31: {P} Mask R-CNN",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "## Parent note\n[void]\n## Link:\n[Paper](https://arxiv.org/pdf/1703.06870.pdf)"
+    },
+    {
+      "type": "markdown",
+      "data": "## Overall thoughts"
+    },
+    {
+      "type": "markdown",
+      "data": "## Summary\nExtension of Faster R-CNN, but _constructs the mask property is crucial for good results_. (I'm guessing the Faster RCNN guys didn't handle this?) RCNN wasn't designed for _pixel-to-pixel_ alignment between network inputs and outputs. (?) To fix misalignment, they proposal _RoIAlign_, a \"quantization-free layer\". This has a very large positive impact on accuracy\n\nR-CNN is region-based bounding-box object detection. Manages a number of candidate object regions. Older methods for instance segmentations have segmentation preceding instance recognition, which is slow and less accurate. Mask RCNN's method is based on _parallel prediction of masks and class labels_. \n\n_Fully convolutional instance segmentation_: predicts a set of position-sensitive output channels fully convolutionally. These simultaneously address object classes,sboxes and masks.\n\nMask RCNN uses an _instance-first_ strategy ($\\not =$ _segmentation-first_ strategy)\n"
+    },
+    {
+      "type": "markdown",
+      "data": "## Function\nFaster RCNN has two stages: **1.** Region Proposal Network (RPN) to propose candidate object bounding boxes **2.** extract features using RoIPool and performs classificxation and bbox regression. \n\nMask RCNN has two stages: **1.** same as Faster RCNN. **2.** in parallel to predicting the class and box offset, **outputs a binary mask for each ROI.**"
+    },
+    {
+      "type": "markdown",
+      "data": "## Pressentation by Sebastian\n\nOriginal RCNN = selective search for ROI's --> convnet --> SVM, bounding box regressor\n\nFast RCNN = pass entire image through convnet. Region proposal is still done by selective search, ROI. \n\nFaster RCNN = FCN to propose regions. Implemented own network to do region proposal. \n\nMask RCNN = Faster RCNN, but with an extra branch."
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    }
+  ]
+}

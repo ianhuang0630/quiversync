@@ -1,0 +1,17 @@
+{
+  "title": "Jan 28: {P} What makes Paris look like Paris?",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "## Parent Note\n[void]\n## Link\n[Paper](http://graphics.cs.cmu.edu/projects/whatMakesParis/paris_sigg_reduced.pdf)"
+    },
+    {
+      "type": "markdown",
+      "data": "## Overall thoughts\nSeems quite trivial, also not sure why they used fixed-sized patches when they were going to train an SVM anyways...\n"
+    },
+    {
+      "type": "markdown",
+      "data": "## Presentation\n\nVisual elements needs to be frequent and discriminative.\n\"Geo-supervised\" approach (positive and negative sets, positive from paris)\n\nHistogram of Oriented Gradients\n(for each patch, find average gradient in the whole image)\n\n\n"
+    }
+  ]
+}

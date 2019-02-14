@@ -1,0 +1,17 @@
+{
+  "title": "Jan 22: {N} Feiner’s AR",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "## Tools\nUnity 2018.3\n \nPTC Vuforia Engine 8\n- Camera-based 3d position and orientation tracking"
+    },
+    {
+      "type": "markdown",
+      "data": "## Textbooks\n\n3D user interfaces: Theory and Practice 2nd Ed\nJ. LaViola jr.\n\nAugmented Reality: Principles and practice\nSchmalstieg "
+    },
+    {
+      "type": "markdown",
+      "data": "## Early history\n1930 - Flight simulators\n1960 - Analog Video --> Digital & graphics in flight simulators"
+    }
+  ]
+}

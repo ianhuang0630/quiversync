@@ -1,0 +1,25 @@
+{
+  "title": "Jan 22: {N} Carl’s first lecture",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "David Marr\n\nMovrarec paradox - easy for computer to solve thigns that humans can't and hard for computers to solve things that huamns can."
+    },
+    {
+      "type": "markdown",
+      "data": "Shifted the burden from algorithm design to data generation. That's a problem because so much data needs to be generated."
+    },
+    {
+      "type": "markdown",
+      "data": "algoirthms (classical AI) --> features (machine_learning )--> labels (deep-learning) --> tasks (self-supervised tasks)"
+    },
+    {
+      "type": "markdown",
+      "data": "Another challenge is transfer."
+    },
+    {
+      "type": "markdown",
+      "data": "Ecological analysis - understandin things with respect to the environment that the agent is trained in.\n_why are models the way they are and what are better environments?_\n\n\nGaussian Pyramid\nViola-jones\nintrinsic image decomp"
+    }
+  ]
+}

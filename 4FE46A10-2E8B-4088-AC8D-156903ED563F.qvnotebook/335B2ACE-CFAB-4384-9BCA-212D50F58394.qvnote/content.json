@@ -1,0 +1,25 @@
+{
+  "title": "Jan 31: {P} Light-Head R-CNN: In Defense of Two-Stage Object Detector ",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "## Parent note\n[void]\n\n## Link\n[paper](https://arxiv.org/pdf/1711.07264.pdf)"
+    },
+    {
+      "type": "markdown",
+      "data": "## Overall thoughts\nThis paper came before Mask R-CNN. Surprising that Mask R-CNN did not reference this paper or use a lighter architecture in reference to this paper.\n\nTrue innovation seems to be just a reduction in the complexity of the head, which is permitted because of the relative simplicity (bounding box, instead of instance segmentation) of the problem. Maybe that's why Mask R-CNN didn't use a lighter architecture like was done in this paper.\n"
+    },
+    {
+      "type": "markdown",
+      "data": "## Summary\nSingle-stage detector allows speed and \"resonably good accuracy\". \nTwo-stage detector first focuses on the recognition of proposals, and usually involve a pretty heavy head to achieve good accuracy."
+    },
+    {
+      "type": "markdown",
+      "data": "_Large separable convolutions_: (?)\n"
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "title": "Feb 7: {P} PointNet: Deep Learning on Point Sets for 3D Classification and Segmentation",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "##Parent note\n[Void]\n\n## Link\n[Paper](https://arxiv.org/pdf/1612.00593.pdf)"
+    },
+    {
+      "type": "markdown",
+      "data": "## Thoughts:\nAwesome results without the use of rgb. Interesting results from proofs, and interesting use of the [Hausdorff Distance](https://en.wikipedia.org/wiki/Hausdorff_distance) (It's a way to measure the distance between two sets, and since they're doing functions on sets instead of sequences, this is how they measure the deviation in the inputs.) **They seem to make the assumption that the function is continuous wrt the Hausdorff distance, but how do they know that's the case?** Seems like assuming continuity underpins the proof.\n\nAlso interesting concept of doing ML on unordered sets. They use pooling to make the predictor order invariant ($max(a,b) = max(b,a)$, elementwise.)\n\nTransformer network: learning a rotation/translation matrix. Pretty interesting!\n\nKITTI\nPatches - winner of the KITTI car detection dataset, just came out over a week ago."
+    },
+    {
+      "type": "markdown",
+      "data": "## Architecture of the network"
+    },
+    {
+      "type": "text",
+      "data": "<div><img src=\"quiver-image-url/ED7EC267018CD30988E1C784E404525D.png\" alt=\"Screen Shot 2019-02-07 at 2.29.46 PM.png\" width=\"741\" height=\"271\"><br></div>"
+    }
+  ]
+}

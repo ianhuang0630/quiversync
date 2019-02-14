@@ -1,0 +1,30 @@
+{
+  "title": "Feb 4: {N} working with Abhi’s code ",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "Run the following at the beginning of every terminal session to access ros"
+    },
+    {
+      "type": "code",
+      "language": "sh",
+      "data": "source /opt/ros/kinetic/setup.bash"
+    },
+    {
+      "type": "markdown",
+      "data": "[Repo link](https://github.com/ScrypticLabs/Robotics-Research)"
+    },
+    {
+      "type": "markdown",
+      "data": "There was some download + upgrade of libstdc++6 that had to be done.\n`sudo apt-get update`\n`sudo apt-get install libstdc++6`\n`sudo add-apt-repository ppa:ubuntu-toolchain-r/test`\n`sudo apt-get update`\n`sudo apt-get upgrade libstdc++6`\n"
+    },
+    {
+      "type": "markdown",
+      "data": "Need to also change the parameters in `./workspaces/my_catkin_ws/src/ctrl_labs/src/InputSession.py` to generate the fake data. Under `if __name__=='__main__':`, change the following: \n\n```python\ninput_session = Input_Session(raw_emg=False, raw_imu=False, hand_skeleton=True)\n```\nto \n```python\ninput_session = Input_Session(raw_emg=True, raw_imu=False, hand_skeleton=True)\n```"
+    },
+    {
+      "type": "markdown",
+      "data": "After launching the two executables, run `python InputSession.py`. You may have to activate a virtual environment.\n\n"
+    }
+  ]
+}

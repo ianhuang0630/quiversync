@@ -1,0 +1,13 @@
+{
+  "title": "Feb 11: {N} Meeting",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "## Touch up on\n- [ ] Bourgain's theorem\n- [ ] Johnson Lindenstrauss\n\n## Read:\n- [ ] [Max's Paper](https://arxiv.org/pdf/1902.01738.pdf)\n- [ ] [Poincare model for learning representations](https://arxiv.org/abs/1705.08039)\n\n## Others:\nSend free times to Prof Verma."
+    },
+    {
+      "type": "markdown",
+      "data": "## Notes:\n\nMetric space is more powerful than euclidean space. Review Bourgain's and JL theorems. They show the dimensionality of the embedding space needed to achieve lower than a certain distortion in the distances."
+    }
+  ]
+}

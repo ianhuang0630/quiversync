@@ -1,0 +1,17 @@
+{
+  "title": "Jan 20: {N} Design of classes",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "## Data structures"
+    },
+    {
+      "type": "markdown",
+      "data": "{Researcher}:\n- list of papers / paper count (List)\n- connection to other researchers (Link)\n- Research category\n\n{Link}\n- Nodes connected (set of 2 {Researcher}s)\n- Papers shared (Papers)\n\n{Paper}\n- Title\n- Date\n- authors (list of strings) \n- category \n- access url\n"
+    },
+    {
+      "type": "markdown",
+      "data": "## constructing the graph\n"
+    }
+  ]
+}

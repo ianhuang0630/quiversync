@@ -1,0 +1,17 @@
+{
+  "title": "Feb 5: {P} ExplainGAN: Model Explanation via Decision Boundary Crossing Transformations",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "## Parent note:\n[void]\n## Link:\n[Paper](http://openaccess.thecvf.com/content_ECCV_2018/papers/Nathan_Silberman_ExplainGAN_Model_Explanation_ECCV_2018_paper.pdf)\n"
+    },
+    {
+      "type": "markdown",
+      "data": "## Overall thoughts:\nVery interesting paper. Section 4 in the paper might actually apply to what team project is trying to do. (modifying the image in a controlled way.)\n\n"
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    }
+  ]
+}

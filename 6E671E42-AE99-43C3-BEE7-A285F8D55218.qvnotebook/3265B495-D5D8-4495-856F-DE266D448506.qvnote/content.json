@@ -1,0 +1,26 @@
+{
+  "title": "Feb 4: {N}  Natural Language Pocessing",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "## Tagging problem and Hidden Markov Models\n\nTaggin problem: \ninput: sequence of tokens, output: tag on each word (Noun, Verb...etc)\n\nConditional models: learn $p(y | x)$ from training examples.\nGenerative models: learn $p(x,y)$. Modeling the joint distribution $p(y)p(x|y)$. This model is more general, since this can yield the conditional distribution. $f(x) = argmax_y p(x,y)$\n\nJoint models are convenient in some domains. Also essential to unsupervised learning.\n"
+    },
+    {
+      "type": "markdown",
+      "data": "## HMM's"
+    },
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "$x = x_1 x_2 ... x_n$\n$y = y_1 y_2 ... y_n$\n$p(x_1, x_2 ... x_n, y_1, y_2, ... y_n)$\n$f(x) = argmax_y (p(x1 ... xn, y1, y2 ... y_n))$\n"
+    },
+    {
+      "type": "markdown",
+      "data": "Trigram HMM model."
+    },
+    {
+      "type": "markdown",
+      "data": "# Viterbi Algorithm\nbrute force search would be $O(|S|^n)$. Viterbi algo more efficient due to markov assumption.\n\nDefine n to be the length of the sentence\ndefine S_k for k=-1 0 ...n to be the set of possible tags at postion k:\n\n"
+    }
+  ]
+}

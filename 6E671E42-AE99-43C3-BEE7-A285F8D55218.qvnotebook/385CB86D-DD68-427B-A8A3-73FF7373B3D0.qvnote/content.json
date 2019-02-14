@@ -1,0 +1,13 @@
+{
+  "title": "Jan 28: {N} Natural Language Processing",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "Flip classroom, assigned video lectures."
+    },
+    {
+      "type": "markdown",
+      "data": "## Language modeling\n\nFinite vocab $V$ , infinite set of strings $V^+$\nTraining sample of example sentences in English, we learn a probability distribution p which should assign high probability to plausible languages in english. \nWhy? 1) language models very useful and this prior distribution is very useful in speech recognition, 2) extremely useful to estimation methods \n\nA naive method:\n$p(x1, x2... xn) = \\frac{c(x1,x2...xn)}{N}$\nThis is terrible, because can't generalize outside of training data.\n\n### Trigram Language Models\nfinite set $V$, $q(w | u, v)$ for each triagram $u,v,w$. Supposed to be probability of seeing $w$ after $u,v$. Making assumption of independence of current word with any word more than 2 away in the past.\n\nFor a sentence,\n$p(x_1, x_2 ... x_n) = \\prod _ {i=1} ^{n} q( x_i | x_{i-1}, x_{i-2})$\nwith $x_0 = x_{-1} = *$.\n( if $q(STOP | u,v) = 0$, then $\\sum p(x_1,...x_n) \\not = 1 $ )\n\n### Perplexity\ntest data (sentences): $s_1, ... s_m$\n$\\log \\prod_{i=1} ^m p(s_i) = \\sum_{i=1} ^m \\log p(s_i)$\n\nPerplexity = $2^{-l}$ where $l = 1/m \\sum_{i=1} ^m \\log p(s_i)$ Perplexity is a measure of effective \"branching factor\". \n\nLinear interpolation. $q(w_i| w_{i-2}, w_{i-1}) = $ weighted sum of unigram, bigram and trigram.\n(Unigram converges very quickly, but is a very poor estimate for language modeling.)\n\nPerplexity is unforgiving, if any sentence has 0 probability, the whole measure is infinite.\n"
+    }
+  ]
+}

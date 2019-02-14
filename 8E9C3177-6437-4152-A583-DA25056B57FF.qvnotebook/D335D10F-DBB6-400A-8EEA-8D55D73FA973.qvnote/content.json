@@ -1,0 +1,17 @@
+{
+  "title": "Jan 24: {P} DeepDynamicHand: A Deep Neural Architecture for Labeling Hand Manipulation Strategies in Video Sources Exploiting Temporal Information",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "## Parent Note\n[void]\n## Link\n[void], but downloaded on local computer"
+    },
+    {
+      "type": "markdown",
+      "data": "## Overall thoughts"
+    },
+    {
+      "type": "markdown",
+      "data": "## Summary\n\nPropoosed algo combines convnet to detect hand and RNN to predict hand action in the current frame, while into consideration temporal data. Goalsof extracting human hand dynamci information during the interaction with the environment.\n\nCNN extracts representation for hand posture, then LSTM receives representations "
+    }
+  ]
+}

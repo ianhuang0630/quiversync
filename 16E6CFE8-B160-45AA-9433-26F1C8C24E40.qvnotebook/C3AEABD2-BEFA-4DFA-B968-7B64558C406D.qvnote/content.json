@@ -63,7 +63,36 @@
     {
       "type": "latex",
       "language": "latex",
-      "data": "$L_A$ is the aggregate loss through timesteps as $A$ changes\n$L_{A^*}$ is the minimal loss in an offline setting.\nAssuming input vector lengths are bounded $|| \\vec{u} ||^2 \\leq R$\n\n$L_A \\leq c_1 L_{A^*} + c_2$\nMore specifically,\n$$ c_1 = 1 + \\eta \n\\biggr (\n\\frac{R}{2} + \\sqrt{\\frac{R^2}{4} + \\frac{1}{\\eta}} \\biggr)^2$$\n$$ c_2 = \n\\frac{1}{\\eta} + \\biggr ( \n\\frac{R}{2} + \\biggr ( \n\\frac{R}{2} + \\sqrt{\\frac{R^2}{4} + \\frac{1}{\\eta}} \\biggr ) ^2 \n\\biggr )$$\n\nThere are formal proofs but they are in the longer form of the paper."
+      "data": "$L_A$ is the aggregate loss through timesteps as $A$ changes\n$L_{A^*}$ is the minimal loss in an offline setting.\nAssuming input vector lengths are bounded $|| \\vec{u} ||^2 \\leq R$\n\n$L_A \\leq c_1 L_{A^*} + c_2$\nMore specifically,\n$$ c_1 = 1 + \\eta \n\\biggr (\n\\frac{R}{2} + \\sqrt{\\frac{R^2}{4} + \\frac{1}{\\eta}} \\biggr)^2$$\n$$ c_2 = \n\\frac{1}{\\eta} + \\biggr ( \n\\frac{R}{2} + \\biggr ( \n\\frac{R}{2} + \\sqrt{\\frac{R^2}{4} + \\frac{1}{\\eta}} \\biggr ) ^2 \n\\biggr )$$\n\nThere are formal proofs but they are in the longer form of the paper.\n\nScales better than POLA since the bound uses $D_{ld}(A^*, A_0)$ and not $||A^*||_F^2$, as POLA does. And also becuse in online ITML, $\\eta_t$ needs to be carefully chosen at each time step to maintain positive definiteness."
+    },
+    {
+      "type": "markdown",
+      "data": "### Fast online similarity searches"
+    },
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "To avoid expensive updates to the datastructure, they employ \"locality-sensitive hashing\" that enables fast queries.\n\n$Pr[h_i(u) = h_i(v)] = sim(u, v)$ where $i$ a bit number. \n\n$h_{r, A}(u) = \\mathbb 1 (r^TGu \\geq 0)$, where $r$ is the normal of a random hyperplane and $A = G^TG $. Hash key generated for each point, and can be use dto extract potential nearest neighbors.\n\nThe methods search only $O(n^{\\frac{1}{1+\\epsilon}})$ where $\\epsilon >0$ and retrieves the $1+\\epsilon$ nearest neighbors with high probability (if you make epsilon 0, then search time is $O(n)$, which readily makes sense.)\n\nFor online hashing updates, they did some complicated math and found that\n$ r^T G_{t+1} u  = r^T G_t u + \\alpha_t r^T G_t z_t z_t^T A_t u$. Because according to them, $G_{t+1} = G_t + \\alpha_t G_t z_t z_t^T A_t$. To update the hashings, they needed to find the samples for which\n$$ (r^T G_{t_1} u) (r^T G_t u) \\leq 0$$ (meaning that the two things have different signs.) Thsi can be done by reducing the problem to finding $\\bar{u}$ such that $\\bar{q} ^T \\bar{u} \\geq 0$ where $\\bar{u} = [(r^t G_{t_1} u)^2 ; (r^T G_{t_1} u) u] $ and $\\bar{q} = [-1; -\\sum_{l = t_1}^{t-1} \\alpha_l r^T G_l z_l z_l^T A_l u]$. This apparently can be solved using the same locality-sensitive hashing problem (because it's essentially a search problem.)\n"
+    },
+    {
+      "type": "markdown",
+      "data": "## Experimental results"
+    },
+    {
+      "type": "markdown",
+      "data": "Shows that online, LEGO does better than ITML and POLA online, and does as well as ITML offline for the UCI dataset."
+    },
+    {
+      "type": "text",
+      "data": "<p><img src=\"quiver-image-url/78E09D77CC738CD5910A949BE93C1622.png\" alt=\"Screen Shot 2019-01-21 at 11.27.47 AM.png\" width=\"1099\" height=\"389\"><br></p>\n"
+    },
+    {
+      "type": "markdown",
+      "data": "For hashing, then compare how it does with linear scan vs. locality-sensitive hashing."
+    },
+    {
+      "type": "text",
+      "data": "<img src=\"quiver-image-url/CEFA7DC1FC9CB904CB9427B1B4940FE6.png\" alt=\"Screen Shot 2019-01-21 at 11.29.45 AM.png\" width=\"668\" height=\"303\">"
     },
     {
       "type": "markdown",

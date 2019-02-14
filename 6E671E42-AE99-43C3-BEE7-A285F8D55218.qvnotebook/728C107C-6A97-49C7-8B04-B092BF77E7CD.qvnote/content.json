@@ -1,0 +1,31 @@
+{
+  "title": "Jan 31: {N} Operating Systems",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "## SIGNALS\n_Slow system calls_: can block forever. e.g. reading from keyboard / network. If it doesn't have a chance of halting forever, it isn't a slow system call.\n\n"
+    },
+    {
+      "type": "code",
+      "language": "c_cpp",
+      "data": "#include \"apue.h\"\n#include <sys/wait.h>\n\nstatic void\tsig_int(int);\t\t/* our signal-catching function */\n\nint\nmain(void)\n{\n\tchar\tbuf[MAXLINE];\t/* from apue.h */\n\tpid_t\tpid;\n\tint\t\tstatus;\n\n\tif (signal(SIGINT, sig_int) == SIG_ERR)\n\t\terr_sys(\"signal error\");\n\n\tprintf(\"%% \");\t/* print prompt (printf requires %% to print %) */\n\twhile (fgets(buf, MAXLINE, stdin) != NULL) {\n\t\tif (buf[strlen(buf) - 1] == '\\n')\n\t\t\tbuf[strlen(buf) - 1] = 0; /* replace newline with null */\n\n\t\tif ((pid = fork()) < 0) {\n\t\t\terr_sys(\"fork error\");\n\t\t} else if (pid == 0) {\t\t/* child */\n\t\t\texeclp(buf, buf, (char *)0);\n\t\t\terr_ret(\"couldn't execute: %s\", buf);\n\t\t\texit(127);\n\t\t}\n\n\t\t/* parent */\n\t\tif ((pid = waitpid(pid, &status, 0)) < 0)\n\t\t\terr_sys(\"waitpid error\");\n\t\tprintf(\"%% \");\n\t}\n\texit(0);\n}\n\nvoid\nsig_int(int signo)\n{\n\tprintf(\"interrupt\\n%% \");\n}"
+    },
+    {
+      "type": "markdown",
+      "data": "`goto foo`: goes to part of the code with `foo:` in the line. Very hacky, but it's ok.\n`cntrl-\\`: sends a different close signal. \n"
+    },
+    {
+      "type": "markdown",
+      "data": "Three problems:\n\n“Slow” system calls may get interrupted on signals\n- errno set to EINTR\nSignals get lost\n- signal handling resets after each signal\nSignal handler calls non-reentrant functions (_non-reentrant_: not equipped to go back into the function when it's halted to go to signal handler.) Can only call _async-signal-safe functions_ (`man 7 signal` to learn more)\n- malloc(), free(), standard I/O functions \n`malloc` is _multithread safe_ but non-reentrant. (_multithreading_ $\\not =$ multiprocesses)\n\n\n"
+    },
+    {
+      "type": "markdown",
+      "data": "# INTERPROCESS COMMUNICATION\n`pipe()` - opens\n\n``` C++\n#include <unistd.h>\n\nint pipe(int fd[2]);\n\n    Returns: 0 if OK, –1 on error\n```\n\n[Figure 15.2](http://www.cs.columbia.edu/~jae/4118/L05/fig15.2.jpg)\n\n\n[Figure 15.3](http://www.cs.columbia.edu/~jae/4118/L05/fig15.3.jpg)\npipe is only one way. otherwise parent would read what it just wrote, expecting child to have written something. So usually parent closes the read fd and the child closes the send fd.\n"
+    },
+    {
+      "type": "code",
+      "language": "c_cpp",
+      "data": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <unistd.h>\n#include <sys/wait.h>\n\n//////////////////////////////////////////////////////////////////////\n\nint main(int argc, char **argv)\n{\n    int fd[2];\n    pid_t pid1, pid2;\n\n    char **argv1 = argv + 1; // argv for the first command\n    char **argv2;            // argv for the second command\n\n    for (argv2 = argv1; *argv2; argv2++) {\n        if (strcmp(*argv2, \"--\") == 0) {\n            *argv2++ = NULL;\n            break;\n        }\n    }\n    if (*argv1 == NULL || *argv2 == NULL) {\n        fprintf(stderr, \"%s\\n\", \"separate two commands with --\");\n        exit(1);\n    }\n\n//////////////////////////////////////////////////////////////////////\n#ifdef DEBUG1\n    fprintf(stderr, \"%s\", \"argv1: \");\n    while (*argv1)\n        fprintf(stderr, \"%s \", *argv1++);\n    fprintf(stderr, \"\\n%s\", \"argv2: \");\n    while (*argv2)\n        fprintf(stderr, \"%s \", *argv2++);\n    fprintf(stderr, \"\\n\");\n    exit(0);\n#endif\n//////////////////////////////////////////////////////////////////////\n    \n    // create a pipe\n    if (pipe(fd) < 0) {\n        perror(\"pipe failed\");\n        exit(1);\n    }\n    if ((pid2 = fork()) == 0) {\n        close(fd[1]); // close right end of pipe , the writing end.\n        dup2(fd[0], 0); // closes the second parameter, 0 (stdin), dups fd[0] into file descriptor 0. Can now use 0 to read from the pipe\n        close(fd[0]); // you don't need original fd, so just close it.\n        execvp(*argv2, argv2); // takes command line arguments as char* array. child process will then read from the stdin. (File descriptors are given to the child)\n        perror(\"execvp failed\");\n        exit(1);\n    }\n    if ((pid1 = fork()) == 0) { \n        close(fd[0]); // close reading end of pipe\n        dup2(fd[1], 1); // overwriting stdout and output of the program into stdout\n        close(fd[1]);\n        execvp(*argv1, argv1); // Run first program, which will print to what it thinks is stdout (actually the file pointed to by fd[1])\n        perror(\"execvp failed\");\n        exit(1);\n    }\n    close(fd[0]);\n    close(fd[1]);\n\n//////////////////////////////////////////////////////////////////////\n\n    waitpid(pid1, NULL, 0);\n    waitpid(pid2, NULL, 0);\n    return 0;\n}"
+    }
+  ]
+}
