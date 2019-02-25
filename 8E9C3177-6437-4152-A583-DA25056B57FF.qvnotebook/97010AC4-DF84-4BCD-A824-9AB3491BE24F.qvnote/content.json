@@ -1,0 +1,21 @@
+{
+  "title": "Feb 18: {N} Where we are going with the autoencoder",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "## Research question:\nWith the advantage of the anthropomorophic hand and the EMG sensor: currently, hand is underactuated. But how do we make the most of the configuration space accessible through teleoperation?"
+    },
+    {
+      "type": "markdown",
+      "data": "## Idea:\nMapping to two different latent spaces -- one for the general grasp, and one for the individual finger pose.\n"
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    }
+  ]
+}

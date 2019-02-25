@@ -1,0 +1,9 @@
+{
+  "title": "Feb 18: {N} getting data",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "Hand length: 19cm\n\n## Cylindrical grasps 4\nPringles can:\nDiameter: 7.28 cm _cylindrical big_\n\nScrew driver handle\nDiameter: 2.3 cm _cylindrical small_\n\n## Spherical 3\n8ball\nDiameter: 10.1 cm _spherical_\n\n\n## Disk 2\nPringles cap\nDiameter: 7.9 cm _disk small_\n\nSoda cap\nDiameter: 10.7 cm _disk big_\n\n## Pinch 1\nScrew driver handle\nDiameter: 2.3 cm _pinch big_\n\nScrew driver rod\nDiameter: 0.63 cm _pinch small_\n\n## Lateral 0\nscrew driver handle\nDiameter: 2.3 _lateral big_\n\nScrew driver rod:\nDiameter 0.63 _laterla small_"
+    }
+  ]
+}
