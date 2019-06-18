@@ -1,0 +1,17 @@
+{
+  "title": "April 23: Insertion into hierarchy online:",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "[Latent Dirichlet Allocation](http://blog.echen.me/2011/08/22/introduction-to-latent-dirichlet-allocation/)\n- documents as _mixtures of topics_ that spit out words with different probabilities.\n"
+    },
+    {
+      "type": "markdown",
+      "data": "## Oldies\nDifference between  LDA and HDP:\n[Stack overflwo](https://datascience.stackexchange.com/questions/128/latent-dirichlet-allocation-vs-hierarchical-dirichlet-process)\n\nLDA:\n[Blei's ONLINE LDA](http://papers.nips.cc/paper/3902-online-learning-for-latent-dirichlet-allocation.pdf)\n\nHDP:\n[Blei's ONLINE varational inference](http://proceedings.mlr.press/v15/wang11a/wang11a.pdf)"
+    },
+    {
+      "type": "markdown",
+      "data": "## Newer\n[HARP: Hierarchical Representation Learning for Networks](https://arxiv.org/abs/1706.07845)"
+    }
+  ]
+}

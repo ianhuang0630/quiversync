@@ -1,0 +1,17 @@
+{
+  "title": "June 11: {N} Model design",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "## Variation 1:\nInput architecture "
+    },
+    {
+      "type": "markdown",
+      "data": "## Variation 2:\nWhen two objects coexist in the same video, the input will be the whole video as well as bounding boxes for the known object. "
+    },
+    {
+      "type": "markdown",
+      "data": "Deepmind I3D quo vadis. Look at torch implementations of I3D\n- [ ] Transfer learning and meta learning SOTA\n"
+    }
+  ]
+}

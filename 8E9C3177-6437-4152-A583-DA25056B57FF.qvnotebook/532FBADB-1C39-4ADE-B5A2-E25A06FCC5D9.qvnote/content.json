@@ -1,0 +1,9 @@
+{
+  "title": "Objects for grasping dataset",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "# Cylindrical shapes\nC1) Banana\nC2) Flashlight\nC3) Gillette\nC4) Pringles\nC5) Mug\n\n# Spheres\nS1) Blue ball\nS2) White ball\nS3) Yellow ball\n\n# Disk\nD1) White cup\nD2) Canned food\nD3) Yellow cup\nD4) Cap\n\n# Lateral\nL1) Black styrofoam\nL2) grey pot\nL3) plate\n\n# Pinch\nP1) Pencil\nP2) White pen\nP3) Screwdriver"
+    }
+  ]
+}

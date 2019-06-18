@@ -1,6 +1,9 @@
 {
   "children" : [
     {
+      "uuid" : "FD0A8149-B179-4C0F-B3F9-6D5E3CE9CDC1"
+    },
+    {
       "uuid" : "8E9C3177-6437-4152-A583-DA25056B57FF"
     },
     {
@@ -37,7 +40,16 @@
       "uuid" : "CF58E065-2FDC-47A0-A001-DF6EC9FFAC85"
     },
     {
+      "uuid" : "131294A4-E458-42CB-A464-D41FA66FB4D8"
+    },
+    {
+      "uuid" : "C2F458AA-91F9-4D26-ADEB-4DA80D983C58"
+    },
+    {
       "uuid" : "Tutorial"
+    },
+    {
+      "uuid" : "CD3D6153-ED16-4AF0-894C-2E3AE0FA9D71"
     }
   ],
   "uuid" : "Notebooks"

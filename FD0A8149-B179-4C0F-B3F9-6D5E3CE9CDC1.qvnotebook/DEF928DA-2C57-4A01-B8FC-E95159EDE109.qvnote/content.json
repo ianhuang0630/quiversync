@@ -1,0 +1,21 @@
+{
+  "title": "June 4: {N} Working on the cluster",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "[Instructions](https://cs.stanford.edu/csdcf/sail-compute-cluster)"
+    },
+    {
+      "type": "markdown",
+      "data": "First get on the `CS.Stanford.EDU` network (use VPN if not physically there)\n```\nssh ianhuang@sc.stanford.edu\n```"
+    },
+    {
+      "type": "markdown",
+      "data": "To start interactive session\n```\nsrun --partition=visionlab --pty bash\n```\nChange parition to `macondo` for GPU access.\n\nTo add a gpu:\n```\nsrun --partition=visionlab --gres=gpu:1 --pty bash\n```\nTo request a specific type of GPU:\n```\nsrun --partition=mypartition --gres=gpu:titanx:1 --pty bash\n```\nTo reqwuest a certain amount of VRAM:\n```\nsrun --partition=mypartition --gres=gpu:1 --constraint=12G --pty bash\n```"
+    },
+    {
+      "type": "markdown",
+      "data": "## Space\nI have 5TB of space at `/vision2/u/ianhuang`\nData that Jingwei will be downloading will under `/vision/group/`"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "title": "June 11: {N} Hand pose detectors",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "Detector\nhttps://github.com/victordibia/handtracking\nPose estimator\nhttps://github.com/3d-hand-shape/hand-graph-cnn"
+    },
+    {
+      "type": "markdown",
+      "data": "## Results\nValid: 89\nCorrect location: 55\ncorrect handpose: 76"
+    }
+  ]
+}

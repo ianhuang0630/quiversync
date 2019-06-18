@@ -1,0 +1,25 @@
+{
+  "title": "June 18: {N} Testing for the mano estimation, implementation of the dataloader, initial setup of the architecture",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "# Setup and installation\nFollowing instructions on https://github.com/hassony2/obman_train, have to set up conda environment: `obman_train`. `obman_train` also has the environment requirements of https://github.com/hassony2/manopth through `conda env update -f environment.yml`."
+    },
+    {
+      "type": "markdown",
+      "data": "# Mano website registration\nUsername: iyh2110@columbia.edu\nPassword: 57ZU4DBh81c9Iilij7EUQw"
+    },
+    {
+      "type": "markdown",
+      "data": "# Mano data download\nEverything is first downloaded under the mainsdirectory of `utils/manopth`, then unzipped. contents is copied into `utils/manopth`."
+    },
+    {
+      "type": "markdown",
+      "data": "# Additional Things done to have it work:\nHad to copy the `manopth` and `mano` foldres from `manopth` into `utils/obman_train`.\n\nNeed to downgrade torch to the right version for the cuda 9.0 on cluster. Done by reinstalling torch with the specification. `conda install pytorch torchvision cudatoolkit=9.0 -c pytorch`. Without this, running the example code will yield a CUDA error.\n\nSomehow ran into issues with getting the jupyter notebook to import the right packages, even though python could import them. So, runt he following commands with the virtual environment activated.\n`conda install ipykernel --name obman_train`\n`python -m ipykernel isntall --user`\n(without using `--user`, this would most likely yield a permission error)"
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    }
+  ]
+}

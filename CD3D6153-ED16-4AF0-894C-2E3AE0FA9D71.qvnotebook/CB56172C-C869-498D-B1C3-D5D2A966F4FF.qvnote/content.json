@@ -1,0 +1,29 @@
+{
+  "title": "Things that remain to be done",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "Atomic level\n- Neuron structure needs to be more biologically accurate\n- non-determinism?\n- How to replicate in hardware\n\nUpdate rule\n- grad descent doesnt' work in biology. How does it work in biology?\n\nArchitecture level\n- Sections of brain, concurrency and focus\n\nEnvironment level\n- Design of learning curriculum, and interaction environment\n- A society of similar agents, interacting with eachother?"
+    },
+    {
+      "type": "markdown",
+      "data": "## [The differences between Artificial and Biological Neural Networks](https://towardsdatascience.com/the-differences-between-artificial-and-biological-neural-networks-a8b46db828b7)\nCurrent ANN models neither the creation nor destruction of connections, and signal timing.\n- Our brain: 86 billion neurons, 100 trillion ~ 1000 trillion synapses. Neural networks: 10-1000 neurons. Connections are only between layers. Number of connections are `# connections from prior layer + # connections from next layer`\n**This would be a hardware implementation problem**\n- Our brain: asyncronous parallel computation, layers arent connected to non-neighboring layers (concept of layers probably doesn't exist). Some are highly connected (hubs) others are less connected.\n- OUr brain: fires 200 times a second on average. Information is carried by firing frequency or firing mode (tonic / burst-firing). \n- Our brain: information stored redundantly, memory loss unlikely. Neural-Networks: Dropout forces some redundancy. \n- our brain: Operates at 20Watts. neural-Networks: 250 W on a Nvidia Titanx GPU\n- Our brain: Hebbian theory: neurons that fire together wire together. "
+    },
+    {
+      "type": "markdown",
+      "data": "## Further reading:\n- Research paper: [Analyzing biological and artificial neural networks: challenges with opportunities for synergy?](https://www.sciencedirect.com/science/article/pii/S0959438818301569)\n- Some guys actually made spiking a thing in deep NN's: Research paper: [Deep Learning in Spiking Neural Networks](https://arxiv.org/pdf/1804.08150.pdf)\n- A handwavey explanation of it here: [Spiking Neural networks, the Next Generation of Machine Learning](https://towardsdatascience.com/spiking-neural-networks-the-next-generation-of-machine-learning-84e167f4eb2b)\n- Update rule using STDP: [A computational framework for cortical learning](https://towardsdatascience.com/spiking-neural-networks-the-next-generation-of-machine-learning-84e167f4eb2b)\n- Random wiring of neurons: [Exploring Randomly Wired Neural Networks for Image Recognition](https://paperswithcode.com/paper/exploring-randomly-wired-neural-networks-for)\n\n- Hardware mimicking synapses: [article 1](https://www.ibm.com/blogs/research/2017/07/brain-inspired-cvpr-2017/) [article 2](https://www.ibm.com/blogs/research/2017/07/brain-inspired-cvpr-2017/)\n- The Stanford Variation at the **Salleo lab** \n"
+    },
+    {
+      "type": "markdown",
+      "data": "## Big Questions:\n- how to update, how to change topology?\n- Topological data analysis [Topology of Learning in Artificial Neural Networks](https://arxiv.org/abs/1902.08160)\n- [On Characterizing the Capacity of Neural Networks using Algebraic Topology](https://arxiv.org/abs/1802.04443)\n\n> After suggesting algebraic topology as a measure for data complexity, we show that the power of a network to express the topological complexity of a dataset in its decision region is a strictly limiting factor in its ability to generalize\n"
+    },
+    {
+      "type": "markdown",
+      "data": "## Textbooks\nDayan & Abbott: [Theoretical Neuroscience: Computational and Mathematical Modeling of Neural Systems](http://www.gatsby.ucl.ac.uk/~lmate/biblio/dayanabbott.pdf)"
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    }
+  ]
+}

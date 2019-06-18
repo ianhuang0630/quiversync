@@ -1,0 +1,9 @@
+{
+  "title": "June 2: {N} Literature review",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "# Transferable Interactiveness Prior for Human-Object Interaction Detection\n[Paper link](https://arxiv.org/pdf/1811.08264.pdf)\n[Code](Not available right now)\n\n**Main idea:** Breaking the classification process into two different parts is helpful because it reduces the number of false positives, and reduces the number of boxes that that HOI classifier would have to classify. They also show that the HOI-predictor is more easily transferrable (Viewing the HOI classification as a two-step process, they assert that the first step is the more transferrable of the two.)\n\nThey use Pose map, spatial mapts human features and object features as inputs inot their HOI predictor and classifier. \n\n**Datasets**\n_HICO-DET_: 47,776 images (38,118 in train set and 9658 in test set), 600 HOI categories on 80 object categories.\n_V-COCO_: 10,346 images (2,533 training, 2,867 validation, 4,946 testing). \n_Metric_: True positive iff **1)** IOU's larger than 0.5 with reference to ground truth for _both_ human and object bounding boxes, **2)** correct HOI classification. Role mean average precision. \n\n**Questions**\n- how does the Non-interactive suppression output get inputted into the clasiifier?\n- Why does the HOI classifier not take pose map as an input?\n- Why no train the classifier end to end?\n- How did $RP_DC_D$ get lower accuracy than $RP_{T_1}C_D$?"
+    }
+  ]
+}

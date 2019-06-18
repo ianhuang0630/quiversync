@@ -1,0 +1,22 @@
+{
+  "title": "March 25: {N} Thoughts on orthogonality of backprop gradients",
+  "cells": [
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "Find $g$ such that\n$$ \\frac{\\partial \\mathcal L_C}{\\partial \\theta_t} ^T (\\frac{\\partial \\mathcal L_A}{\\partial \\theta_t} + \\frac{\\partial \\mathcal L_B}{\\partial \\theta_t} )$$ is maximized, where:\n$$\\mathcal L_c = - \\frac{1}{|C|} \\sum_{x \\in C } \\frac{\\exp{f(g(x); \\theta_t)}}{\\sum_k \\exp{f (g(x); \\theta_t)}}$$\n\nand $\\mathcal L_A$ and $\\mathcal L_B$ are the normal cross entropy without $g$.\n\n$$\\mathcal L_A =  - \\frac{1}{|A|} \\sum_{x \\in A } \\frac{\\exp{f(g(x); \\theta_t)}}{\\sum_k \\exp{f (g(x); \\theta_t)}}$$"
+    },
+    {
+      "type": "markdown",
+      "data": "## But first, we need to check if orthogonality is correlated with disruption.\nShould we do some analysis here? Orthogonality of gradient updates vs. disruption. Is there a way to prove this relationship rigorously for linear models?"
+    },
+    {
+      "type": "markdown",
+      "data": "## How can we expect that every single model effectively has \"hidden\" orthogonal weight matrices?\n\nShould consult the original [paper](https://arxiv.org/pdf/1902.05522.pdf) more about how the update rule is done to make the updates only in the orthogonal vectors.\n\n"
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    }
+  ]
+}

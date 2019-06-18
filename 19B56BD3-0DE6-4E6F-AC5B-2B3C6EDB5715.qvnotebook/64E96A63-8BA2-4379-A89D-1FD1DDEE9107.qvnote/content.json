@@ -1,0 +1,9 @@
+{
+  "title": "Untitled Note",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "https://nips.cc/Conferences/2019/Dates\n\n# line search for better gradients ascent\n\n# Carl's experiment\n\nTimestep experimeents\n\n- Classification accuracy\n\n\ntheory:\nFOr the MNIST dataset, why is it that the delta is predominantly distributed around the outer surface of the number?"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "title": "March 30: {N} Moving forward with gradients",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "# Correlation with disruption\n\n## Gradient collision measures, and vectorization\n\n## Results\n"
+    },
+    {
+      "type": "markdown",
+      "data": "# Training to shift data distribution \n\n## Gradient propagation\n"
+    }
+  ]
+}

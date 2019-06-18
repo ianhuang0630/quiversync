@@ -1,0 +1,25 @@
+{
+  "title": "June 4: {N} New Class Discovery, Literature review",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "\n[Object discovery in videos as foreground motion clustering](https://arxiv.org/pdf/1812.02772.pdf)\n\nHierarchy focus:\n[Unsupervised Discovery of Visual Object Class Hierarchies](https://www.di.ens.fr/~josef/publications/sivic08.pdf)\n- hierarchy built entirely off of visual elements. Ideally, we want to model similarity of new classes to old classes in terms of the context (what other objects lie within its viscinity as well) as well as its function (what are the hands doing with the object)?\n\nOld paper framing as Active Learning problem\n[Active Learning and Discovery of Object Categories in the Presence of Unnameable Instances](https://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Kading_Active_Learning_and_2015_CVPR_paper.pdf)\n\n\nNewer paper (2018) \n[Unseen Class Discovery in Open-World Classification](https://arxiv.org/pdf/1801.05609.pdf)\n- Major contribution is the determination of wether two samples $x_p$ and $x_q$ belong to the same class ($x_p$ and $x_q$ can be seen or unseen classes)\n- First do classificaiton of new vs old, then classification network for $g(x_p, x_q)$. THen using hierarchical clustering method, to find number of hidden classes in the unseen\n- Experimentation done on trivial datasets, and done on static images.\n\nEven Newer Paper (2019 ) by Facebook\n[Activity Driven Weakly Supervised Object Detection](https://arxiv.org/pdf/1904.01665.pdf) class eaxmples.\n- Shows the importance of action labels in the localization and identification of objects. \n- Uses human pose as an input features, estimates a spatial prior for the position of the object $p(position | \\mathcal P, a)$ where $a$ is the action class and $P$ is the set of points in the human frame\n"
+    },
+    {
+      "type": "markdown",
+      "data": "## Hand pose estimation -- theased question of what the hands are doing in the videos\nTo quantize the function of objects, we need information about where the hand is and the pose of the hand in each frame... "
+    },
+    {
+      "type": "markdown",
+      "data": "## Dataset \n\n[EPIC Kitchens](https://epic-kitchens.github.io/2018)\n- ~300 classes\n- Hand motions in every single one\n- Classes already separated into a two-layer hierarchy.\n\n"
+    },
+    {
+      "type": "markdown",
+      "data": "## Important questions\n1) Is it the task of the network to decide whether something is an object? Alternatively the bounding boxes could be already provided to the ML system, and its sole task is to watch a video and determine the placement of that class in the hierarchy.\n\n2) Is it the task of the network to create new ancester nodes in the hierarchy? Or are all the ancester nodes provided, and the network's task is insertion into this network? The latter would effectively mean that there needs to be at least one known class that falls into the same category as the unknown class.\n\n"
+    },
+    {
+      "type": "markdown",
+      "data": "## Meeting outline\n\nSummary of progress\n\n1) Dataset is fantastic for the job, has hierarchy of ~300 classes already prepared, dataset is reasonably big\n\n2) Reading papers, and as far as I can tell right now, no one has looked at building hierarchies from videos. Videos provide rich information about the function of different objects, and so this is a good idea to explore. Even further, this dataset is readily new, and provides good information about the function of objects.\n\n3) We have discussed several potential setups of the problem. Method 1 is taking in a function, and outputting another function after introducing new data. (Jingwei). Method 2 is more straightfowardly modeling $f(X, V)$ where $V$ is a tree and $X$ is a set of frames. $f: X \\times V \\rightarrow P \\times B$ where $B$ is the set of bounding boxes for instances of \"new\" classes, and $P$ is some indication of the class's position in the tree $V$.\n\n4) hand pose estimation features over the frames, raw visual features, some representation of context information.\n\nIssues to discuss\n\n1) Model will have to learn to discover new objects within images... But fewer bounding boxes than number of objects are created within every image (the objects that the hand interacts with, apparently) and. We are thinking about circumventing this perhaps with weakly supervised learning... (what?)\n\n2) How to ensure that the model is learning to place new classes into the hierarchy rather than learning the relationship of permuted classes? \n\n"
+    }
+  ]
+}

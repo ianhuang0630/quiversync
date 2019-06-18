@@ -25,6 +25,14 @@
     {
       "type": "markdown",
       "data": "After launching the two executables, run `python InputSession.py`. You may have to activate a virtual environment.\n\n"
+    },
+    {
+      "type": "markdown",
+      "data": "Full procedure for installation"
+    },
+    {
+      "type": "markdown",
+      "data": ""
     }
   ]
 }

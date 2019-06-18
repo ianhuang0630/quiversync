@@ -1,0 +1,9 @@
+{
+  "title": "Mar 2: {E} Email to Williams",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "Hi Professor Williams,\n\nMy name is Ian Huang, and I'm a student at Columbia studying Applied Mathematics and Computer Science. From my research in vision and robotics at Peter Allen's lab, I'm familiar with the work that your lab does, and I'm very interested in getting involved at your lab this summer!\n\nI'm currently working on a battery of different projects – including decyphering human grasp intention using deep learning applied on sEMG data (under Prof. Allen), data augmentation to counteract catastrophic forgetting (under Prof. Carl Vondrick), and a more theory-heavy project on embedding multiple latent hierarchies in a fixed-dimensional hyperbolic space (under Prof. Nakul Verma). I've also previously worked in Intel and LinkedIn for research projects in computer vision. I've attached my CV here with more about my research experience – if you have a moment, please do take a look!\n\nI've had a chance to look at your projects on the CSAIL website, and I'm very interested in your project Robots Adapt to Human Intent. My current project in Prof Allen's lab is related to this, and I'd love to join the team.\n\nWhile my interests lie largely in lifelong learning, computer vision, and robotics, I would also be very open to being assigned to projects in other areas. I'm reaching out to you because of all the faculty at MIT, my interests align best with your lab's research direction. If you'd like a letter of recommendation from any advisors I currently work with, please let me know!\n\nI would love to be doing research at your lab this summer. Please let me know if that is a possibility!\n\nThanks so much,\nIan"
+    }
+  ]
+}

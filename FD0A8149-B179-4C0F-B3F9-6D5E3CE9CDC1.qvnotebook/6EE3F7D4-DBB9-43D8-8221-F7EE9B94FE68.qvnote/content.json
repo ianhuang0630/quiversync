@@ -1,0 +1,21 @@
+{
+  "title": "June 2: {N} New idea on joint prediction",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "Alternatively, we could make the DOF prediction an auxiliary task, and frame this problem as a self-supervised one. \n\n# Formulation\nWe have known kinematic functions for every joint (hinge joint, linear joint ... etc). let $T(S, \\lambda, X)$ be such a function outputting a transformed version of the object where $S$ is the set of parameters describing the DOF, $X$ be the input picture/point cloud at a timestep and $\\lambda$ parametrizing the extent to which the part moves along that DOF. Then we can ask a neural network F to produce $\\hat{S}$ to minimize $min_\\lambda {|| y - T(\\hat{S}, \\lambda, X)||}$, where $y$ is the picture/pointcloud at the next frame or a further timestep."
+    },
+    {
+      "type": "markdown",
+      "data": "A limitation of this dataset would be that we can only work in a 3d setting, otherwise $T$ might be ill-defined (though technically we could use SOTA depth prediciton methods to convert into a point cloud.) In any case, the function must be learned in a 3d setting."
+    },
+    {
+      "type": "markdown",
+      "data": "# Dataset\n\nWe put 3d models into virtual physics simulators and measure their configurations in the form of point clouds after subjecting them to random forces. We only consider models with more than one degree of freedom...\n\n[List of RGBD datasets](http://www.michaelfirman.co.uk/RGBDdatasets/)\n[CMU dataset with hands manipulating things](https://www.cs.cmu.edu/~deva/papers/grasp-ego.pdf)"
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    }
+  ]
+}

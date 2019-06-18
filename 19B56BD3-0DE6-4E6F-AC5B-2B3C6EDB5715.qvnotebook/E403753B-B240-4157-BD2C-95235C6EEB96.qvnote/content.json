@@ -1,0 +1,33 @@
+{
+  "title": "April 1: {N} Debugging Disruption Experiment",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "# Key learnings\n1) Don't use NLLLoss in pytorch. Use cross entropy and eliminate the softmax layer , as shown in this [discussion](https://discuss.pytorch.org/t/is-log-softmax-nllloss-crossentropyloss/9352)\n2) dropout brings stochasticity into the evaluation of loss, and thus affects the evaluation of gradients \n3) SGD is actually deterministic, and if you give it a batch it's the same as minibatch loss, as shown in this [discussion]()\n4) When you enable multiple workers for the dataloader, it's possible for the `enumerate(dataloader)` to return random subsets of the data even when you've set a random seed."
+    },
+    {
+      "type": "markdown",
+      "data": "# Improvements in the data\nNow, the distribution \n`disruption = crossentropy_before - crossentropy_ after`\n\nWe get the following distributions over the vanilla gradient_collision for a single hidden class (class 0 here, but they all look very similar). Most commonly, updates are almost orthogonal to eachother. \n\n**Interesting question:** Given 2 classes in $N$ and a class in $z$, what is the distribution of vanilla gradient collision? if the mean lies below 0, do we expect the class to be generally disruptive (disruption > 0)? And if mean lies below 0, do we expect the class in $z$ to be generally constructive (disruptive < 0)? "
+    },
+    {
+      "type": "text",
+      "data": "<img src=\"quiver-image-url/E72454B5DCFD8BC01E037578EEEEC0A5.png\" alt=\"vanilla_collision_distribution.png\" width=\"385\" height=\"252\"><br>"
+    },
+    {
+      "type": "markdown",
+      "data": "However, the plot of *all* disruption over *all* gradient collision still is noisy (although some downward trend can be seen). "
+    },
+    {
+      "type": "text",
+      "data": "<img src=\"quiver-image-url/E5444963BBCBD3F13890C3C09A7A6C4A.png\" alt=\"length_agno_collision_vs_disruption.png\" width=\"396\" height=\"252\"><div><img src=\"quiver-image-url/B365E8A09ACED160BEBB802F90009404.png\" alt=\"vanilla_gradient_vs_disruption.png\" width=\"378\" height=\"252\"><br></div>"
+    },
+    {
+      "type": "markdown",
+      "data": "The noise may come from a variety of different things:\n1) overshooting of loss function. Causing collision closer to 1 to yield a positive disruption. (could set slower learning rate, or **filter out when $\\nabla_z J$ changes direction after one backprop step)**\n\n2) for any given collision number and a class in $z$, different classes for $N$ might have different loss functions. Some choices of the two classes might have a \"nicer\" loss function that is smoother. Solution would be plotting it with as many controls as possible"
+    },
+    {
+      "type": "markdown",
+      "data": "## Thoughts on improvements\nNext steps:\n- [ ] explore current dataset but with classes in $N$ fixed for each graph\n- [ ] try to fit lines through each graph\n- [ ] record approximately when the gradient overshoots. this will give us a good idea of when we should lower our learning rate...\n\n**Keep this in mind**: So far, we've imposed a bunch of restrictions on the model (eliminated stochasticity, made it memorize, and we are also fixing the learning rate.) How can we improve this model to make it more robust?\n\n**Keep this in mind**: We've also been taking one sample of a class in $z$ up till now. Is it time to increase the size of that set?"
+    }
+  ]
+}

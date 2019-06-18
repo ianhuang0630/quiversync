@@ -1,0 +1,9 @@
+{
+  "title": "Mar 2: {E} Email to Bohg",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "Hi Professor Bohg,\n\nMy name is Ian Huang, and I'm a student at Columbia studying Applied Mathematics and Computer Science. From my research in vision and robotics at Peter Allen's lab, I remember when you came to Columbia to share what your lab does, and I'm very interested in getting involved at your lab this summer!\n\nI'm currently working on a battery of different projects – including deep learning applied on sEMG data (under Prof. Allen), human-in-the-loop for visual classification systems (under Prof. Allen), data augmentation to counteract catastrophic forgetting (under Prof. Carl Vondrick), and a more theory-heavy project on embedding multiple latent hierarchies in a fixed-dimensional hyperbolic space (under Prof. Nakul Verma). I've also previously worked in Intel and LinkedIn for research projects in computer vision. I've attached my CV here with more about my research experience – if you have a moment, please do take a look!\n\nI've had a chance to look through your recent publications, and I'm fascinated by your work on using sensory data to combine learned and analytical models to predict action effects. I'd love to be working over the summer on improving the model to be able to handle more complex scenarios.\n\nWhile my interests lie largely in lifelong learning, computer vision, and robotics, I would be very open to being assigned to new projects. I'm reaching out to you because of all the faculty at Stanford, my interests align best with your lab's research direction. If you'd like a letter of recommendation from any advisors I currently work with, please let me know!\n\nI would love to be doing research at your lab this summer. Please let me know if that is a possibility!\n\nThanks so much,\nIan\n\n"
+    }
+  ]
+}

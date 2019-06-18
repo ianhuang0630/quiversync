@@ -1,0 +1,13 @@
+{
+  "title": "Setting up the workspace environment",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "First run `catkin_init_workspace` under `src/`\nThen, `cd ../` into top level folder, \n\nNote: On Tesla, had to install joint_state_controller \n`sudo apt install ros-kinetic-joint-state-controller`\n\nrun `catkin_make`\nrun `source devel/setup.bash`\n\n\n# To get the cyberglove working\n\n`sudo rosrun my_cyberglove start_connection.py`\nthis will give an error, then run `rosrun my_cyberglove start_connection.py`\n`sudo chmod 777 /dev/rfcomm0`. This only needs to be run once on a new computer\n\n`roslaunch my_cyberglove start_pipeline.launch visualize:=False`\n"
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    }
+  ]
+}

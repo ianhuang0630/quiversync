@@ -1,0 +1,25 @@
+{
+  "title": "June 5: {N} Project proposal, Data Visualization",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "[Google slides](https://docs.google.com/presentation/d/1LwmKOYewyibj1aF_9paiyv9UuYI6lonMRvnMffTGsXU/edit#slide=id.g44520b9424c9def9_35)"
+    },
+    {
+      "type": "markdown",
+      "data": "Action labels: found at `https://raw.githubusercontent.com/epic-kitchens/annotations/master/EPIC_train_action_labels.csv`"
+    },
+    {
+      "type": "markdown",
+      "data": "Class bounding boxes: found at\n`https://raw.githubusercontent.com/epic-kitchens/annotations/master/EPIC_train_action_labels.csv`"
+    },
+    {
+      "type": "markdown",
+      "data": "Activate the X-server by\n`ssh -X ianhuang@sc.stanford.edu`\nThen visaulize the jpg's in a folder by `eog .`\n\nThen uncompress the `.tar` files using `tar xvf [tar name]`."
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "title": "June 6: {N} Visualization code",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "To get anaconda working, remember to:\n`export PATH=~/anaconda3/bin:$PATH` (until I'm able to access .bashrc to permanently include it.)"
+    },
+    {
+      "type": "markdown",
+      "data": "Virtual environment of python3.7 installed as `.vidobj`\nTo activate, `conda activate .vidobj`"
+    },
+    {
+      "type": "markdown",
+      "data": "Then,enter the following in the original terminal (important):\n```\nexport XDG_RUNTIME_DIR=\"\"\n```\nThen, open jupyter notebook:\n```\njupyter notebook --no-browser --port=8880 --ip='0.0.0.0'\n```\nThen navigate to the indicated link in the browser.\n"
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    }
+  ]
+}

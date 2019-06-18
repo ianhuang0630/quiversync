@@ -1,0 +1,19 @@
+{
+  "title": "Random: {N} GauGAN",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "# CHECK THIS OUT!\n\n[google](google.com)"
+    },
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "$$ E = mc^2 $$\n$$ \\sqrt {E}$$"
+    },
+    {
+      "type": "code",
+      "language": "assembly_x86",
+      "data": ""
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "title": "June 7: {N} Dataloader and further setup of the training",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "Dataloader takes in list of knowns, unknowns and classes. The task of the dataloader is to go through all the videos (metadata like the .csv's), and search for sequences of frames that contains both some subset of the known and unknown classes. \n\nThis search will be done in the following manner:\n1) filter out only the videos that satisifies the above conditions\n2) For every video:\n  a) Find the blocks where each class appears. Find the earliest block, and the last block. \n  b) Starting at the earliest block, employ a sliding window of a fixed size through time stopping at the last block, accepting only if there are at least bounding boxes from both known and unknown classes.\n3) For now, everything should be saved into csv.\n4) Random selection of max(N, length of dataset) from the csv.\n\nThe Dataloader will also conveniently store a cache file after the first time it does this preparation so that following times will be much faster.\nA single sample will be determined by \"subject ID\",  \"video id\", \"start frame\" and \"end frame\". These should give access to:\n- the intermediary frames (set of paths)\n- the bounding boxes of the intermediary frames (set of )\n- the labels of the bounding boxes\n"
+    }
+  ]
+}

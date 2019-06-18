@@ -1,0 +1,9 @@
+{
+  "title": "Useful links",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "# Using LCD\nhttp://www.circuitbasics.com/raspberry-pi-lcd-set-up-and-programming-in-python/\n\n\n\n# Using rotary encoder\nhttps://github.com/modmypi/Rotary-Encoder/blob/master/rotary_encoder.py\n\nhttp://codelectron.com/rotary-encoder-with-raspberry-pi/\n\n# using raspberry pi module\n\nhttps://www.raspberrypi.org/documentation/usage/camera/raspicam/raspistill.md\n\nhttps://www.raspberrypi.org/documentation/usage/camera/raspicam/raspivid.md\n\nhttps://projects.raspberrypi.org/en/projects/getting-started-with-picamera/5"
+    }
+  ]
+}

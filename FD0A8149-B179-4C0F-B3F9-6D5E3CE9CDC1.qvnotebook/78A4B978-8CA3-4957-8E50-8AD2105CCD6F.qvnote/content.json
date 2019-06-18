@@ -1,0 +1,25 @@
+{
+  "title": "June 17: {N} Architecture + research on GCNN  for tree encoder",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "## Architecture"
+    },
+    {
+      "type": "markdown",
+      "data": "Winner:"
+    },
+    {
+      "type": "text",
+      "data": "<img src=\"quiver-image-url/C0E1AFB78C231E7C4CDD382B077E757B.png\" alt=\"Screen Shot 2019-06-17 at 1.58.00 PM.png\" width=\"815\" height=\"454\">"
+    },
+    {
+      "type": "markdown",
+      "data": "Notes:\n- Instead of videos, work on clips of known classes in time.\n- Tree encoder can be a GCNN on \"current\" hierachy of instances organized according to their classes.\n- After adding the instance into the hierarchy, use GCN to regenerate encoding of current state."
+    },
+    {
+      "type": "markdown",
+      "data": "## GCN's\n[survey on Graphical Convolutions](https://arxiv.org/pdf/1901.00596.pdf)\nParadigms:\n- graph attention networks\n- graph autoencoders\n- graph generative networks\n- graph spatial-temporal networks \nFor our purposes, we want to embed the hierarchy. Focus on **Network embedding**\nWe should look into implementing the graph auto-encoder architecture to encode the tree.\n\n[Survey on network embeddings](https://arxiv.org/pdf/1808.02590.pdf)\nCurrently, DeepWalk is one of the most popular network embedding tools. For our purposes, we should consider viewing the tree as a directed heterogeneous graph."
+    }
+  ]
+}

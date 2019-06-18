@@ -1,0 +1,85 @@
+{
+  "title": "June 12:  {N} Survey of meta-learning and transfer learning",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "Primer on CRP vs DP: http://www.cs.cmu.edu/~epxing/Class/10708-16/slide/lecture18-DP.pdf"
+    },
+    {
+      "type": "markdown",
+      "data": "# Feature extractor"
+    },
+    {
+      "type": "markdown",
+      "data": "## [Learning joint reconstruction of hands and manipulated objects]()"
+    },
+    {
+      "type": "markdown",
+      "data": "# Metalearning neighbors"
+    },
+    {
+      "type": "markdown",
+      "data": "## [Maml](https://arxiv.org/pdf/1703.03400.pdf)\n- A popular approach for metalearning is to train a meta-learner that learns how to update the parameters of the learner’s model\n- Another approach is learning weight initialization\n-  One successful approach for few-shot classification is to learn to compare new examples in a learned metric space using e.g. Siamese networks (Koch, 2015) or recurrence with attention mechanisms (Vinyals et al., 2016; Shyam et al., 2017; Snell et al., 2017)\n- In effect, the meta-learning problem treats entire tasks as\ntraining examples. "
+    },
+    {
+      "type": "markdown",
+      "data": "## [Siamese networks](https://www.cs.cmu.edu/~rsalakhu/papers/oneshot1.pdf)\n- Very basic stuff\n- Train network to respect distance (binary though)\n- At test time, inspect distance to each calss"
+    },
+    {
+      "type": "markdown",
+      "data": "## [Prototypical Networks](https://arxiv.org/pdf/1703.05175.pdf)\n- Works by discovering the \"prototypes\" of each cluster\n- leveraged for few-shot / zero-shot classification\n"
+    },
+    {
+      "type": "markdown",
+      "data": "## [Hyperbolic embeddings in Neural Networks](https://arxiv.org/pdf/1705.10359.pdf)\n- A way to use hyperbolic embeddings and neural networks to output them"
+    },
+    {
+      "type": "markdown",
+      "data": "# Transfer Learning neighbors"
+    },
+    {
+      "type": "markdown",
+      "data": "## [Transfer learning with tree-based priors](http://papers.nips.cc/paper/5029-discriminative-transfer-learning-with-tree-based-priors.pdf)\n- these tree-based priors are over the parameters, and depend on the parent node.\n- Generated using chinese restaurant process, not visual features\n- pretty old (2013), cited by all the below papers: "
+    },
+    {
+      "type": "markdown",
+      "data": "## [Online gradient-based mixtures for transfer modulation in meta-learning](https://www.semanticscholar.org/paper/Online-gradient-based-mixtures-for-transfer-in-Jerfel-Grant/22a4d753df91382da0829133765de7bd7df28ed7)\n- Very thorough, but very hard to understand\n- Seems like clusters are discovered not on the basis of visual elements, but rather the learning dynamics. (Very meta-learning setup).\n- (Algorithm 2 describes the bulk of the update process)\n\n**Questions:**\nWhy does algorithm 2 work?\n"
+    },
+    {
+      "type": "markdown",
+      "data": "## [Combining Class Taxonomies and Multi Task Learning To Regularize Fine-grained Recognition](https://www.semanticscholar.org/paper/Combining-Class-Taxonomies-and-Multi-Task-Learning-Dasgupta-Namboodiri/a7a0099caf89bedbf4de1c61499f999ea4fc7d98)\n- Actually a thesis, not a research apper\n- Regardless, seems a little different from what we want to do. Tries to show that training on auxiliary tasks in a multi-task setting can help a primary task.\n- Show that hierarchy is important because faulty selection of tasks can lead to negative transfer. \n- They do not attempt to build this hierarchy in an online way, they use linnaen taxonomy (in the scientific names of the birds dataset) which in effect is a taxonomical hierarchy. "
+    },
+    {
+      "type": "markdown",
+      "data": "## [Embedding Visual Hierarchy With Deep Networks for Large-Scale Visual Recognition](https://www.semanticscholar.org/paper/Embedding-Visual-Hierarchy-With-Deep-Networks-for-Zhao-Zhang/a1e1bd4dacddc703a236681e987a09601ee1016d)\n\nGiven visual hierarchy, they calculate\n$$P(y| l, x, w^l)  = \\sum_t^\\mathcal{T_l} I(t)P(t|l, x, w_t^l) P(y|t)$$\nFor layer $l$. $x$ is representation learned from a neural network. $P(y | t) = 1/C_t$ where $C_t$ is the count of number of classes falling under parent node $t$. $I(t)$ is an indicator function for whether $y$ belongs in $t$ in layer $l$. $P(t|l, x, w_t^l)$ is computed by neural network.\n\n$$P(y| x, W) = \\sum_{l = 0} ^ L \\theta_l P(y| l, x, w^l)$$\n(Can be seen as a latent variable to characterize the prior over layers of visual hierarchy, or a linear weighting.)\n\nThey replace the softmax function with this function.\n\n$\\Psi$ is the matrix denoting group-object correlation. $\\Psi \\in \\mathcal R ^{N_l x N}$. $\\Psi_{t, y}$ is $P(y | t)$. $\\Psi$ is initialized according to count numbers $1/N_t$, but changes as the model sees more examples. Next question: **how to update $\\Psi$?** They \"sample the group label $t$ for each image, then update $\\Psi$ according to the sampling results\".\n\n$$\\Omega_{t, y} = \\sum_{i=1}^M I(t_i = t \\land y_i = y)$$\nWhere $M$ is the number of training iamges and $\\Omega$ is a count matrix.\n$$P(t_i | T^{\\lnot i}, Y , X, l, \\beta) \\propto \\frac{\\Omega_{t_i, y_i}^{\\lnot i} + \\beta_{y_i}}{\\sum_{y}^\\mathcal{Y} \\Omega_{t_i, y}^{\\lnot i} + \\beta_0} \\times P(t_i  | l , x_i, w_t^l)$$\nNotes:\n- $\\mathcal{Y}$ is label setsfor all object classes\n- $y_i$ is the label of the object for the image i.\n- $t_i$ is predicted group label of image i\n- $T^{\\lnot i}$ is the set of group labels for all images except that of the ith image. \n- $\\beta_0 = \\sum_{y}^\\mathcal{Y} \\beta_y$\n\nIntuition:\n- First component represents number of images in object class $y_i$ which is assigned into the group $t$. This is what $\\Psi$ is updated with every training example. \n- Second component is predictedby deep neural network \n\nNetwork parameters: $u$ - used to output representation $x$. $W$ is are the set of weights at every layer in the visual hierarchy (basically a few fully connected layers in the back, but not connected to eachother. All of them are directly connected to $x$, the neural representation)\n\nWhen training, MLE is used. Takes log of P(y|x). \n$$f(W, u) = log (\\sum_{l_1}^L \\theta_l \\sum_{t}^{\\mathcal T} P(t|l, x, w_t^l) P(y|t))$$\nThey maximize $f(W, u)$ over $W, u$. (Where does $\\Psi$ come in? Its entries estimate ($P(y | t)$)). This posterior is badly estimated at first, but updates for every datasample seen. Their algorithm goes:\n```\nInitially train W and u based on bad estimate of $\\Psi$\nRepeat until convergence:\n  for each sample in dataset:\n    re-estimate $\\Psi$\n    update W and u.\n```\n\nThey show that maximizing MLE is equivalent to maximizing MAP, except with an L2 regularization parameter, under the assumption of a Gaussian prior.\n\n**Question:** How to coimpute $I(t)$ when hierarchy is not accessible?\n**Question:** Usage of dirichlet-categorical model to update hierarchy.\n**Quesiton:** \n> By automatically adapting\nthe visual hierarchy to the progressive improvements of deep\nnetwork along the time, our LMM algorithm can provide\nan open-ended and dynamic solution for hierarchical visual\nrecognition, on the other hand, most existing approaches are\nstatic by using a fixed tree structure. O\n\n> Unfortunately, the N-way flat\nsoftmax classifier completely ignores such inter-class visual\nsimilarities (inter-task correlations), which may push the deep\nlearning process away from the global optimum because the\ngradients of the joint objective function are not uniform for\nall the object classes. As a result, the deep learning process\nmay distract on discerning some particular object classes that\nare typically hard to be discriminated."
+    },
+    {
+      "type": "markdown",
+      "data": "## [Fine-Grained Representation Learning and Recognition by Exploiting Hierarchical Semantic Embedding](https://www.semanticscholar.org/paper/Fine-Grained-Representation-Learning-and-by-Chen-Wu/df648b5c859349c79dd214aac37ab7578236360e)\n- Direct prediction of trees\n- Doesn't handle online case when unknown data is arriving\n\n> employs a trunk network to extract image features and subsequently utilizes a branch network to predict the categories of each level. At each level, it incorporates the predicted score vector to guide learning finer-grained feature and simultaneously regularizes label prediction during training."
+    },
+    {
+      "type": "markdown",
+      "data": "## [Object Categorization Using Class-Specific Representations](https://www.semanticscholar.org/paper/Object-Categorization-Using-Class-Specific-Zhang-Cheng/922a8f36112c3f484df7161b334bbfc78600afc8)\n"
+    },
+    {
+      "type": "markdown",
+      "data": "## [Tree-CNN: A Deep Convolutional Neural Network for Lifelong Learning](https://www.semanticscholar.org/paper/Tree-CNN%3A-A-Deep-Convolutional-Neural-Network-for-Roy-Panda/c12d4408aa0a2a8d8552dcac1fc93f29b3dcc371)"
+    },
+    {
+      "type": "markdown",
+      "data": "## [Tree-CNN: A Hierarchical Deep Convolutional Neural Network for Incremental Learning.](https://www.semanticscholar.org/paper/Tree-CNN%3A-A-Hierarchical-Deep-Convolutional-Neural-Roy-Panda/e811c76173d4b0e478d3ab5965358a6377dd48ce)"
+    },
+    {
+      "type": "markdown",
+      "data": "## [Taxonomy-Regularized Semantic Deep Convolutional Neural Networks](https://www.semanticscholar.org/paper/Taxonomy-Regularized-Semantic-Deep-Convolutional-Goo-Kim/f99e0ce68617202e5bbcf67c217340d152dffd8d)"
+    },
+    {
+      "type": "markdown",
+      "data": "## [Learning Multiple Tasks with Multilinear Relationship Networks](https://www.semanticscholar.org/paper/Learning-Multiple-Tasks-with-Multilinear-Networks-Long-Cao/1b7f9cc57ab8f3f551bdb0d5f153191ec403895e)"
+    },
+    {
+      "type": "markdown",
+      "data": "## [Building and Leveraging Category Hierarchies for Large-scale Image Classification](https://www.semanticscholar.org/paper/Building-and-Leveraging-Category-Hierarchies-for-Zhang/77687366e32b3949ce0285cba732f715c4972ece)"
+    }
+  ]
+}

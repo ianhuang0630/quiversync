@@ -1,5 +1,5 @@
 {
-  "title": "Feb 11: {N} Meeting",
+  "title": "Feb 11: {N} Meeting - Max’s Paper and Hyperbolics",
   "cells": [
     {
       "type": "markdown",
@@ -7,7 +7,15 @@
     },
     {
       "type": "markdown",
-      "data": "## Notes:\n\nMetric space is more powerful than euclidean space. Review Bourgain's and JL theorems. They show the dimensionality of the embedding space needed to achieve lower than a certain distortion in the distances."
+      "data": "## Notes:\n\nMetric space is more powerful than euclidean space. Review Bourgain's and JL theorems. They show the dimensionality of the embedding space needed to achieve lower than a certain distortion in the distances.\n\n## Resources\n[Explanation of the Poincare model for learning representations](http://bjlkeng.github.io/posts/hyperbolic-geometry-and-poincare-embeddings/)([Primer on Manifolds](http://bjlkeng.github.io/posts/manifolds/))"
+    },
+    {
+      "type": "markdown",
+      "data": "## Doing poincare stuff but online?"
+    },
+    {
+      "type": "markdown",
+      "data": ""
     }
   ]
 }
