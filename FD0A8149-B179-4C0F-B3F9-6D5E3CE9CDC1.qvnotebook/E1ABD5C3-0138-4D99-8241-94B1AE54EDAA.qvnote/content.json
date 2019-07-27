@@ -1,0 +1,17 @@
+{
+  "title": "July 1: {N} Visualizing feature vectors, hyperparameter tuning, and further model architecture implementation",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "# Feature extraction visualization\nWould like to visualize\n- image, with bounding boxes for hands. (+ boolean mask with confidence labels?)\n- hand pose and mesh predictions for left and right\n- object bounding boxes"
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    }
+  ]
+}

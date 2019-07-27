@@ -1,0 +1,9 @@
+{
+  "title": "June 19: {N} Building the architecture",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "## First module to get\npreprocessing modules\n- hand detection\n  - hand mesh\n  - object detection\n- object detection"
+    }
+  ]
+}

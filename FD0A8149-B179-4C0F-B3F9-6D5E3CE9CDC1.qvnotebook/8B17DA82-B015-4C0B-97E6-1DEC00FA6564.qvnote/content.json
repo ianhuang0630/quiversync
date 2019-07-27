@@ -1,0 +1,18 @@
+{
+  "title": "June 20: {N} Survey of Zero-shot learning",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "## Jingwei forwarded this paper: [Zero-Shot Object Detection](http://openaccess.thecvf.com/content_ECCV_2018/papers/Ankan_Bansal_Zero-Shot_Object_Detection_ECCV_2018_paper.pdf)\n\n**Def: Zero-shot learning:** at training time, only subset of classes is given. At test time, model expected to recognize instances of classes which were not seen, with constraint that new classes are semantically related ot the training classes.\n\nTransfer learning has solved the task. Visual models for seen classes are transferred to the unknownsclasses by exploiting semantic relationships. Important linked papers: \n>  Fu, Y., Xiang, T., Jiang, Y.G., Xue, X., Sigal, L., Gong, S.: Recent advances in zero-shot recognition. arXiv preprint arXiv:1710.04837 (2017)\n\n> Qi, G.J., Aggarwal, C., Rui, Y., Tian, Q., Chang, S., Huang, T.: Towards cross-category knowledge propagation for learning visual concepts. In: CVPR. pp. 897–904. IEEE (2011)"
+    },
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "Object detectionsis mostly fully supervised as it's more challenging.\n\n$\\psi_i = W_p \\phi(b_i)$. Linear transform on the deep features of each box becomes the embedding. \n$\\mathcal L(b_i, y_i , \\theta) = \\sum_{j \\in \\mathcal S, j \\not = i } max(0, m-S_{ii} + S_{ij})$. $S_{ij}$ is cosine similarity between $\\psi_i$ and $w_j$ from class label $y_j$ (embedding from GloVe or something)\n\nThe \"idea\" of the relationship between categories in $\\mathcal U$ and $\\mathcal S$ is \"provided\" by the word embeddings... That's kinda cheating though since, that means the model was pretrained to some extent even if just in the taxonomy of the different categories. Ideally, we want to build up this hierarchy from the ground up. In the real world, we can't rely on the word hierachies in GLOVE, (1) since the hierarchy  is built off of less-relevant signals like co-occurence and (2) because it effectively doesnt' allow it to predict any classes that's outside of the set of classes in $\\mathcal U \\cup \\mathcal S$. This also means we'd have to specify beforehand which classes are \"relevant\", which is hard in a setting where this is in effect an open set.\n\nMore generally, I feel that the whole problem of zero-shot detection is actually ill-defined, since zero-shot suggests that there was no involvement of an unknown class in the training set and yet, some \"prior\" pretrained knowledge (here in this paper, that's the word embeddings for different classes) involving both unseen and seen classes must be provided to give them some information so that they can predict the right unseen classes at test time... but where's the threshold for too much prior information? In my honest opinion, I think that's effectively similar to doing a transfer to a new domain based on a pretrained model encoding the prior knowledge...\n\nAt test time, predict label $\\hat{y_i}$ for a bounding box $b_i$ by finding nearest class on similarity in joint embedding space. \n"
+    },
+    {
+      "type": "markdown",
+      "data": "For how they did object detection, they use \"latent assignment based zer-shot sdetection\". Spreading $\\psi$ all over the embeding space using Expectation Maximization-like algorithm. **For the purposes of our work, this is their only meaningful contribution.** "
+    }
+  ]
+}

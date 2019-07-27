@@ -1,0 +1,33 @@
+{
+  "title": "June 29: {N} Motor and ESC ",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "# Motor (Brushless)\n<!--https://www.amazon.com/SURPASS-Performance-Brushless-Airplane-Fixed-wing/dp/B01MAUFDHW/ref=sr_1_4_sspa?keywords=240kV+motor&qid=1561851382&s=gateway&sr=8-4-spons&psc=1#customerReviews-->\n\n**Bought:** https://www.amazon.com/gp/product/B00URCHWMA/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1\n- max 60 A\n- 240 kV\n- 4mm bullet connector\n\n**blue prints:** https://cdn-global-hk.hobbyking.com/media/file/s/k/sk3-5055_dt4030-14p_motor_edited_.pdf\n**instructables for using this motor**:\nhttps://www.instructables.com/id/DIY-Electric-Longboard/\n**CAD model**:\nhttps://grabcad.com/library/turnigy-aerodrive-sk3-5055-280kv-1\n"
+    },
+    {
+      "type": "markdown",
+      "data": "# Speed controller (ESC)\n<!--https://www.amazon.com/RC-Brushless-Electric-Controller-bullet/dp/B071GRSFBD/ref=pd_bxgy_img_2/140-3406248-2745660?_encoding=UTF8&pd_rd_i=B071GRSFBD&pd_rd_r=c13b6d14-9ac6-11e9-b02c-7d41afbdbeec&pd_rd_w=qF7C3&pd_rd_wg=Pf2KL&pf_rd_p=a2006322-0bc0-4db9-a08e-d168c18ce6f0&pf_rd_r=Z3HSN33P637RTNA9Z036&psc=1&refRID=Z3HSN33P637RTNA9Z036-->\n\n<!--**Compatible with bought motor**-->\n<!--http://www.ebay.com/itm/150A-Sensored-Brushless-ESC-2-6S-Li-po-for-1-8-RC-Model-car-on-road-off-road-/311392899791?hash=item48807692cf-->\n\n<!--Current motor does 60A max, so 100+ A is what the blogger used on instructables. But I think 80 A controller is fine?-->\n<!--**What I'll probably buy**:-->\n<!--https://www.amazon.com/ZTW-Brushless-Switch-output-airplane/dp/B0771H941R/ref=sr_1_1_sspa?keywords=80A+ESC&qid=1561963938&s=gateway&sr=8-1-spons&psc=1-->\n\n**Bought:**\nhttps://www.amazon.com/gp/product/B07PJJSXJX/ref=ppx_yo_dt_b_asin_title_o03_s00?ie=UTF8&psc=1\n- 80A max\n- 5A 5.5V Switch BEC\n- 2-6 S Lipo\n\nSpecifications:\n\n● Output: 80A continuous, 90A burst\n● Input voltage: 2-6s LiPo; 5-18 cell Ni-XX\n● SBEC output: 5.5V/5A (Switching)\n● Weight: 87g\n● Dimensions: 68 x 37 x 17mm\n\nProgrammable Options:\n\n● Brake setting (on/off -- default: off)\n● Battery type: (Ni-XX/LiPo -- default: LiPo auto detect)\n● Low voltage cutoff setting (2.8V 50% / 3.0V 60% / 3.2V 65% -- default: 3.0V)\n● Factory default setup reset\n● Timing settings (Auto 7-30° / Low 7-22° / High 22-30° -- default: auto)\n● Acceleration (Soft / Normal / Hard -- default: soft)\n● Governor mode (RPM off / Heli Mode 1 / Heli Mode 2 -- default: RPM off)\n● Motor rotation (forward / reverse -- default: forward)\n● PWM/Switching Frequency (8KHz / 16KHz -- default: 8KHz)\n\n"
+    },
+    {
+      "type": "markdown",
+      "data": "# Controlling ESC using Arduino (tried and true)\nhttps://howtomechatronics.com/tutorials/arduino/arduino-brushless-motor-control-tutorial-esc-bldc/\n- remember to reattach the ESC after calibration."
+    },
+    {
+      "type": "markdown",
+      "data": "# Controlling ESC using raspberry pi\nhttps://www.instructables.com/id/Driving-an-ESCBrushless-Motor-Using-Raspberry-Pi/\n- got code\n\n\nA little more on PWM and ESC's\nhttps://forum.arduino.cc/index.php?topic=270309.0\n> Once the motor has topped out, moving the throttle higher will cause the motor to behave unpredictably. This is fundamentally because the ESC is sending a rotating electric current with a frequency dependent on the PWM input. However the capacity of the motor to respond to this rotating current is dependent on the input power and the load applied. So, a good practice is to set the high throttle to a position that the motor can achieve when subjected to the expected operating load. Otherwise, you'll be wasting part of your throttle range that the motor can't achieve. \n\nRefresher on PWM vs PPM\nhttps://www.youtube.com/watch?v=FLl837l8o_Q\n\nCalibrating ESC\nhttp://ardupilot.org/copter/docs/esc-calibration.html\n"
+    },
+    {
+      "type": "markdown",
+      "data": "Same as Hobbyking instructions\nhttps://hobbyking.com/media/file/1006513628X70599X0.pdf"
+    },
+    {
+      "type": "markdown",
+      "data": "# Beepcodes and calibration for the HAWK ESC\nhttps://www.youtube.com/watch?v=2HIVAl8TBT0z\n- walks through the differen tbeep codes\n- Shows that braking once turned on, doesn't actually need to be signaled by a specific PWM. It's applied whenever the speed decreases. So decreasing PWM should do the job."
+    },
+    {
+      "type": "markdown",
+      "data": "# How Brushless motors work\nhttps://www.youtube.com/watch?v=uOQk8SJso6Q\n- \"S\" is the number of cells in the Li-Poly RC Battery (LiPo)\n- 1S = 3.7 V\n- 3S = 3*3.7 = 11.1 V\n\nSpecial notes: \"Arming\" of the ESC\n\nhttps://www.youtube.com/watch?v=W9IHEqlGG1s\n- Making an ESC from scratch LOL"
+    }
+  ]
+}

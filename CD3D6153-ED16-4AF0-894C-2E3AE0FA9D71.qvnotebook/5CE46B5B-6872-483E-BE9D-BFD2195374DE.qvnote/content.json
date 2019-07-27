@@ -1,0 +1,13 @@
+{
+  "title": "{P} B Tversky (1984) Object, Parts, Categories",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "# Questions\n- "
+    },
+    {
+      "type": "markdown",
+      "data": "# Main points\nSuper-ordinate: functioanl features\nbasic level: functional and perceptual features\nsubordinate: more perceptual\n\nBasic level (incurs steepest increase in the number of attributes from super-ordinate and subordinate)\n\n- parts play an impoirtant role in hierarchy\n- parts: appearance <--> functionality\n- Subordinate catgories share functional features. Don't share perceptual features\n\n4 claims\n1) parts prevail at basic level\n2) different objects at basic level differ on parts and share other attributes\n3) different subordinate levels share parts and differ on other attributes\n4) Not all parts are equal"
+    }
+  ]
+}

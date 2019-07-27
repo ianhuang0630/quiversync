@@ -1,0 +1,13 @@
+{
+  "title": "June 30: {N} Position Tracking",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "RFID triangulation:\nhttps://www.youtube.com/watch?v=G0qPhDyPEZ4\n\nhttps://electronics.stackexchange.com/questions/218759/high-accuracy-wireless-triangulation-in-a-small-space\nLooks like rfid not too great\n\nhttps://www.rfidjournal.com/blogs/experts/entry?11454\n"
+    },
+    {
+      "type": "markdown",
+      "data": "# Amei's idea: what if you attach a camera on the followd, showing what they see of the follower? Combine visual information from the followed and the follower to get the best idea of who's where.\n\n"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "title": "{P} Optical Neural networks: inference at light-speed",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "[Root article](https://science.sciencemag.org/content/361/6406/1004)\n\n[PDF](https://science.sciencemag.org/content/sci/361/6406/1004.full.pdf)\n\nThey use diffraction to do inference. Someone is exploring mediums other than silicon! What does this tell us about the ability to implement learning in other mediums? The learning dynamics would then be governed by the material itself, as well as the signals provided. "
+    },
+    {
+      "type": "markdown",
+      "data": "[The journal is actually a really good resource for science papers](https://science.sciencemag.org/content/364/6447/twis)\n[And also nature](https://www.nature.com)"
+    }
+  ]
+}

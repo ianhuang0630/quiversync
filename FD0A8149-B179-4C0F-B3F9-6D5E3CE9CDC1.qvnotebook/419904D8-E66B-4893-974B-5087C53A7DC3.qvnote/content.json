@@ -1,0 +1,9 @@
+{
+  "title": "June 26: {N} Discussion with JIngwei",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "- [ ] Implement baseline model that only takes in visual features (convolved across time) and predicts a place in a latent space. Input one sample of an unknown video clip, and get output embeddings. Do the same for clips in the known samples. Then use a multi-layer metric loss to compare the distances between them to actual distances found in the trees. Let the first few elements be encoding for the first layer of the tree, the second elements be the second layer. Train this model on a given set of knowns and unknowns. Test on a different set of knowns and unknowns.\n\n- [ ] Implement the outsourced model that only takes in visaul features (convolved across time) and projects to a point in that latent space. (Pretrain tree embedding? Set as averages?) Do the same thing as above. Expect that this will do better on set of knowns and unknowns.\n\n"
+    }
+  ]
+}

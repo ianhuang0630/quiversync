@@ -1,0 +1,29 @@
+{
+  "title": "June 23: {N} Gear pulley selections",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": ""
+    },
+    {
+      "type": "markdown",
+      "data": "on McMaster-Carr, filter search query `timing belt pulleys` by:\n- maximum-belt = 10mm\n- Teeth Shape = Trapezoidal"
+    },
+    {
+      "type": "text",
+      "data": "<img src=\"quiver-image-url/71A3274288676C572E608144ADFDF3AF.png\" alt=\"Screen Shot 2019-06-23 at 2.34.30 PM.png\" width=\"880\" height=\"648\">"
+    },
+    {
+      "type": "markdown",
+      "data": "For now, the two components are going to be: (From McMaster Carr)\nFor gear 1, many choices depending on the size of the wheels.\n- Choice 1:[Gear1 - pitch_diameter=57.31mm, outer-diameter = 63](https://www.mcmaster.com/1428N35)\n- Choice 2: [Gear1 - pitch_diameter=63.66mm, outer-diameter=66.7mm ](https://www.mcmaster.com/1428N36)\n- Choice 3: [Gear1 - pitch_diameter=76.42mm, outer-diameter= n/a](https://www.mcmaster.com/1428N37)\n- Choice 4: [Gear1 - pitch_diameter=95.52mm, outer-diameter= N/a](https://www.mcmaster.com/1428N38)\n\nWheel diameter for Travis: 60 mm\nWheel thickness for Travis: 45 mm\n- Optimal choice: [Gear 1 - pitch_diameter=40mm, outer-diameter=44mm](https://www.mcmaster.com/1428N3)\n\nFor gear 2: only one choice that's the smallest\n[Gear2 - pitch_diameter=16.05 mm, outer-diameter 20 mm](https://www.mcmaster.com/1428N2) This is the smallest one. The shaft diameter might not match that of the motor, but will modify file in cad. "
+    },
+    {
+      "type": "markdown",
+      "data": "**Final:**\n<!--- Optimal choice: [Gear 1 - pitch_diameter=40mm, outer-diameter=44mm](https://www.mcmaster.com/1428N5)-->\n<!--- Optimal choice: [Gear 2 - pitch_diameter=16.05mm, outer-diameter=20mm](https://www.mcmaster.com/1428n4)-->\n\n<!--- Optimal Choice gear 1 https://www.mcmaster.com/1428N54-->\n<!--- opimtal choice gear 2 https://www.mcmaster.com/1428N41-->\n\noptimal choice gear 1: https://www.traceparts.com/en/product/gates-pulley-htd-5m-width-15-mm-number-of-teeth-32-bore-diameter-2-mm?Product=32-30092010-109669&PartNumber=32%205M%20%2015#\n\noptimal choice gear 2:\nhttps://www.traceparts.com/en/product/gates-pulley-htd-5m-width-15-mm-number-of-teeth-14-bore-diameter-2-mm?Product=32-30092010-109669&PartNumber=14%205M%20%2015\n"
+    },
+    {
+      "type": "markdown",
+      "data": "[About matching gears with the M's on timing belts](https://www.electric-skateboard.builders/t/belt-length-belts-width-and-belts-pitch/26589)"
+    }
+  ]
+}

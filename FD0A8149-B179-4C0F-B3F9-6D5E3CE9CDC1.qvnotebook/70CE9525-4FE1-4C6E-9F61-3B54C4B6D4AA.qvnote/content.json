@@ -1,0 +1,50 @@
+{
+  "title": "July 9: {N} Architecture design revisited",
+  "cells": [
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "The most basic flow of information can be simplified to the following diagram:"
+    },
+    {
+      "type": "text",
+      "data": "<img src=\"quiver-image-url/37670E01C31B13962AD43145F90476FC.png\" alt=\"Screen Shot 2019-07-09 at 3.59.25 PM.png\" width=\"606\" height=\"324\">"
+    },
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "Where given embeddings for all known objects, embeddings for the unknown object (for the purposes of the explanation of the method, we assume that there is one instance of an unknown class in the image) and an embedding for the action, $F$ models the interactions between the unknown instance and that of known instances, and makes a prediction for where the unknown class should fall in the hierarchy, as well as bounding boxes for both. The embeddings $\\{z_k\\}$, $z_u$ are done using the appearances of both objects."
+    },
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "We represent the hierarchy of known classes by pretraining a function $g$ that maps a given image crop featuring a certain class to a latent space $Z$ where the tree distance of that instance with respect to instances of other classes would be respected (a relatively well-studied problem). Furthermore, we expect an extension built upon this latent space to do adequately well at discriminating between a class that belongs to its current hierarchy and one that is unknow:"
+    },
+    {
+      "type": "text",
+      "data": "<img src=\"quiver-image-url/13EF2CBA856CBFFA3087BE51CCE0D655.png\" alt=\"Screen Shot 2019-07-09 at 4.22.03 PM.png\" width=\"717\" height=\"257\">"
+    },
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "The fully expanded view is below. To see the correspondence with the first figure ontop, the first row of  the modules correspond with the mapping to $\\{z_k \\}$ and $z_u$ using visual features of the objects only. The \"action embedding\" module corresponds to the lower arrow mapping from images to $r$. And everything else (Interaction/function encoding, fusion module and tree level predictor) are modules of $F$."
+    },
+    {
+      "type": "text",
+      "data": "<div><img src=\"quiver-image-url/E30CDE791E922DF1466E38018710A80E.png\" alt=\"Screen Shot 2019-07-09 at 4.11.31 PM.png\" width=\"1119\" height=\"372\"><br></div>"
+    },
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "Where is interaction modeled in all this?\n\nWe say that a single interaction is modeled by the tuple $(s, p, o)$. In this work, we will represent the \"function\" of an object class $c$ as a mapping on the set of all interactions involving the object class: $G(\\{(c, p_i, o_i)\\}_i, \\{(s_j, p_j, c)\\})$. Indeed, we expect the judgement of function to be built upon observations of interactions.\n\n% From a probabilistic standpoint, we would like to build a distribution $P(o | z_k)$ over the different classes in every layer of the hierarchy. Without loss of generality, consider the second level of the hierarchy (e.g. fruit vs. meat). Ideally, we would pick $argmax_o P(o | z_k)$.\n\n% To estimate this distribution, we've effectively split this part into $ p(r) p(o | \\mid r, z_k)$. The first term is effectively handled by the Action Embedding module, whereas the second is handled by the interaction/function encoding. $p(o \\mid r)$"
+    },
+    {
+      "type": "markdown",
+      "data": "# making the network invariant to udpates in $g$"
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    }
+  ]
+}

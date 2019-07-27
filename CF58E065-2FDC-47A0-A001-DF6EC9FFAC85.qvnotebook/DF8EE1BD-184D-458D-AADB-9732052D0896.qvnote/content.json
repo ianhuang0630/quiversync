@@ -1,0 +1,26 @@
+{
+  "title": "June 23: {N} Timing belt derivations",
+  "cells": [
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "Radius of one gear $R_1$. Radius of second gera $R_2$. Assume $R_1 > R_2$. Let the distance between their centers by $L$.\n\nTotal length = $2 \\pi R_1 + 2 arccos \\biggr(\\frac{R_1-R_2}{L}\\biggr)(R_2 - R_1) + 2 \\sqrt{L^2 - (R_1 - R_2)^2}$\n"
+    },
+    {
+      "type": "markdown",
+      "data": "With gears decided:\n$R_1 = 40mm$\n$R_2 = 16.05mm$\n"
+    },
+    {
+      "type": "text",
+      "data": "<img src=\"quiver-image-url/DBE0AFBAF9ECDB2856B62617C01637DE.png\" alt=\"Screen Shot 2019-06-25 at 11.16.51 AM.png\" width=\"629\" height=\"408\"><br>"
+    },
+    {
+      "type": "markdown",
+      "data": "Query on google: `2*40*pi + 2 arccos((40-16.05)/x)(16.05 - 40) + 2 sqrt(x^2 - (40 - 16.05)^2)`"
+    },
+    {
+      "type": "markdown",
+      "data": "Total length 1: 415 mm\nL = ~ 117 mm\n\nTotal length 2: 1025 mm\nL = ~ 424 mm"
+    }
+  ]
+}

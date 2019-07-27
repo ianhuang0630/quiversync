@@ -1,0 +1,9 @@
+{
+  "title": "{P} B Tversky (2013) Event Perception",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "[pdf](https://www.researchgate.net/publication/283297447_6_Event_Perception)\n\n- event partonomy, events segmented recursively\n- event segmentation theory\n\n**What's an event?** Actions + intentions, start middle and end.\n**Event partonomy** coarse-to-fine hierarchy of fine-grain actions\n**Event segmentation theory**: Event model -- event boundaries are where the predictions of what's supposed to happen is least predictable"
+    }
+  ]
+}

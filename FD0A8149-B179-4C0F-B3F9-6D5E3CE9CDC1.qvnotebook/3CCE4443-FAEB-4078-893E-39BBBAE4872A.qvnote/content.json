@@ -1,0 +1,62 @@
+{
+  "title": "July 4: {N} Formalization, and formulation of another task",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "# Notation"
+    },
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "Universal classes set $C$. Let $K$ be the set of known classes and $U$ be the set of unknown classes. $U \\cup K = C$ and $U \\cap K = \\emptyset$.\n\nLet $v_1, v_2 ....v_T$ be individual frames from all clips fully concatenated.\n\nWe define, for $u \\in U$:\n$V_u = \\{ (v_a, v_{a+1} ... v_{a+t} ) \\mid \\forall (a,t) \\in \\mathbb Z^2_{+} \\text{ s.t. } \\forall i \\in [0, t], u \\text{ is present in } v_{a+i}) \\}$\n\nWe similarly define $V_k$ for $k \\in K$."
+    },
+    {
+      "type": "markdown",
+      "data": "# Vanilla setup"
+    },
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "We find encoding for hierarchy of $K$. Let $g : K \\rightarrow Z$. Where $K$ is the discrete space of trees (holding categories, groups, classes and instances), and $Z$ be a continuous metric space used as an encoding of the tree. $ Z \\in \\mathbb R^D$.\n\nGiven $x \\in V_u$, task is to insert into the hierarchy.\n$$f: V_u \\times K \\rightarrow \\mathbb Z^d \\times \\mathbb R^4$$\nwhere $d$ is the depth of the tree (in our case, $d =3$). $R^4$ is for the bounding box.\n\n$U_1, K_1$ for training, $U_2, K_2$ for testing. $U_1 \\cap U_2 \\cap K_1 \\cap K_2 = \\emptyset$ and $U_1 \\cup U_2 \\cup K_1 \\cup K_2 = C$.\n\nDuring training, we pick $\\tilde{U_1} \\subset U_1$ and $\\tilde{K_1}  \\subset K_1$. $x \\in V_{\\tilde{U_1}}$ is first input, $g(\\tilde{K_1})$ is second input. $T \\in \\mathbb Z^d$ is the first output, $B \\in \\mathbb R^4$ is the second output.\n\nDuring testing, we pick $\\tilde{U_2} \\subset U_2$ and $\\tilde{K_2}  \\subset K_2$. $x \\in V_{\\tilde{U_2}}$ is first input, $g(\\tilde{K_2})$ is second input. $T \\in \\mathbb Z^d$ is the first output, $B \\in \\mathbb R^4$ is the second output.\n\n\nThe problem comes when the same network is separately given two unknown classes, but projects both down to a new class under the correct category and group. Even though such classes can be very visually different, that they are separated in the hierarchy prediction is not expected from the network. As a result, the network likely only has the ability to predict up to level 2 of the tree (category, and group), without any further degree of discrimination on level 3."
+    },
+    {
+      "type": "markdown",
+      "data": "# Non-Vanilla Setup: Differentiating between the Banana and the Apple"
+    },
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "We expect here the network to explictly to respect the tree distance between the different mappings in a latent space. For the same $f$, we break into:\n$f = d \\cdot e$\nLet $x_1, x_2  \\in V_{\\tilde U}$ where $\\tilde U \\subset U$, and $\\tilde K \\subset K$. $x_1 \\not=  x_2$. Then we enforce:\n\n$$z_1  = e(x_1, g(\\tilde K)) \\\\ z_2 = e(x_2, g(\\tilde K))$$\n\nsuch that $ || z_1 - z_2 ||_2 \\approx D_T(x_1, x_2)$, where $D_T$ is the groundtruth tree distance (tree distance between instances). We furthermore expect that the embedidng function $e$ respeects the following:\n\nFor sample $\\mathcal X \\subset V_{\\tilde{K}}$, $\\forall x' \\in \\mathcal X, \\forall i \\in \\{1,2\\}, ||z_i - e(x', g(\\tilde{K}))||_2 \\approx D_T(x_i, x')$\n"
+    },
+    {
+      "type": "markdown",
+      "data": "# And crazier: Where's function in all this?\nYou know someting is a food not when you see a hand moving up and down on it, but rather when you see a hand holding **a knife** and moving up and down on it. Affordance gives us a hint for what is being acted on. \n\nIn other words (or pictures):"
+    },
+    {
+      "type": "text",
+      "data": "<img src=\"quiver-image-url/989B7D40A1E0D91A53D60B16AB592625.png\" alt=\"Screen Shot 2019-07-04 at 7.15.23 PM.png\" width=\"699\" height=\"421\">"
+    },
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "Setup:\n\nWe let $r$ be an embedding of the observed action. Let $M_r$ be a transformation parameterized by $r$. Let the two observed entities involved in this action be $a$ and $b$ in some latent space.\n\nFollowing the line of work done by Lin et al. (http://nlp.csai.tsinghua.edu.cn/~lyk/publications/aaai2015_transr.pdf) and his predecessors, we consider $r$ to be a translation inside the spaces that projections by $M_r$ resides in. That is, $M_r(a) + r = M_r(b)$. \n\nTraining time:\n- Knife cuts 'cheese'\n- Predicts 'cheese' $\\in$ fruits because function of knife, as well as object representation in hierarchy.\n- Correct 'cheese' $\\not \\in$ fruits. Update object representation hierarchy mapping function.\n- Correct function representation of knife.\n\n\nSystem:\n\n- Action embedding function $a(x)$, tree hierarchy embedding functions $g(x)$, relation embedding function $m_r(g(s_1)_c, g(s_2)_c)$ where $r = g(x)$, and $s_1$ and $s_2$ are the instances of a known and unknown class respectively (perhaps the cropped window of both.)\n- The \"function\" of object of class $g(s_1)_c$ is expressed as some distribution over $ r \\times g_c$. (We would expect all objects that are \"cut\" by a \"knife\" to remain in a close cluster $r$ away from the embedding of knifes in $m_r$ space.)\n- Given prediction of $r$, we have to our disposal $M_r$. During inference time, this will take in the predicted class of the unknown object and project it using $M_r$. Then this new projected point will be another feature into the final decision module.\nDuring training, training will be done with given groundtruth label of the known instance $s_1 \\implies g(s_1)_c$ and the model will correct $r=a(x)$, $M_r$ based on the input $g(s_2)_c$, and $g$.\n\n- During online learning, the output prediction of the network for where the new object falls will be used to update $g$, and then used to update $M_r$. (That is, at timestep $t+1$, $g_{t+1} = \\Pi(g_{t}, (M_r)_t, a_{t})$)\n"
+    },
+    {
+      "type": "text",
+      "data": "<img src=\"quiver-image-url/38D01591B2E69578A2A575A6C204A712.png\" alt=\"Screen Shot 2019-07-05 at 12.14.40 PM.png\" width=\"609\" height=\"343\">"
+    },
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": ""
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    }
+  ]
+}

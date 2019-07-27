@@ -1,0 +1,9 @@
+{
+  "title": "DayanAbbot: {N} 1.2 Spike trains and Firing Rates",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "- Treat action potentials identically, even though they svary in duration, amplitude and shape\n- $t_i$ is the time of the $i_th$ spike.\n- Spike sequences can be represented as sum of infinitesimally narrow dirac functions: $\\rho(t) = \\sum_{i=1}^{n} \\delta(t-t_i)$. $\\rho$ is neural response function.\n- "
+    }
+  ]
+}

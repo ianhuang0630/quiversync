@@ -1,0 +1,9 @@
+{
+  "title": "Untitled Note",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "# Addressing the concerns of computational complexity\n\nWe previously couldn't keep a rolling sum of the gradients because theta changes. but if theta changes small, then we should be able to approximate the second order gradient using a rolling sum. If it's large, we should weight the new gradient more. \n\n# Better performance on results\n\nLayered gradient alignment. The weights should be best tried to be aligned as much as possible in the later layers of the model... not all layers should hold the same weight when it comes to gradient alignment. (why use gradient alignment? because purely optimizing on the disruption will not give us finegrained control over how each layer of the network's gradients are aligned. Proper guidance would be needed because highly non-convex optimization???)\n\n(dependent on class? cat,dog -> tiger == higher level gradient alignment matter more. cat, dog --> car == lower level gradient alignment matters more)"
+    }
+  ]
+}

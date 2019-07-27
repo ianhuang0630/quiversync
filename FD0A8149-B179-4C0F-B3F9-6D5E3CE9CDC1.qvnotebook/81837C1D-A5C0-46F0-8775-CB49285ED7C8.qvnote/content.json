@@ -1,0 +1,13 @@
+{
+  "title": "June 24: {N} More architecture implementation",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "Will use region proposal module\n[Faste RCNN implementation](https://github.com/jwyang/faster-rcnn.pytorch)\n- `cd utilities`\n- `git clone https://github.com/jwyang/faster-rcnn.pytorch.git`\n- `mv faster-rcnn.pytorch faster_rcnn_pytorch`\n- `cd faster_rcnn_pytorch`\n- `touch __init__.py`\n- `pip install -r requirements.txt`\n\nNow, for the `make.sh`, make sure to `export PATH=$PATH:/usr/bin/cuda/`."
+    },
+    {
+      "type": "markdown",
+      "data": "[Facebook Implementation](https://github.com/facebookresearch/maskrcnn-benchmark)\n\nInstallation instructions: https://github.com/facebookresearch/maskrcnn-benchmark/blob/master/INSTALL.md\nRemember to `conda install cython`.\n\nconda environment `maskrcnn_benchmark`\n\n"
+    }
+  ]
+}

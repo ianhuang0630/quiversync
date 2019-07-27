@@ -1,0 +1,9 @@
+{
+  "title": "July 12: {N} bluetooth communication",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "[Introduction to bluetooh technology](https://learn.sparkfun.com/tutorials/bluetooth-basics/all)\n\n<!--[Instructions on communication between arduino and raspberry pi throguh bluetooth](http://www.uugear.com/portfolio/bluetooth-communication-between-raspberry-pi-and-arduino/)-->\n\n\n[Arduino UNO with HC-05](https://create.arduino.cc/projecthub/mayooghgirish/arduino-bluetooth-basic-tutorial-d8b737) \n[Arduino Nano - Arudino anano with HC-05 and HC-06](http://www.martyncurrey.com/arduino-to-arduino-by-bluetooth/)"
+    }
+  ]
+}

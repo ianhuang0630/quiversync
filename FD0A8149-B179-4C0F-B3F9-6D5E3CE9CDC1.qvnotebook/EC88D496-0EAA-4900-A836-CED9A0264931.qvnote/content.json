@@ -1,0 +1,17 @@
+{
+  "title": "June 21: {N} More architecture implementation",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "# Setting up virtual environment\ncloned the current .vidobj environment to .vidobj_bk. Adding GPU tensorflow and Obman virtual environment together into current .viobj. Remember that have to replace pytorch for suitable version for CUDA 9.0.\n\nFollowing installations instructions here:\n[June 18: {N} Testing for the mano estimation](quiver-note-url/63DA1513-0DCE-41B6-8BAF-E4245662E5AA)\n"
+    },
+    {
+      "type": "markdown",
+      "data": "Created `environment.yaml` file by hand. [Stackoverflow how](https://stackoverflow.com/questions/41274007/anaconda-export-environment-file/41274348#comment69750196_41274007)\n"
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "title": "July 5: {N} Next steps",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "- [ ] tree encoder = encoder for the tree \n- [ ] action encoder\n- [ ] M_r\n- [ ] decision module\n"
+    },
+    {
+      "type": "markdown",
+      "data": "To avoid the model automatically assuming that a new class is present, input clips of known classes in the training data."
+    },
+    {
+      "type": "markdown",
+      "data": ""
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "title": "June 25: {N} More architecture implementation",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "Object detector script is [based off of this script](https://github.com/facebookresearch/maskrcnn-benchmark/blob/master/demo/predictor.py#L8)\n\nFiddled a bunch with the environment, ended up reinstalling conda, into `vision/u/ianhuang/`, and cloning into a new environment `.vidobj_new`.\n"
+    }
+  ]
+}
